@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Science of Sleep: Temperature Regulation & Sleeping Naked</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+        .prose p {
+            margin-bottom: 1.5em;
+            line-height: 1.8;
+            color: #374151;
+        }
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .prose li {
+            margin-bottom: 0.5em;
+            color: #4b5563;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation removed -->
+
+    <!-- Header / Hero -->
+    <div class="relative bg-indigo-900 overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-slate-900 mix-blend-multiply"></div>
+            <!-- Decorative abstract circles -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-indigo-500 opacity-20 blur-3xl"></div>
+            <div class="absolute top-1/2 right-0 w-64 h-64 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
+        </div>
+        <div class="relative max-w-6xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                The Cool Comfort of Sleeping Naked
+            </h1>
+            <p class="mt-6 text-xl text-indigo-100 max-w-3xl mx-auto">
+                Discover how temperature regulation unlocks benefits for sleep quality, metabolism, and reproductive health.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4 text-sm text-indigo-200">
+                <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 5 min read</span>
+                <span>&bull;</span>
+                <span>Health & Wellness</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8 sm:p-12 prose max-w-none">
+                
+                <p class="text-lg text-gray-600 leading-relaxed font-medium">
+                    Sleeping naked is closely tied to the body’s ability to regulate its internal temperature. While it might feel like a simple lifestyle choice, this thermal regulation provides a surprising range of benefits for sleep quality, physical health, and reproductive wellness.
+                </p>
+
+                <hr class="my-8 border-gray-100">
+
+                <!-- Section 1 -->
+                <div class="flex flex-col md:flex-row gap-8 mb-12">
+                    <div class="md:w-1/3">
+                        <div class="bg-blue-50 p-6 rounded-xl h-full flex flex-col justify-center items-center text-center">
+                            <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                            <h3 class="font-bold text-blue-900 text-lg">Ideal Temp</h3>
+                            <p class="text-blue-700 font-bold text-2xl mt-2">60–67° F</p>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Enhanced Sleep Quality & Skin Health</h2>
+                        <p>The primary benefit of sleeping naked is that it facilitates the body's need to maintain a cooler state, which is biologically necessary for deep rest.</p>
+                        <ul class="space-y-2">
+                            <li><strong class="text-indigo-600">Preventing Rousing:</strong> Overheating triggers a defensive mechanism. If the body gets too hot, it pulls the sleeper out of deep sleep cycles, often leading to waking up feeling run down or groggy.</li>
+                            <li><strong class="text-indigo-600">Cellular Repair:</strong> By keeping skin temperature lower, individuals can stay in deep sleep longer. This state encourages skin rejuvenation, cellular repair, and wound healing.</li>
+                            <li><strong class="text-indigo-600">The Sweet Spot:</strong> Research consistently suggests the ideal sleeping environment is between 60–67° F.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Metabolic & Weight Management Benefits</h2>
+                    <p>Temperature regulation through nudity can surprisingly influence energy expenditure and fat composition. It's not just about comfort; it's about chemistry.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-gray-800 mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                Metabolism Boost
+                            </h4>
+                            <p class="text-sm text-gray-600">Sleeping cooler speeds up metabolism as the body burns calories to maintain internal warmth.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-gray-800 mb-2 flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                +7% Caloric Burn
+                            </h4>
+                            <p class="text-sm text-gray-600">Setting a thermostat to roughly 66° F and sleeping cool can help burn up to 7% more calories during sleep.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 bg-orange-50 p-6 rounded-lg border-l-4 border-orange-400">
+                        <h4 class="font-bold text-orange-800 mb-2">The Power of Brown Fat</h4>
+                        <p class="text-orange-700 text-sm">To stay warm in a cool environment, the body creates <strong>brown fat</strong>. Unlike white fat (which stores calories and risks disease), brown fat is packed with mitochondria that convert sugar and white fat into stored energy.</p>
+                    </div>
+                </div>
+
+                <!-- Analogy Section -->
+                <div class="mb-12">
+                    <blockquote class="relative p-8 mb-4 border-l-4 border-indigo-500 bg-gray-50 rounded-r-lg italic shadow-sm">
+                        <div class="absolute top-4 left-4 text-indigo-200 opacity-50">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16H9.017C7.91243 16 7.017 16.8954 7.017 18V21H2.017V8.99998M20.017 8V21H18.017V18C18.017 16.8954 17.1216 16 16.017 16H16.017M20.017 8L12.017 2L4.017 8H20.017Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <p class="relative z-10 text-gray-700 text-lg">
+                            "Regulating your body temperature by sleeping naked is like leaving the windows of a house slightly cracked on a cool night instead of running a heavy heater. It prevents the internal environment from becoming stifling, allowing the 'system' to run more efficiently and wake up feeling refreshed rather than overheated and drained."
+                        </p>
+                    </blockquote>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Reproductive Health</h2>
+                    <p>Maintaining a lower body temperature is critical for reproductive systems across the board.</p>
+                    <div class="flex flex-col sm:flex-row gap-6 mt-4">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-indigo-700 border-b border-indigo-100 pb-2 mb-2">Male Fertility</h4>
+                            <p class="text-sm text-gray-600">Sleeping naked helps maintain an ideal temperature for sperm health. It prevents the restrictive, heating conditions of tight underwear which are known to lower sperm count.</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-pink-700 border-b border-pink-100 pb-2 mb-2">Female Health</h4>
+                            <p class="text-sm text-gray-600">Greater airflow and decreased moisture are key. Since yeast thrives in warm, moist environments, sleeping naked allows the area to breathe, significantly lowering the risk of infections.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="bg-slate-800 text-slate-100 p-8 rounded-xl">
+                    <h2 class="text-2xl font-bold text-white mb-6">Environmental & Material Factors</h2>
+                    <p class="mb-4 !text-white">Temperature regulation isn't just about the body; it's about the ecosystem of your bed.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-slate-600 flex items-center justify-center text-xs font-bold mt-1">1</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-white">Mattress Choice</h4>
+                                <p class="text-sm !text-white">Traditional memory foam retains heat. Spring and hybrid mattresses are superior for cooling because coils facilitate airflow.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-slate-600 flex items-center justify-center text-xs font-bold mt-1">2</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-white">Bedding Materials</h4>
+                                <p class="text-sm !text-white">Avoid microfiber and vinyl (which trap heat). Opt for Cotton or Linen for superior breathability.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-slate-600 flex items-center justify-center text-xs font-bold mt-1">3</div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-white">Hygiene Note</h4>
+                                <p class="text-sm !text-white">Those sleeping naked for temperature benefits should wash sheets weekly. The lack of clothing leads to higher accumulation of sweat and oils on bedding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter CTA -->
+    <div class="bg-indigo-50 border-t border-indigo-100">
+        <div class="max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold text-indigo-900">Sleep smarter, live better.</h2>
+                <p class="text-indigo-600">Join 10,000+ subscribers for weekly sleep science tips.</p>
+            </div>
+            <div class="flex w-full md:w-auto">
+                <input type="email" placeholder="Enter your email" class="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-r-md font-medium transition duration-150">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2024 SleepScience Blog. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gray-500"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
