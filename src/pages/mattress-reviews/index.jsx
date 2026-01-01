@@ -40,6 +40,32 @@ const MattressReviewsHub = () => {
                     </div>
                 </Link>
 
+                {/* Brooklyn Bedding Aurora Luxe Card */}
+                <Link to="/mattress-reviews/brooklyn-bedding-aurora-luxe" className="group block max-w-2xl mx-auto mb-8 bg-jet-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-white/10">
+                    <div className="relative h-64 bg-gradient-to-tr from-[#0e7490] to-[#155e75] flex items-center justify-center p-8">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                        <h2 className="text-4xl font-black text-white z-10 font-serif text-center">Brooklyn Bedding Aurora Luxe</h2>
+                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20">
+                            Living Review
+                        </div>
+                    </div>
+
+                    <div className="p-8">
+                        <div className="flex items-center gap-2 text-golden-bronze font-bold text-xs uppercase tracking-wider mb-3">
+                            <Microscope size={14} /> Long-Term Durability Test
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-golden-bronze transition-colors">
+                            Aurora Luxe: 5-Year Cooling & Sagging Forecast
+                        </h3>
+                        <p className="text-alabaster-grey mb-6">
+                            Does the cooling actually last? We analyze phase-change material lifespan and foam density degradation over time.
+                        </p>
+                        <div className="flex items-center text-white font-semibold text-sm group-hover:translate-x-2 transition-transform">
+                            View Research <ArrowRight size={16} className="ml-2" />
+                        </div>
+                    </div>
+                </Link>
+
                 {/* WinkBed Card */}
                 <Link to="/mattress-reviews/winkbed-original" className="group block max-w-2xl mx-auto mt-8 bg-jet-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-white/10">
                     <div className="relative h-64 bg-gradient-to-tr from-[#1a1a1a] to-[#242f40] flex items-center justify-center p-8">
@@ -88,6 +114,32 @@ const MattressReviewsHub = () => {
                         </p>
                         <div className="flex items-center text-white font-semibold text-sm group-hover:translate-x-2 transition-transform">
                             Read Article <ArrowRight size={16} className="ml-2" />
+                        </div>
+                    </div>
+                </Link>
+
+                {/* Leesa Card */}
+                <Link to="/mattress-reviews/leesa-original" className="group block max-w-2xl mx-auto mt-8 bg-jet-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-white/10">
+                    <div className="relative h-64 bg-gradient-to-tr from-[#2563eb] to-[#4f46e5] flex items-center justify-center p-8">
+                        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                        <h2 className="text-4xl font-black text-white z-10 font-serif text-center">Leesa Original</h2>
+                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white border border-white/20">
+                            Living Review
+                        </div>
+                    </div>
+
+                    <div className="p-8">
+                        <div className="flex items-center gap-2 text-golden-bronze font-bold text-xs uppercase tracking-wider mb-3">
+                            <Microscope size={14} /> Long-Term Durability Test
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-golden-bronze transition-colors">
+                            Leesa Original: 5-Year Softening Forecast
+                        </h3>
+                        <p className="text-alabaster-grey mb-6">
+                            An evidence-based look at how the 3.0 pcf density memory foam holds up over time. Will it soften too fast for you?
+                        </p>
+                        <div className="flex items-center text-white font-semibold text-sm group-hover:translate-x-2 transition-transform">
+                            View Research <ArrowRight size={16} className="ml-2" />
                         </div>
                     </div>
                 </Link>
