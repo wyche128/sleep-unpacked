@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import { Wind, Mic, Activity, CheckCircle2, AlertTriangle } from 'lucide-react';
+import snoringHero from '../../assets/snoring_hero.png';
 
 const WhatCausesSnoring = () => {
     const [readingProgress, setReadingProgress] = useState(0);
@@ -45,21 +46,24 @@ const WhatCausesSnoring = () => {
             <div className="fixed top-0 left-0 h-1 bg-golden-bronze z-50 transition-all duration-300" style={{ width: `${readingProgress}%` }}></div>
 
             {/* Header */}
-            <header className="pt-16 pb-12 px-6 max-w-4xl mx-auto font-sans text-center">
-                <span className="inline-block py-1 px-3 rounded-full bg-golden-bronze-100 text-jet-black text-xs font-bold uppercase tracking-wide mb-4">Sleep Health Guide</span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-jet-black tracking-tight mb-6 leading-tight">
-                    What Causes Snoring, and What You Can Actually Do About It
-                </h1>
-                <p className="text-lg md:text-xl text-graphite max-w-2xl mx-auto font-normal leading-relaxed">
-                    Snoring is one of those problems that feels harmless until it isn’t. Here is a no-drama guide to figuring out what’s going on, and how to spend your effort wisely.
-                </p>
+            <header className="relative pt-20 pb-16 bg-jet-black text-white px-6 font-sans text-center overflow-hidden">
+                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: `url(${snoringHero})` }}></div>
+                <div className="relative max-w-4xl mx-auto z-10">
+                    <span className="inline-block py-1 px-3 rounded-full bg-golden-bronze-100/20 border border-golden-bronze text-golden-bronze text-xs font-bold uppercase tracking-wide mb-4">Sleep Health Guide</span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                        What Causes Snoring, and What You Can Actually Do About It
+                    </h1>
+                    <p className="text-lg md:text-xl text-alabaster-grey max-w-2xl mx-auto font-normal leading-relaxed">
+                        Snoring is one of those problems that feels harmless until it isn’t. Here is a no-drama guide to figuring out what’s going on, and how to spend your effort wisely.
+                    </p>
+                </div>
             </header>
 
             {/* Main Content */}
-            <main ref={contentRef} className="max-w-3xl mx-auto px-6 pb-24">
+            < main ref={contentRef} className="max-w-3xl mx-auto px-6 pb-24" >
 
                 {/* Intro Text */}
-                <div className="text-lg leading-relaxed mb-12">
+                < div className="text-lg leading-relaxed mb-12" >
                     <p className="mb-6 leading-relaxed">
                         Sometimes snoring is a minor annoyance. Sometimes it is your body waving a little red flag that says, <span className="bg-golden-bronze-100 px-1">“Hey, breathing could be going better in here.”</span>
                     </p>
@@ -69,10 +73,10 @@ const WhatCausesSnoring = () => {
                     <p className="mb-6 leading-relaxed">
                         The good news: a lot of snoring improves with a few targeted changes. The important news: <strong>certain patterns of loud, frequent snoring should push you toward a clinician, not another pillow hack.</strong>
                     </p>
-                </div>
+                </div >
 
                 {/* The Quick Checklist Box */}
-                <div className="bg-alabaster-grey/30 border border-alabaster-grey rounded-2xl p-6 md:p-8 mb-16 font-sans shadow-sm">
+                < div className="bg-alabaster-grey/30 border border-alabaster-grey rounded-2xl p-6 md:p-8 mb-16 font-sans shadow-sm" >
                     <div className="flex items-center gap-3 mb-4">
                         <CheckCircle2 className="text-golden-bronze w-6 h-6" />
                         <h2 className="text-2xl font-bold text-jet-black !m-0 !mt-0">The Quick Checklist</h2>
@@ -110,10 +114,10 @@ const WhatCausesSnoring = () => {
                         </li>
                     </ul>
                     <p className="text-sm text-graphite italic mt-4 border-t border-alabaster-grey pt-4">Think of this as troubleshooting, not self-optimization.</p>
-                </div>
+                </div >
 
                 {/* What Snoring Is */}
-                <section className="mb-16">
+                < section className="mb-16" >
                     <h2 className="text-3xl font-bold font-sans mt-12 mb-4 text-jet-black">What snoring is, in plain English</h2>
                     <p className="mb-6 leading-relaxed">
                         When you fall asleep, the muscles in your throat relax. For many people, that relaxation narrows the airway. Air still gets through, but it becomes turbulent. Turbulence makes tissue vibrate. Vibrations make sound.
@@ -141,10 +145,10 @@ const WhatCausesSnoring = () => {
                             <span className="text-sm text-graphite leading-snug block">Soft palate or tonsils vibrating as airflow narrows.</span>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Red Flag Section */}
-                <section className="mb-16 bg-red-50 border-l-4 border-red-500 p-6 md:p-8 rounded-r-lg font-sans">
+                < section className="mb-16 bg-red-50 border-l-4 border-red-500 p-6 md:p-8 rounded-r-lg font-sans" >
                     <div className="flex items-start gap-4">
                         <AlertTriangle className="text-red-500 w-8 h-8 flex-shrink-0" />
                         <div>
@@ -162,10 +166,10 @@ const WhatCausesSnoring = () => {
                             </p>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Common Causes */}
-                <section className="mb-16">
+                < section className="mb-16" >
                     <h2 className="text-3xl font-bold font-sans mb-8 text-jet-black">The most common causes</h2>
 
                     <div className="space-y-8">
@@ -205,10 +209,10 @@ const WhatCausesSnoring = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* What to try first */}
-                <section className="mb-16">
+                < section className="mb-16" >
                     <h2 className="text-3xl font-bold font-sans mt-12 mb-6 text-jet-black">What to try first (in order)</h2>
                     <div className="space-y-6 mt-6">
 
@@ -244,10 +248,10 @@ const WhatCausesSnoring = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Devices Section */}
-                <section className="mb-16 bg-alabaster-grey/30 rounded-2xl p-6 md:p-8">
+                < section className="mb-16 bg-alabaster-grey/30 rounded-2xl p-6 md:p-8" >
                     <h2 className="text-3xl font-bold font-sans !mt-0 mb-4 text-jet-black">Do anti-snoring devices help?</h2>
                     <p className="text-graphite mb-8">Sometimes. But the category is full of products that sound smarter than they are.</p>
 
@@ -277,10 +281,10 @@ const WhatCausesSnoring = () => {
                             <p className="text-sm mt-2">Often marketed as a simple fix, but evidence is thin. They don't reliably address airway collapse and can be uncomfortable. Only useful for a narrow group of mouth-openers.</p>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Two Week Plan */}
-                <section className="mb-16">
+                < section className="mb-16" >
                     <h2 className="text-3xl font-bold font-sans mb-6 text-jet-black">A simple two-week plan</h2>
                     <p className="mb-8">If your goal is “less snoring without turning your life into a wellness project,” try this.</p>
 
@@ -321,24 +325,24 @@ const WhatCausesSnoring = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section >
 
                 {/* Conclusion */}
-                <section className="bg-jet-black text-white p-8 md:p-12 rounded-2xl text-center">
+                < section className="bg-jet-black text-white p-8 md:p-12 rounded-2xl text-center" >
                     <h2 className="text-2xl font-bold font-sans !mt-0 !mb-4 text-white">The Bottom Line</h2>
                     <p className="text-alabaster-grey text-lg leading-relaxed max-w-2xl mx-auto !mb-0">
                         Most snoring is a mechanical problem: airflow plus anatomy plus sleep habits. Start with the easy, high-upside changes (side sleeping and nasal airflow). Be skeptical of “one weird device” solutions. And treat loud, frequent snoring with daytime symptoms as a medical issue, not a lifestyle challenge.
                     </p>
-                </section>
-            </main>
+                </section >
+            </main >
 
             {/* Footer */}
-            <footer className="bg-alabaster-grey/30 py-12 text-center border-t border-alabaster-grey font-sans">
+            < footer className="bg-alabaster-grey/30 py-12 text-center border-t border-alabaster-grey font-sans" >
                 <p className="text-graphite text-sm">
                     Always consult a medical professional for serious sleep concerns.
                 </p>
-            </footer>
-        </div>
+            </footer >
+        </div >
     );
 };
 

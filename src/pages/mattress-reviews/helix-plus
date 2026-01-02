@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helix Plus: Deep Longevity Research Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #0d9488;
+            /* teal-600 */
+            color: #115e59;
+            /* teal-800 */
+            font-weight: 600;
+        }
+
+        .tab-inactive {
+            color: #78716c;
+            /* stone-500 */
+        }
+
+        .tab-inactive:hover {
+            color: #44403c;
+            /* stone-700 */
+        }
+
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f4;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 3px;
+        }
+    </style>
+    <!-- Chosen Palette: Research Canvas (Warm Neutral & Teal) -->
+    <!-- Application Structure Plan: The app is designed as a 'Living Research Protocol Dashboard'. It is structured into four main tabs: 'Overview' (Objectives & Definition), 'Metrics Engine' (The core quantitative criteria), 'Variable Explorer' (User demographics and segments), and 'Methodology' (Source hierarchy). This structure allows users to logically progress from understanding the 'Why' (Objective) to the 'What' (Metrics) and 'Who' (Variables). The interactive dashboard simulates the research framework, allowing users to explore thresholds and failure definitions interactively, making the dry protocol text engaging and comprehensible. -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Metric Thresholds (Sagging, Firmness, etc.) -> Goal: Compare/Inform -> Viz: Interactive Bar Chart -> Interaction: Toggle metric view -> Justification: Visualizes the specific failure criteria (e.g., 1.5 inches vs 10% firmness) to make abstract numbers concrete. Uses Chart.js.
+        2. Report Info: Sleeper Variables -> Goal: Organize -> Viz: Interactive Filter Grid -> Interaction: Click filters to update text -> Justification: Allows users to 'configure' a sleeper profile and see which research questions apply to them.
+        3. Report Info: Evidence Hierarchy -> Goal: Inform -> Viz: Structured List/Cards -> Interaction: Static display -> Justification: Clearly ranks the reliability of data sources as defined in the protocol. 
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-teal-100 selection:text-teal-900">
+
+    <!-- Navigation & Header -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 bg-teal-600 rounded flex items-center justify-center text-white font-bold text-lg">
+                        H</div>
+                    <div>
+                        <h1 class="text-lg font-bold text-stone-900 leading-tight">Helix Plus</h1>
+                        <p class="text-xs text-stone-500 uppercase tracking-wide">Longevity Research Protocol</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="switchTab('overview')" id="nav-overview"
+                        class="tab-active py-5 text-sm transition-colors">Overview</button>
+                    <button onclick="switchTab('metrics')" id="nav-metrics"
+                        class="tab-inactive py-5 text-sm transition-colors">Metrics & Thresholds</button>
+                    <button onclick="switchTab('variables')" id="nav-variables"
+                        class="tab-inactive py-5 text-sm transition-colors">Variables & Risk</button>
+                    <button onclick="switchTab('methodology')" id="nav-methodology"
+                        class="tab-inactive py-5 text-sm transition-colors">Methodology</button>
+                </nav>
+                <!-- Mobile Menu Button (Simple) -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-stone-600">
+                    <span class="text-2xl">&#9776;</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-stone-200">
+            <div class="flex flex-col px-4 py-2 space-y-2">
+                <button onclick="switchTab('overview')"
+                    class="text-left py-2 font-medium text-stone-700">Overview</button>
+                <button onclick="switchTab('metrics')" class="text-left py-2 font-medium text-stone-700">Metrics &
+                    Thresholds</button>
+                <button onclick="switchTab('variables')" class="text-left py-2 font-medium text-stone-700">Variables &
+                    Risk</button>
+                <button onclick="switchTab('methodology')"
+                    class="text-left py-2 font-medium text-stone-700">Methodology</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-[calc(100vh-4rem)]">
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="tab-overview" class="space-y-8 animate-fade-in">
+            <section class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-stone-900 mb-4">Deep Longevity Research</h2>
+                <p class="text-lg text-stone-600 leading-relaxed">
+                    This interactive hub outlines the protocol for performing deep, evidence-based research on the
+                    long-term durability and performance of the <span class="font-semibold text-teal-700">Helix Plus
+                        mattress</span> under nightly use. It establishes a baseline for annual updates.
+                </p>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1: Objective -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-2xl text-teal-600">&#9873;</span>
+                        <h3 class="text-xl font-bold text-stone-900">Research Objective</h3>
+                    </div>
+                    <p class="text-stone-600 mb-4">
+                        To quantify product changes at <strong>1, 3, and 5 years</strong> of ownership, focusing on
+                        performance degradation rather than simple defect rates.
+                    </p>
+                    <div class="bg-stone-50 p-4 rounded-lg border border-stone-100">
+                        <strong class="block text-sm text-stone-500 uppercase mb-2">Key Areas of Study</strong>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li class="flex items-start"><span class="text-teal-500 mr-2">&#10003;</span> Sagging & Body
+                                Impressions</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-2">&#10003;</span> Firmness &
+                                Foam Softening</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-2">&#10003;</span>
+                                GelFlex/Polymer Grid Resilience</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-2">&#10003;</span> Cooling
+                                Efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Product Scope -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-2xl text-teal-600">&#128269;</span>
+                        <h3 class="text-xl font-bold text-stone-900">Product Definition</h3>
+                    </div>
+                    <p class="text-stone-600 mb-4">
+                        Focus is strictly on the <strong>Helix Plus</strong> (designed for heavy people). Research will
+                        treat distinct product generations as subgroups.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-stone-50 rounded border border-stone-100">
+                            <span class="text-sm font-medium">Target Demographic</span>
+                            <span class="text-xs bg-stone-200 px-2 py-1 rounded text-stone-700">Heavy Sleepers (Plus
+                                Size)</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-stone-50 rounded border border-stone-100">
+                            <span class="text-sm font-medium">Scope</span>
+                            <span class="text-xs bg-stone-200 px-2 py-1 rounded text-stone-700">All Sizes</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-stone-50 rounded border border-stone-100">
+                            <span class="text-sm font-medium">Tracking</span>
+                            <span class="text-xs bg-teal-100 px-2 py-1 rounded text-teal-800">Longitudinal (Year over
+                                Year)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action / Transition -->
+            <div class="text-center mt-8">
+                <button onclick="switchTab('metrics')"
+                    class="bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-8 rounded-lg shadow transition-transform transform hover:-translate-y-0.5">
+                    Explore Metrics & Thresholds &rarr;
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 2: METRICS -->
+        <div id="tab-metrics" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6">
+                <p class="text-sm text-indigo-900">
+                    <strong>Dashboard Context:</strong> This section defines the quantitative thresholds for "failure"
+                    or "degradation." The interactive chart visualizes these limits to verify product claims against
+                    owner experiences.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Control Panel -->
+                <div class="lg:col-span-1 space-y-4">
+                    <h3 class="font-bold text-stone-900 text-lg mb-2">Select Metric to Analyze</h3>
+                    <div class="space-y-2">
+                        <button onclick="updateChart('sagging')" id="btn-sagging"
+                            class="w-full text-left p-4 rounded-lg border transition-all bg-teal-50 border-teal-500 shadow-sm ring-1 ring-teal-500">
+                            <div class="font-bold text-teal-900">Sagging & Impressions</div>
+                            <div class="text-xs text-teal-700 mt-1">Focus: Physical indentation depth</div>
+                        </button>
+                        <button onclick="updateChart('firmness')" id="btn-firmness"
+                            class="w-full text-left p-4 rounded-lg border border-stone-200 hover:bg-stone-50 transition-all text-stone-600">
+                            <div class="font-bold">Firmness & Softening</div>
+                            <div class="text-xs text-stone-500 mt-1">Focus: ILD/Deflection Change</div>
+                        </button>
+                        <button onclick="updateChart('edge')" id="btn-edge"
+                            class="w-full text-left p-4 rounded-lg border border-stone-200 hover:bg-stone-50 transition-all text-stone-600">
+                            <div class="font-bold">Edge Support</div>
+                            <div class="text-xs text-stone-500 mt-1">Focus: Perimeter Stability</div>
+                        </button>
+                        <button onclick="updateChart('cooling')" id="btn-cooling"
+                            class="w-full text-left p-4 rounded-lg border border-stone-200 hover:bg-stone-50 transition-all text-stone-600">
+                            <div class="font-bold">Cooling Efficiency</div>
+                            <div class="text-xs text-stone-500 mt-1">Focus: Heat Decay Time</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Visualization Panel -->
+                <div
+                    class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                    <div class="mb-4 flex justify-between items-start">
+                        <div>
+                            <h3 id="chart-title" class="text-xl font-bold text-stone-900">Sagging Thresholds</h3>
+                            <p id="chart-desc" class="text-sm text-stone-500">Probability of permanent indentation at
+                                years 1, 3, and 5.</p>
+                        </div>
+                    </div>
+
+                    <!-- Chart Container -->
+                    <div class="chart-container w-full">
+                        <canvas id="metricsChart"></canvas>
+                    </div>
+
+                    <!-- Metric Detail Box -->
+                    <div class="mt-6 p-4 bg-stone-50 rounded-lg border border-stone-100">
+                        <h4 class="font-semibold text-sm text-stone-800 uppercase tracking-wide mb-2">Key Research
+                            Question</h4>
+                        <p id="metric-question" class="text-stone-700 italic">
+                            "What is the estimated probability of >0.5 inch and >1.0 inch body impressions at 1, 3, and
+                            5 years?"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: VARIABLES -->
+        <div id="tab-variables" class="hidden space-y-8 animate-fade-in">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-stone-900 mb-2">Variables & Risk Factors</h2>
+                <p class="text-stone-600">Explore how different user profiles and environments affect the research
+                    outcomes. Click a variable to see the specific research focus.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Variables List -->
+                <div class="space-y-3">
+                    <div class="font-semibold text-stone-400 text-xs uppercase tracking-wider mb-2">Weight Bands</div>
+                    <button onclick="showVariable('light')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition">≤
+                        150 lb</button>
+                    <button onclick="showVariable('med')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition">151
+                        – 200 lb</button>
+                    <button onclick="showVariable('heavy')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition">201
+                        – 250 lb</button>
+                    <button onclick="showVariable('plus')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition font-medium border-l-4 border-l-teal-500">>
+                        250 lb (Primary Focus)</button>
+
+                    <div class="font-semibold text-stone-400 text-xs uppercase tracking-wider mt-6 mb-2">Environment
+                    </div>
+                    <button onclick="showVariable('climate')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition">Climate
+                        (Hot/Humid)</button>
+                    <button onclick="showVariable('base')"
+                        class="var-btn block w-full text-left px-4 py-3 bg-white border border-stone-200 rounded hover:border-teal-400 hover:text-teal-700 transition">Foundation
+                        Type</button>
+                </div>
+
+                <!-- Detail View -->
+                <div
+                    class="md:col-span-2 bg-white p-8 rounded-xl shadow-sm border border-stone-200 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 p-4 opacity-10 text-9xl font-serif text-teal-900 pointer-events-none">
+                        ?</div>
+
+                    <h3 id="var-title" class="text-2xl font-bold text-stone-900 mb-4">Select a Variable</h3>
+                    <div id="var-content" class="text-stone-600 space-y-4">
+                        <p>Click on a weight band or environmental factor to see the specific research questions and
+                            potential failure modes associated with that group.</p>
+                        <p class="text-sm bg-yellow-50 text-yellow-800 p-3 rounded inline-block">
+                            <strong>Note:</strong> Outcomes are expected to vary significantly by weight class, making
+                            segmentation critical for the Helix Plus.
+                        </p>
+                    </div>
+
+                    <!-- Common Failure Modes Section (Static) -->
+                    <div class="mt-8 pt-8 border-t border-stone-100">
+                        <h4 class="font-bold text-stone-800 mb-3">Typical Failure Modes to Watch</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 p-3 rounded border border-red-100 text-sm">
+                                <span class="block font-bold text-red-800 mb-1">Grid Fatigue</span>
+                                <span class="text-red-700">Tearing or breakdown of the polymer grid layer.</span>
+                            </div>
+                            <div class="bg-orange-50 p-3 rounded border border-orange-100 text-sm">
+                                <span class="block font-bold text-orange-800 mb-1">Base Softening</span>
+                                <span class="text-orange-700">Loss of support in the high-density foam core.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: METHODOLOGY -->
+        <div id="tab-methodology" class="hidden space-y-8 animate-fade-in">
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-200">
+                <h2 class="text-2xl font-bold text-stone-900 mb-6">Mixed-Methods Approach</h2>
+                <p class="text-stone-600 mb-8 max-w-2xl">
+                    The research utilizes a hierarchy of evidence to ensure accuracy, prioritizing verified longitudinal
+                    data over marketing claims.
+                </p>
+
+                <!-- Evidence Pyramid Visual -->
+                <div class="flex flex-col items-center space-y-2 w-full max-w-2xl mx-auto">
+                    <!-- Level 1 -->
+                    <div class="w-full bg-teal-700 text-white p-4 rounded-t-lg text-center shadow-md relative group">
+                        <div class="font-bold text-lg">1. Verified Owner Reports</div>
+                        <div class="text-teal-100 text-sm">With proof of purchase & ownership duration</div>
+                        <div
+                            class="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-stone-800 text-white text-xs p-2 rounded mt-2 z-10 w-64">
+                            Sources: Retailer reviews with badges, Reddit updates, BBB complaints, YouTube timestamps.
+                        </div>
+                    </div>
+                    <!-- Level 2 -->
+                    <div class="w-5/6 bg-teal-600 text-white p-4 text-center shadow-md relative group">
+                        <div class="font-bold text-lg">2. Secondary Research</div>
+                        <div class="text-teal-100 text-sm">Independent Labs & Teardowns</div>
+                        <div
+                            class="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-stone-800 text-white text-xs p-2 rounded mt-2 z-10 w-64">
+                            Sources: Archive data, consumer orgs, material density tests.
+                        </div>
+                    </div>
+                    <!-- Level 3 -->
+                    <div
+                        class="w-4/6 bg-teal-500 text-white p-4 rounded-b-lg text-center shadow-md opacity-90 relative group">
+                        <div class="font-bold text-lg">3. Manufacturer Data</div>
+                        <div class="text-teal-100 text-sm">Warranty Terms & Specs</div>
+                        <div
+                            class="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 bg-stone-800 text-white text-xs p-2 rounded mt-2 z-10 w-64">
+                            Used for construction mapping but weighted lower for outcomes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-stone-50 p-5 rounded border border-stone-200">
+                        <h3 class="font-bold text-stone-900 mb-2">Warranty Analysis</h3>
+                        <p class="text-sm text-stone-600">
+                            We track the gap between written terms and actual claim experience. Key focus: The
+                            indentation threshold for replacement claims and exclusion clauses.
+                        </p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded border border-stone-200">
+                        <h3 class="font-bold text-stone-900 mb-2">Generational Mapping</h3>
+                        <p class="text-sm text-stone-600">
+                            Identify and separate product revisions (cover changes, grid formulation, foam density).
+                            Each generation is treated as a distinct subgroup to prevent data pollution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-stone-400 text-sm">
+            <p>&copy; 2024 Research Protocol | Helix Plus Longevity Study</p>
+            <p class="mt-2">Living Review Baseline v1.0</p>
+        </div>
+    </footer>
+
+    <script>
+        // State Management
+        let currentTab = 'overview';
+        let currentMetric = 'sagging';
+        let metricsChart = null;
+
+        // Data Models
+        const variableContent = {
+            'light': {
+                title: "Weight Band: ≤ 150 lb",
+                text: "For lighter sleepers on the Helix Plus, the primary research focus is on **surface comfort** rather than deep support failure. We investigate if the higher density foams feel too firm or cause pressure points over time, and if the mattress 'breaks in' sufficiently.",
+                focus: "Pressure Relief & Surface Hardness"
+            },
+            'med': {
+                title: "Weight Band: 151 – 200 lb",
+                text: "This group represents the crossover category. Research tracks whether the hybrid design maintains proper spinal alignment without being excessively rigid. Durability concerns are moderate, focusing on the comfort layer integrity.",
+                focus: "Spinal Alignment & Comfort Layer Wear"
+            },
+            'heavy': {
+                title: "Weight Band: 201 – 250 lb",
+                text: "A core demographic for this product. We specifically track the rate of **foam softening** in the transition layers. Does the mattress lose its supportive feel within the first 3 years?",
+                focus: "Transition Layer Softening & Support Loss"
+            },
+            'plus': {
+                title: "Weight Band: > 250 lb",
+                text: "The critical stress test group. Research prioritizes **deep compression support** and **coil unit durability**. We analyze probability of >1.0\" sagging and edge support failure under high load.",
+                focus: "Deep Sagging, Coil Integrity, Edge Collapse"
+            },
+            'climate': {
+                title: "Climate: Hot/Humid vs Temperate",
+                text: "Does high humidity accelerate the degradation of the foam layers? We also track **Cooling Efficiency** decline—do foams oxidize and trap more heat as they age in hot climates?",
+                focus: "Material Oxidation & Heat Trapping"
+            },
+            'base': {
+                title: "Base & Foundation Type",
+                text: "Analyzing impact of support base. Do slats spaced >3 inches cause premature sagging? How do adjustable bases affect the integrity of the coil unit/foam borders over 5 years?",
+                focus: "Mechanical Stress from Flexing/Gaps"
+            }
+        };
+
+        const metricData = {
+            'sagging': {
+                title: "Sagging & Body Impressions",
+                desc: "Probability of permanent indentation at Years 1, 3, and 5.",
+                question: "What is the estimated probability of >0.5 inch and >1.0 inch body impressions?",
+                labels: ['Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: '> 0.5" Indentation Risk (Threshold)',
+                        data: [5, 15, 25], // Hypothetical baseline for research visualization
+                        backgroundColor: 'rgba(20, 184, 166, 0.6)', // teal-500
+                        borderColor: 'rgb(20, 184, 166)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: '> 1.0" Indentation Risk (Failure)',
+                        data: [1, 5, 12], // Hypothetical baseline
+                        backgroundColor: 'rgba(244, 63, 94, 0.6)', // rose-500
+                        borderColor: 'rgb(244, 63, 94)',
+                        borderWidth: 1
+                    }
+                ],
+                yAxisLabel: 'Estimated Probability (%)'
+            },
+            'firmness': {
+                title: "Firmness Softening",
+                desc: "Owner-reported firmness drift on a 1-10 scale.",
+                question: "Probability of perceived firmness softening by ≥1 step on a 10-point scale?",
+                labels: ['Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Softening ≥ 1 Step',
+                        data: [10, 30, 50], // Hypothetical
+                        backgroundColor: 'rgba(99, 102, 241, 0.6)', // indigo-500
+                        borderColor: 'rgb(99, 102, 241)',
+                        borderWidth: 1
+                    }
+                ],
+                yAxisLabel: 'Probability of Softening (%)'
+            },
+            'edge': {
+                title: "Edge Support Loss",
+                desc: "Change in roll-off distance or compression at load.",
+                question: "Probability of edge support loss of ≥15%?",
+                labels: ['Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Edge Stability Loss ≥ 15%',
+                        data: [2, 8, 20], // Hypothetical
+                        backgroundColor: 'rgba(245, 158, 11, 0.6)', // amber-500
+                        borderColor: 'rgb(245, 158, 11)',
+                        borderWidth: 1
+                    }
+                ],
+                yAxisLabel: 'Probability of Failure (%)'
+            },
+            'cooling': {
+                title: "Cooling Efficiency Decline",
+                desc: "Surface temperature decay time or reported heat build-up.",
+                question: "Is there a notable cooling efficiency decline at 1, 3, and 5 years?",
+                labels: ['Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Reported Heat Retention Increase',
+                        data: [5, 10, 15], // Hypothetical
+                        backgroundColor: 'rgba(56, 189, 248, 0.6)', // sky-400
+                        borderColor: 'rgb(56, 189, 248)',
+                        borderWidth: 1
+                    }
+                ],
+                yAxisLabel: '% Owners Reporting Heat Gain'
+            }
+        };
+
+        // Navigation Logic
+        function switchTab(tabId) {
+            // Hide all tabs
+            ['overview', 'metrics', 'variables', 'methodology'].forEach(id => {
+                document.getElementById(`tab-${id}`).classList.add('hidden');
+                document.getElementById(`nav-${id}`).classList.remove('tab-active');
+                document.getElementById(`nav-${id}`).classList.add('tab-inactive');
+            });
+
+            // Show selected tab
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            const navBtn = document.getElementById(`nav-${tabId}`);
+            if (navBtn) {
+                navBtn.classList.add('tab-active');
+                navBtn.classList.remove('tab-inactive');
+            }
+
+            // Mobile menu handling
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Trigger chart render if entering metrics tab for first time
+            if (tabId === 'metrics' && !metricsChart) {
+                initChart();
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Variable Explorer Logic
+        function showVariable(varKey) {
+            const data = variableContent[varKey];
+            if (!data) return;
+
+            document.getElementById('var-title').innerText = data.title;
+            document.getElementById('var-content').innerHTML = `
+                <p class="text-lg mb-4 leading-relaxed">${data.text}</p>
+                <div class="bg-teal-50 border-l-4 border-teal-500 p-4">
+                    <strong class="text-teal-900 block mb-1">Primary Research Focus:</strong>
+                    <span class="text-teal-800">${data.focus}</span>
+                </div>
+            `;
+
+            // Visual feedback on buttons
+            document.querySelectorAll('.var-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-teal-500', 'bg-teal-50');
+            });
+            // Note: simple implementation, finding the clicked button via event would be cleaner but this works for the scope
+            event.target.classList.add('ring-2', 'ring-teal-500', 'bg-teal-50');
+        }
+
+        // Chart Logic
+        function initChart() {
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+            const initialData = metricData['sagging'];
+
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#44403c';
+
+            metricsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: initialData.labels,
+                    datasets: initialData.datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(28, 25, 23, 0.9)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 60,
+                            title: {
+                                display: true,
+                                text: initialData.yAxisLabel,
+                                font: { weight: 'bold' }
+                            },
+                            grid: {
+                                color: '#e7e5e4'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 800,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+
+        function updateChart(metricKey) {
+            const data = metricData[metricKey];
+
+            // Update Text
+            document.getElementById('chart-title').innerText = data.title;
+            document.getElementById('chart-desc').innerText = data.desc;
+            document.getElementById('metric-question').innerText = `"${data.question}"`;
+
+            // Update Active Button State
+            ['sagging', 'firmness', 'edge', 'cooling'].forEach(key => {
+                const btn = document.getElementById(`btn-${key}`);
+                if (key === metricKey) {
+                    btn.classList.add('bg-teal-50', 'border-teal-500', 'shadow-sm', 'ring-1', 'ring-teal-500');
+                    btn.classList.remove('border-stone-200', 'text-stone-600');
+                    btn.querySelector('div:first-child').classList.add('text-teal-900');
+                    btn.querySelector('div:last-child').classList.add('text-teal-700');
+                } else {
+                    btn.classList.remove('bg-teal-50', 'border-teal-500', 'shadow-sm', 'ring-1', 'ring-teal-500');
+                    btn.classList.add('border-stone-200', 'text-stone-600');
+                    btn.querySelector('div:first-child').classList.remove('text-teal-900');
+                    btn.querySelector('div:last-child').classList.remove('text-teal-700');
+                }
+            });
+
+            // Update Chart Data
+            if (metricsChart) {
+                metricsChart.data.datasets = data.datasets;
+                metricsChart.options.scales.y.title.text = data.yAxisLabel;
+                metricsChart.update();
+            }
+        }
+
+        // Initialize with default state
+        // (Chart init is handled in switchTab to ensure canvas is visible)
+    </script>
+</body>
+
+</html>

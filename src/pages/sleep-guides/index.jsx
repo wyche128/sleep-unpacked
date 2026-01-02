@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import { BookOpen, ArrowRight } from 'lucide-react';
+import sleepingNakedHero from '../../assets/sleeping_naked_hero.png';
+import snoringHero from '../../assets/snoring_hero.png';
+import sleepImportanceHero from '../../assets/sleep_importance_hero.png';
 
 const SleepGuides = () => {
     const [guides] = useState([
@@ -12,7 +15,7 @@ const SleepGuides = () => {
             readTime: "5 min read",
             excerpt: "Ditch the pajamas. Science says sleeping in your birthday suit boosts health, happiness, and intimacy.",
             link: "/sleep-guides/sleeping-naked",
-            image: "https://images.unsplash.com/photo-1541781777621-39121f476b96?auto=format&fit=crop&q=80&w=600"
+            image: sleepingNakedHero
         },
         {
             id: 2,
@@ -21,7 +24,7 @@ const SleepGuides = () => {
             readTime: "8 min read",
             excerpt: "Snoring is often a mechanical problem. Here’s how to troubleshoot your airway and get some peace.",
             link: "/sleep-guides/what-causes-snoring",
-            image: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?auto=format&fit=crop&q=80&w=600"
+            image: snoringHero
         },
         {
             id: 3,
@@ -30,7 +33,34 @@ const SleepGuides = () => {
             readTime: "6 min read",
             excerpt: "It's not just about energy. Sleep cleans your brain, rebuilds your body, and keeps you sane.",
             link: "/sleep-guides/why-sleep-matters",
-            image: "https://images.unsplash.com/photo-1511295742362-92c96b5add03?auto=format&fit=crop&q=80&w=600"
+            image: sleepImportanceHero
+        },
+        {
+            id: 4,
+            title: "How to Choose a Mattress (Data-Driven)",
+            category: "Buying Guide",
+            readTime: "Interactive",
+            excerpt: "Stop guessing. Use our biomechanics engine to find the exact firmness and material for your body type.",
+            link: "/sleep-guides/how-to-choose-a-mattress",
+            image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 5,
+            title: "The Goldilocks Algorithm: Mattress Firmness Guide",
+            category: "Buying Guide",
+            readTime: "Interactive",
+            excerpt: "Mattress firmness isn't just a preference—it's physics. Decode the confusion between 'Plush' and 'Concrete'.",
+            link: "/sleep-guides/mattress-firmness-guide",
+            image: "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 6,
+            title: "7 Bed Size Secrets That Will Save Your Sleep",
+            category: "Buying Guide",
+            readTime: "Interactive",
+            excerpt: "The 'Double Bed' trap, the myth of the California King, and why you might need a room calculator.",
+            link: "/sleep-guides/seven-bed-size-secrets",
+            image: "https://images.unsplash.com/photo-1505693416388-b0346efee535?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         }
     ]);
 
@@ -80,7 +110,20 @@ const SleepGuides = () => {
                     ))}
                 </div>
             </div>
-        </div>
+
+            {/* FAQ CTA */}
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 text-center">
+                <div className="bg-alabaster-grey/30 rounded-2xl p-8 md:p-12 border border-alabaster-grey">
+                    <h2 className="text-2xl font-bold text-jet-black mb-4">Have specific questions about durability?</h2>
+                    <p className="text-graphite mb-8">
+                        Check out our Frequently Asked Questions for deep dives on warranties, materials, and returns.
+                    </p>
+                    <Link to="/frequently-asked-questions" className="inline-flex items-center gap-2 bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+                        Visit FAQ Hub <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </div>
+        </div >
     );
 };
 

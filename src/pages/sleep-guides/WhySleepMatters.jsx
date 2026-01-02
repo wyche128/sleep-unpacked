@@ -16,6 +16,7 @@ import {
     Wind,
     CheckCircle2
 } from 'lucide-react';
+import sleepImportanceHero from '../../assets/sleep_importance_hero.png';
 
 const WhySleepMatters = () => {
     const [scrolled, setScrolled] = useState(0);
@@ -59,11 +60,7 @@ const WhySleepMatters = () => {
 
             {/* Hero Section */}
             <header className="relative pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                {/* Abstract Background Shapes */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-golden-bronze/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-                </div>
+                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: `url(${sleepImportanceHero})` }}></div>
 
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-golden-bronze/10 border border-golden-bronze/20 text-golden-bronze text-xs font-semibold uppercase tracking-wide mb-6">

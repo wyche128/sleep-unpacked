@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import { Clock, Calendar, Share2, MessageCircle, ThumbsUp, User } from 'lucide-react';
+import sleepingNakedHero from '../../assets/sleeping_naked_hero.png';
 
 const SleepingNakedPost = () => {
     const [readingProgress, setReadingProgress] = useState(0);
@@ -30,7 +31,7 @@ const SleepingNakedPost = () => {
 
             {/* Hero Section */}
             <header className="relative pt-20 pb-16 bg-jet-black text-white overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1541781777621-39121f476b96?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: `url(${sleepingNakedHero})` }}></div>
                 <div className="relative max-w-3xl mx-auto px-6 text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-golden-bronze/20 border border-golden-bronze/30 text-golden-bronze text-xs font-bold uppercase tracking-wide mb-6">
                         Sleep Science
