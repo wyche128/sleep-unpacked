@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Next.js
+.next/
+
+# Vercel
+.vercel
+
+# Environment
+.env*
+!.env.example
+
