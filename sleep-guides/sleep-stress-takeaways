@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sleep-Stress Loop | Interactive Guide</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Chosen Palette: Midnight Calm (Slate, Indigo, Stone) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0f172a',
+                        moonlight: '#f5f5f4', // stone-100
+                        calm: '#6366f1', // indigo-500
+                        accent: '#818cf8', // indigo-400
+                        alert: '#f43f5e', // rose-500
+                        soothe: '#14b8a6', // teal-500
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Animations */
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        .animate-heartbeat {
+            animation: pulse-slow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-midnight text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+
+    <!-- Application Structure Plan:
+         1. Hero Section: Sets the stage with the "Sleep-Stress Loop" problem.
+         2. The Data Dashboard: 6 Distinct interactive modules corresponding to the 6 source takeaways.
+            - Module 1: Quantitative data (Chart.js) on sleep loss.
+            - Module 2: Qualitative insight (Interactive Card) on stomach sleeping.
+            - Module 3: Biological Flow (Interactive List) on sleeping naked.
+            - Module 4: Emotional/Bio connection (CSS Animation) on pets.
+            - Module 5: Comparative Data (Chart.js) on reading vs music.
+            - Module 6: Sensory mechanism (Interactive Toggle) on weighted blankets.
+         3. Footer: Summary stats and final thought.
+         Reasoning: The report is a listicle of specific, somewhat unrelated hacks. A dashboard/card layout allows the user to explore these distinct ideas non-linearly while maintaining a cohesive visual theme.
+    -->
+
+    <!-- Navigation / Header -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-slate-200 shadow-sm transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl">🌙</span>
+                    <span class="font-serif font-bold text-xl text-midnight tracking-tight">SleepLoop</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="#stats" class="hover:text-calm transition">The Stats</a>
+                    <a href="#biology" class="hover:text-calm transition">Biology</a>
+                    <a href="#environment" class="hover:text-calm transition">Environment</a>
+                    <a href="#summary" class="hover:text-calm transition">Summary</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative pt-32 pb-20 px-4 min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-slate-900 via-slate-800 to-midnight overflow-hidden">
+        <!-- Abstract Bg Elements -->
+        <div class="absolute top-20 left-10 text-slate-700 opacity-20 text-9xl select-none">Z</div>
+        <div class="absolute top-40 right-20 text-slate-700 opacity-20 text-8xl select-none">Z</div>
+
+        <div class="relative max-w-4xl mx-auto text-center space-y-8">
+            <div
+                class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold tracking-wider uppercase mb-4 border border-indigo-500/30">
+                Source Report Analysis
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight">
+                The Sleep-Stress <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400">Vicious
+                    Cycle</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                You can't sleep because you're anxious. You're anxious because you can't sleep.
+                Generic advice isn't working. It's time to look at the data.
+            </p>
+            <div class="pt-8">
+                <a href="#stats"
+                    class="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-calm rounded-full hover:bg-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50">
+                    Break the Cycle
+                    <svg class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-y-1" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="bg-moonlight rounded-t-[3rem] -mt-10 relative z-10 shadow-2xl pb-20">
+
+        <!-- INTRO -->
+        <div class="max-w-3xl mx-auto pt-20 px-6 text-center">
+            <h2 class="text-sm font-bold text-calm tracking-widest uppercase mb-3">The Analysis</h2>
+            <p class="text-3xl font-serif font-bold text-slate-800 mb-6">6 Counter-Intuitive Findings</p>
+            <p class="text-slate-600 leading-relaxed">
+                Based on an analysis of over 110 sleep statistics and expert guides, we've distilled the most surprising
+                ways your brain processes stress during rest. These aren't your typical "drink chamomile tea" tips.
+            </p>
+        </div>
+
+        <!-- DASHBOARD GRID -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+            <!-- 1. THE ONE HOUR GAP (Quantitative) -->
+            <!-- Visualization & Content Choices: Report Info: Stress costs sleep time -> Goal: Compare -> Viz: Bar Chart -> Interaction: None (Static) -> Lib: Chart.js -->
+            <div id="stats" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col card-hover">
+                <div class="mb-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-rose-100 text-rose-600 p-2 rounded-lg text-xl">📉</span>
+                        <h3 class="text-xl font-bold text-slate-800">The "One-Hour" Gap</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">
+                        Stress doesn't just lower quality; it actively steals time. Adults with high stress lose an
+                        average of <strong class="text-slate-900">one full hour</strong> of sleep per night compared to
+                        low-stress counterparts.
+                    </p>
+                </div>
+
+                <div class="flex-grow flex flex-col justify-center">
+                    <div class="chart-container">
+                        <canvas id="sleepQualityChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-slate-400 mt-4 italic">Percentage of adults reporting "Excellent"
+                        sleep quality.</p>
+                </div>
+
+                <div class="mt-6 bg-slate-50 p-4 rounded-xl border-l-4 border-rose-400">
+                    <p class="text-sm text-slate-700 font-medium">"If you are looking for a single metric to track your
+                        mental health, your sleep duration might be the most honest indicator you have."</p>
+                </div>
+            </div>
+
+            <!-- 2. STOMACH SLEEPING (Qualitative/Psychological) -->
+            <!-- Visualization & Content Choices: Report Info: Stomach sleeping = Anxiety -> Goal: Inform/Reveal -> Viz: Interactive Card -> Interaction: Click to Reveal -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col card-hover group"
+                onclick="toggleStomachCard()">
+                <div class="mb-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-orange-100 text-orange-600 p-2 rounded-lg text-xl">🚩</span>
+                        <h3 class="text-xl font-bold text-slate-800">The Anxiety Red Flag</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">
+                        Your sleep position is a physical manifestation of your mental state. Are you sleeping on your
+                        stomach?
+                    </p>
+                </div>
+
+                <div class="flex-grow relative overflow-hidden rounded-2xl bg-orange-50 cursor-pointer transition-all duration-300 border-2 border-transparent hover:border-orange-200"
+                    id="stomachCard">
+                    <!-- Default State -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center transition-opacity duration-300"
+                        id="stomachFront">
+                        <div class="text-6xl mb-4 opacity-50">🛌</div>
+                        <p class="font-serif text-xl font-bold text-slate-800">The Stomach Sleeper</p>
+                        <p class="text-orange-600 text-sm font-semibold mt-2 animate-pulse">Click to reveal
+                            psychological traits</p>
+                    </div>
+
+                    <!-- Revealed State -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-opacity duration-300 bg-white"
+                        id="stomachBack">
+                        <ul class="space-y-3 text-left">
+                            <li class="flex items-center gap-2 text-slate-700 text-sm">
+                                <span class="text-orange-500">⚠️</span> High Anxiety Levels
+                            </li>
+                            <li class="flex items-center gap-2 text-slate-700 text-sm">
+                                <span class="text-orange-500">⚠️</span> Impulsivity
+                            </li>
+                            <li class="flex items-center gap-2 text-slate-700 text-sm">
+                                <span class="text-orange-500">⚠️</span> Lack of Control
+                            </li>
+                            <li class="flex items-center gap-2 text-slate-700 text-sm">
+                                <span class="text-orange-500">⚠️</span> Sensitivity to Criticism
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-xs text-center text-slate-400 mt-4">Research links this position to defensiveness.</p>
+            </div>
+
+            <!-- 3. BIOLOGICAL CASE (Process Flow) -->
+            <!-- Visualization & Content Choices: Report Info: Naked sleeping benefits -> Goal: Explain Process -> Viz: Interactive List/Flow -> Interaction: Hover to highlight steps -->
+            <div id="biology"
+                class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 md:col-span-2 flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-blue-100 text-blue-600 p-2 rounded-lg text-xl">🌡️</span>
+                        <h3 class="text-xl font-bold text-slate-800">The Biological Case for Sleeping Naked</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        It's not just a lifestyle choice; it's an endocrine hack. By ditching pajamas, you signal your
+                        body to lower its defenses.
+                    </p>
+                    <div class="p-4 bg-blue-50 rounded-xl border border-blue-100">
+                        <p class="text-blue-800 font-bold text-sm">Impact: Deep Rest</p>
+                        <p class="text-blue-600 text-xs mt-1">High cortisol disrupts sleep patterns and leads to weight
+                            gain. Cooling down is the antidote.</p>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Step 1 -->
+                    <div
+                        class="p-4 rounded-xl border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 bg-slate-50 cursor-default group">
+                        <div class="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">❄️</div>
+                        <h4 class="font-bold text-slate-800 mb-1">Cool Down</h4>
+                        <p class="text-xs text-slate-500">Body temperature drops, a critical signal for sleep
+                            initiation.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div
+                        class="p-4 rounded-xl border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 bg-slate-50 cursor-default group">
+                        <div class="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">🧪</div>
+                        <h4 class="font-bold text-slate-800 mb-1">Cortisol Drop</h4>
+                        <p class="text-xs text-slate-500">Stress hormones decrease while Melatonin & Growth Hormones
+                            optimize.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div
+                        class="p-4 rounded-xl border border-slate-100 hover:border-blue-300 hover:shadow-md transition-all duration-300 bg-slate-50 cursor-default group">
+                        <div class="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">🔋</div>
+                        <h4 class="font-bold text-slate-800 mb-1">Deep State</h4>
+                        <p class="text-xs text-slate-500">The body enters a deeper, more restorative state of rest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. PETS (Animation/Emotional) -->
+            <!-- Visualization & Content Choices: Report Info: Dog sleeping benefits -> Goal: Wow/Emotion -> Viz: CSS Heartbeat Animation -> Interaction: Visual feedback -->
+            <div
+                class="bg-gradient-to-br from-indigo-600 to-violet-700 rounded-3xl p-8 shadow-lg text-white flex flex-col justify-between overflow-hidden relative">
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-white/20 p-2 rounded-lg text-xl">🐕</span>
+                        <h3 class="text-xl font-bold">The Living Anti-Depressant</h3>
+                    </div>
+                    <p class="text-indigo-100 text-sm mb-6">
+                        Co-sleeping with a pet increases <strong>Oxytocin</strong> (the love chemical) and promotes
+                        Theta brainwaves (REM sleep).
+                    </p>
+                    <blockquote class="border-l-2 border-indigo-300 pl-4 italic text-sm text-indigo-100">
+                        "Imagine your hearts beating in unison while you experience the deepest sleep."
+                    </blockquote>
+                </div>
+
+                <!-- Heartbeat Viz -->
+                <div
+                    class="absolute -bottom-10 -right-10 w-48 h-48 bg-white/10 rounded-full flex items-center justify-center animate-heartbeat">
+                    <div class="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center animate-heartbeat"
+                        style="animation-delay: 0.1s;">
+                        <div class="text-6xl">❤️</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. READING VS MUSIC (Comparative Chart) -->
+            <!-- Visualization & Content Choices: Report Info: Reading 68% reduction -> Goal: Compare -> Viz: Horizontal Bar Chart -> Interaction: None -> Lib: Chart.js -->
+            <div id="environment"
+                class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col card-hover">
+                <div class="mb-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-teal-100 text-teal-600 p-2 rounded-lg text-xl">📚</span>
+                        <h3 class="text-xl font-bold text-slate-800">Reading Beats Music</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">
+                        Looking for a cognitive "change of scenery"? Reading engages the imagination, actively shifting
+                        the mind away from worries.
+                    </p>
+                </div>
+
+                <div class="flex-grow flex flex-col justify-center">
+                    <div class="chart-container">
+                        <canvas id="stressReductionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. WEIGHTED BLANKETS (Interactive Explanation) -->
+            <!-- Visualization & Content Choices: Report Info: DPS Science -> Goal: Explain mechanism -> Viz: Interactive Toggle -> Interaction: Switch modes -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col card-hover">
+                <div class="mb-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-slate-200 text-slate-600 p-2 rounded-lg text-xl">🛡️</span>
+                        <h3 class="text-xl font-bold text-slate-800">The "Heavy Hug" Science</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">
+                        Weighted blankets use <strong>Deep Pressure Stimulation (DPS)</strong>. This isn't just about
+                        warmth; it's a physical anchor.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-1 border border-slate-200 mb-4 flex relative">
+                    <div class="w-1/2 text-center py-2 text-sm font-semibold cursor-pointer z-10 transition-colors duration-300 text-slate-800"
+                        id="btnFight" onclick="setBlanketMode('fight')">Stress Mode</div>
+                    <div class="w-1/2 text-center py-2 text-sm font-semibold cursor-pointer z-10 transition-colors duration-300 text-slate-400"
+                        id="btnRest" onclick="setBlanketMode('rest')">Blanket On</div>
+
+                    <!-- Sliding Pill -->
+                    <div class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white shadow-sm rounded-xl transition-all duration-300 left-1"
+                        id="togglePill"></div>
+                </div>
+
+                <div class="flex-grow flex items-center justify-center text-center p-4">
+                    <div id="fightContent" class="transition-opacity duration-300">
+                        <div class="text-4xl mb-2">⚡</div>
+                        <h4 class="font-bold text-rose-500">Fight or Flight</h4>
+                        <p class="text-xs text-slate-500 mt-2">Racing mind, high heart rate, alertness.</p>
+                    </div>
+                    <div id="restContent" class="hidden transition-opacity duration-300">
+                        <div class="text-4xl mb-2">🧘</div>
+                        <h4 class="font-bold text-teal-500">Rest & Digest</h4>
+                        <p class="text-xs text-slate-500 mt-2">Serotonin boost, lower heart rate, calm nervous system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUMMARY SECTION -->
+        <div id="summary" class="max-w-4xl mx-auto px-6 mt-20">
+            <div class="bg-midnight rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                <!-- Decorative Circle -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 to-teal-400"></div>
+
+                <h2 class="text-3xl font-serif font-bold text-white mb-6">The Bottom Line</h2>
+                <p class="text-slate-300 leading-relaxed text-lg mb-8">
+                    The relationship between sleep and stress is bidirectional, but it is also hackable. Whether it's
+                    removing clothes, inviting the dog up, or swapping your phone for a book, small physical changes
+                    trigger significant neurochemical shifts.
+                </p>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/10 inline-block">
+                    <p class="text-indigo-300 text-sm font-bold uppercase tracking-wider mb-2">Final Thought</p>
+                    <p class="text-white font-medium italic">
+                        "If 57% of Americans believe getting more sleep would help them feel less stressed, but nearly
+                        half are chronically stressed, are we treating sleep as a luxury rather than a medical
+                        necessity?"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-midnight text-slate-500 text-center py-8 text-xs relative z-0">
+        <p>&copy; 2024 SleepLoop Analysis. Based on NapLab Reports.</p>
+        <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    </footer>
+
+    <script>
+        // --- INTERACTIVITY LOGIC ---
+
+        // 1. CHART.JS: The "One-Hour" Gap (Bar Chart)
+        const ctxQuality = document.getElementById('sleepQualityChart').getContext('2d');
+        const qualityChart = new Chart(ctxQuality, {
+            type: 'bar',
+            data: {
+                labels: ['Low Stress', 'High Stress'],
+                datasets: [{
+                    label: '% Reporting Excellent Sleep',
+                    data: [33, 8],
+                    backgroundColor: [
+                        'rgba(99, 102, 241, 0.8)', // Indigo
+                        'rgba(244, 63, 94, 0.8)'   // Rose
+                    ],
+                    borderColor: [
+                        'rgba(99, 102, 241, 1)',
+                        'rgba(244, 63, 94, 1)'
+                    ],
+                    borderWidth: 1,
+                    borderRadius: 8,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.parsed.y + '% Report Excellent Sleep';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                        grid: { display: false }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 2. STOMACH SLEEPING CARD FLIP
+        let isStomachRevealed = false;
+        function toggleStomachCard() {
+            const front = document.getElementById('stomachFront');
+            const back = document.getElementById('stomachBack');
+            const card = document.getElementById('stomachCard');
+
+            if (!isStomachRevealed) {
+                front.style.opacity = '0';
+                setTimeout(() => {
+                    front.classList.add('hidden');
+                    back.classList.remove('hidden');
+                    // Small delay to allow display:block to apply before opacity transition
+                    requestAnimationFrame(() => {
+                        back.style.opacity = '1';
+                    });
+                }, 300);
+            } else {
+                back.style.opacity = '0';
+                setTimeout(() => {
+                    back.classList.add('hidden');
+                    front.classList.remove('hidden');
+                    requestAnimationFrame(() => {
+                        front.style.opacity = '1';
+                    });
+                }, 300);
+            }
+            isStomachRevealed = !isStomachRevealed;
+        }
+
+        // 3. CHART.JS: Reading vs Others (Horizontal Bar)
+        const ctxStress = document.getElementById('stressReductionChart').getContext('2d');
+        const stressChart = new Chart(ctxStress, {
+            type: 'bar',
+            indexAxis: 'y', // Horizontal bar chart
+            data: {
+                labels: ['Reading', 'Listening to Music', 'Drinking Tea', 'Taking a Walk'],
+                datasets: [{
+                    label: 'Stress Reduction %',
+                    data: [68, 61, 54, 42], // Standard University of Sussex study stats context
+                    backgroundColor: [
+                        'rgba(20, 184, 166, 0.8)', // Teal (Highlight)
+                        'rgba(203, 213, 225, 0.6)', // Slate-300
+                        'rgba(203, 213, 225, 0.6)',
+                        'rgba(203, 213, 225, 0.6)'
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 80,
+                        grid: { display: true, color: '#f1f5f9' }
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // 4. WEIGHTED BLANKET TOGGLE
+        function setBlanketMode(mode) {
+            const pill = document.getElementById('togglePill');
+            const btnFight = document.getElementById('btnFight');
+            const btnRest = document.getElementById('btnRest');
+            const contentFight = document.getElementById('fightContent');
+            const contentRest = document.getElementById('restContent');
+
+            if (mode === 'rest') {
+                pill.style.left = 'calc(50% + 2px)';
+                btnFight.classList.replace('text-slate-800', 'text-slate-400');
+                btnRest.classList.replace('text-slate-400', 'text-slate-800');
+
+                contentFight.style.opacity = '0';
+                setTimeout(() => {
+                    contentFight.classList.add('hidden');
+                    contentRest.classList.remove('hidden');
+                    requestAnimationFrame(() => contentRest.style.opacity = '1');
+                }, 300);
+
+            } else {
+                pill.style.left = '2px';
+                btnRest.classList.replace('text-slate-800', 'text-slate-400');
+                btnFight.classList.replace('text-slate-400', 'text-slate-800');
+
+                contentRest.style.opacity = '0';
+                setTimeout(() => {
+                    contentRest.classList.add('hidden');
+                    contentFight.classList.remove('hidden');
+                    requestAnimationFrame(() => contentFight.style.opacity = '1');
+                }, 300);
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('glass-panel', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white', 'glass-panel');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

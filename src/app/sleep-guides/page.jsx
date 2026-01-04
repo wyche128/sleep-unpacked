@@ -11,6 +11,51 @@ import sleepImportanceHero from '../../assets/sleep_importance_hero.png';
 const SleepGuides = () => {
     const [guides] = useState([
         {
+            id: 13,
+            title: "The Science of Snuggling: Sleep with Pets",
+            category: "Wellness",
+            readTime: "Interactive",
+            excerpt: "Letting Fido in? It rewires your biochemistry. Simulate the hormone exchange and safety benefits.",
+            link: "/sleep-guides/sleep-with-pets",
+            image: "https://images.unsplash.com/photo-1541781777631-fa95371aad95?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 11,
+            title: "5 Surprising Fixes for Snoring",
+            category: "Action Plan",
+            readTime: "Interactive",
+            excerpt: "From tennis balls to Nightcaps: Explore the physics of silence with our interactive dashboard.",
+            link: "/sleep-guides/five-surprising-fixes-snoring",
+            image: "https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 12,
+            title: "The Sleep-Stress Vicious Cycle",
+            category: "Wellness",
+            readTime: "Interactive",
+            excerpt: "You can't sleep because you're anxious. See the data behind the cycle and 6 counter-intuitive fixes.",
+            link: "/sleep-guides/sleep-stress",
+            image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+            id: 9,
+            title: "State of Sleep 2025: Statistics & Trends",
+            category: "Research",
+            readTime: "Interactive",
+            excerpt: "An interactive dashboard exploring 110+ sleep statistics, from the teen sleep crisis to the cost of sleep disorders.",
+            link: "/sleep-guides/state-of-sleep",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            id: 10,
+            title: "The Sleep Switch: 6 Physiological Hacks for Insomnia",
+            category: "Wellness",
+            readTime: "Interactive",
+            excerpt: "Can't sleep? Stop trying. Use these paradoxical tools to override your body's fight-or-flight response.",
+            link: "/sleep-guides/insomnia-falling-asleep",
+            image: "https://images.unsplash.com/photo-1520206183501-b80df610434f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        },
+        {
             id: 8,
             title: "The Architecture of Sleep: Cycles & Dreaming",
             category: "Sleep Science",

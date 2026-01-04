@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silence the Night: Snoring Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Chart Container Styling as per requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            /* Base height */
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom Transitions */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .active-tab {
+            background-color: #1e3a8a;
+            /* blue-900 */
+            color: white;
+            border-bottom: 4px solid #60a5fa;
+            /* blue-400 */
+        }
+
+        .inactive-tab {
+            background-color: white;
+            color: #1e3a8a;
+            border-bottom: 4px solid transparent;
+        }
+
+        .inactive-tab:hover {
+            background-color: #eff6ff;
+            /* blue-50 */
+        }
+    </style>
+    <!-- Chosen Palette: Midnight Calm (Deep Blues, Clean Whites, Soft Grays) for a sleep-centric feel -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Hook and Prevalence Data (Inform Goal).
+         2. The Mechanics Dashboard: A tabbed interface allowing users to explore the three main pillars: Position, Chemistry (Alcohol), and Geometry (Elevation). This prevents information overload.
+         3. Interactive Comparisons: Specific modules to compare sleep positions (Back vs Side vs Stomach) using charts to visualize trade-offs.
+         4. The "Hacks" Lab: A dedicated section for actionable, counter-intuitive tips like the Tennis Ball.
+         5. Summary/Takeaway: A final synthesis of the "fixes".
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl text-blue-900">Silence the Night 🌙</div>
+            <div class="text-sm text-slate-500 hidden md:block">Interactive Guide to Snoring Fixes</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-blue-900 text-white py-12 md:py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">It's Not Just Noise.<br>It's Physics.</h1>
+            <p class="text-blue-100 text-lg md:text-xl mb-8 leading-relaxed max-w-2xl mx-auto">
+                Snoring is a mechanical signal that your airway is struggling against gravity and anatomy. Before you
+                resign yourself to separate bedrooms, explore the surprising science behind the noise.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="scrollToSection('prevalence')"
+                    class="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-2 px-6 rounded-full transition shadow-lg">View
+                    the Stats</button>
+                <button onclick="scrollToSection('dashboard')"
+                    class="bg-white text-blue-900 hover:bg-gray-100 font-semibold py-2 px-6 rounded-full transition shadow-lg">Explore
+                    Fixes</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: The Scope (Prevalence) -->
+    <section id="prevalence" class="py-16 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">You Are Not Alone</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Snoring is often dismissed as an annoyance, but the data shows it's a pervasive issue affecting a
+                    vast portion of the adult population.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Text Context -->
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm border border-slate-100">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">The Statistics</h3>
+                    <p class="mb-4 text-slate-700 leading-relaxed">
+                        According to sleep statistics, nearly half of all adults snore occasionally. However, a
+                        significant quarter of the population are "habitual offenders," meaning their snoring is a
+                        nightly occurrence that likely impacts their sleep quality and that of their partner.
+                    </p>
+                    <div class="p-4 bg-blue-100 rounded-lg border-l-4 border-blue-600">
+                        <p class="text-blue-900 font-semibold italic">"Snoring is actually a mechanical signal from your
+                            body."</p>
+                    </div>
+                </div>
+
+                <!-- Visualization: Donut Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                    <!-- Visualization Choice: Donut chart to show proportions of snorers vs non-snorers. Goal: Inform/Context. -->
+                    <div class="chart-container">
+                        <canvas id="prevalenceChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-2">Data Source: General Adult Population Statistics
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Mechanics Dashboard (Core Content) -->
+    <section id="dashboard" class="py-16 px-4 bg-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-4">The Mechanics of Silence</h2>
+                <p class="text-slate-600 max-w-3xl mx-auto">
+                    Explore the three primary factors that influence airway obstruction. Click the tabs below to dive
+                    into the physics of position, the chemistry of habits, and the geometry of your bed.
+                </p>
+            </div>
+
+            <!-- Dashboard Navigation -->
+            <div class="flex flex-wrap justify-center mb-8 gap-2">
+                <button onclick="updateDashboard('gravity')" id="btn-gravity"
+                    class="active-tab py-3 px-6 rounded-t-lg font-semibold text-sm md:text-base transition-all shadow-sm">1.
+                    Gravity & Position</button>
+                <button onclick="updateDashboard('chemistry')" id="btn-chemistry"
+                    class="inactive-tab py-3 px-6 rounded-t-lg font-semibold text-sm md:text-base transition-all shadow-sm">2.
+                    The "Nightcap" Effect</button>
+                <button onclick="updateDashboard('geometry')" id="btn-geometry"
+                    class="inactive-tab py-3 px-6 rounded-t-lg font-semibold text-sm md:text-base transition-all shadow-sm">3.
+                    Elevation Geometry</button>
+            </div>
+
+            <!-- Dynamic Content Container -->
+            <div id="dashboard-content"
+                class="bg-white rounded-b-xl rounded-tr-xl shadow-xl p-6 md:p-10 min-h-[600px] fade-in">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Tennis Ball Hack (Highlight) -->
+    <section class="py-16 px-4 bg-blue-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">The "Tennis Ball" Hack</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Changing your sleep position is mentally difficult because you are unconscious. You need a physical
+                deterrent.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-blue-800 p-6 rounded-lg border border-blue-700 hover:bg-blue-700 transition">
+                    <div class="text-4xl mb-4">🎾</div>
+                    <h3 class="text-xl font-bold mb-2">The Concept</h3>
+                    <p class="text-blue-200 text-sm">Sew a tennis ball into the back of your pajama top. It sounds like
+                        a prank, but it’s a legitimate behavior modification technique.</p>
+                </div>
+                <div class="bg-blue-800 p-6 rounded-lg border border-blue-700 hover:bg-blue-700 transition">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold mb-2">The Mechanism</h3>
+                    <p class="text-blue-200 text-sm">Every time you roll onto your back, the discomfort creates a
+                        tactile signal, forcing you to return to your side without fully waking up.</p>
+                </div>
+                <div class="bg-blue-800 p-6 rounded-lg border border-blue-700 hover:bg-blue-700 transition">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-xl font-bold mb-2">The Result</h3>
+                    <p class="text-blue-200 text-sm">Over time, your body retrains its nocturnal posture, keeping your
+                        airway open by preventing gravity from collapsing soft tissues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Summary Checklist -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8 text-slate-800">Your "Silence the Night" Action Plan</h2>
+            <div class="space-y-4">
+                <div class="flex items-start p-4 bg-slate-50 rounded-lg border-l-4 border-green-500 shadow-sm">
+                    <div class="mr-4 text-green-600 text-xl font-bold">✓</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800">Rotate to your side</h4>
+                        <p class="text-sm text-slate-600">Prevent gravity from pulling the tongue backward into the
+                            airway.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-slate-50 rounded-lg border-l-4 border-green-500 shadow-sm">
+                    <div class="mr-4 text-green-600 text-xl font-bold">✓</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800">Rethink the Nightcap</h4>
+                        <p class="text-sm text-slate-600">Stop alcohol consumption 2-3 hours before bed to maintain
+                            throat muscle tone.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-slate-50 rounded-lg border-l-4 border-green-500 shadow-sm">
+                    <div class="mr-4 text-green-600 text-xl font-bold">✓</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800">Elevate the Bed</h4>
+                        <p class="text-sm text-slate-600">Raise the head of the frame by 4 inches to leverage gravity in
+                            your favor.</p>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 bg-slate-50 rounded-lg border-l-4 border-yellow-500 shadow-sm">
+                    <div class="mr-4 text-yellow-600 text-xl font-bold">!</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800">Avoid the Stomach Trap</h4>
+                        <p class="text-sm text-slate-600">Don't trade snoring for neck pain. Stomach sleeping is a fix
+                            that backfires.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-lg font-medium text-slate-700 italic">"If your sleep environment is currently set up for
+                    aesthetics rather than airway alignment, what small change could you make tonight?"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-8 text-center">
+        <p class="text-sm">&copy; 2024 Silence the Night. Generated based on provided sleep research reports.</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Data Store ---
+        const appData = {
+            prevalence: {
+                labels: ['Non-Shorers', 'Occasional Snorers', 'Habitual Snorers'],
+                data: [30, 45, 25],
+                colors: ['#e2e8f0', '#60a5fa', '#1e40af']
+            },
+            positions: {
+                labels: ['Snoring Reduction', 'Spinal Alignment', 'Neck Comfort'],
+                back: [2, 9, 8],     // High snore risk (low reduction), good spine, good neck
+                side: [9, 8, 8],     // Great snore reduction, good spine, good neck
+                stomach: [10, 2, 1]  // Best snore reduction, terrible spine, terrible neck
+            },
+            alcohol: {
+                labels: ['4 Hours Before', '3 Hours Before', '2 Hours Before', '1 Hour Before', 'Bedtime'],
+                muscleTone: [90, 85, 70, 50, 30] // Hypothetical data representing hypotonia onset
+            }
+        };
+
+        // --- Chart Initialization ---
+        let mainChartInstance = null;
+
+        // Initialize Prevalence Chart (Donut) - Runs on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('prevalenceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: appData.prevalence.labels,
+                    datasets: [{
+                        data: appData.prevalence.data,
+                        backgroundColor: appData.prevalence.colors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Snoring Prevalence in Adults' }
+                    }
+                }
+            });
+
+            // Load initial dashboard state
+            updateDashboard('gravity');
+        });
+
+        // --- Core Interaction Handling ---
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tab Switching Logic
+        function updateDashboard(topic) {
+            // Update Tab Styles
+            const tabs = ['gravity', 'chemistry', 'geometry'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if (t === topic) {
+                    btn.className = "active-tab py-3 px-6 rounded-t-lg font-semibold text-sm md:text-base transition-all shadow-sm";
+                } else {
+                    btn.className = "inactive-tab py-3 px-6 rounded-t-lg font-semibold text-sm md:text-base transition-all shadow-sm cursor-pointer";
+                }
+            });
+
+            // Update Content Area
+            const contentDiv = document.getElementById('dashboard-content');
+            contentDiv.classList.remove('fade-in');
+            void contentDiv.offsetWidth; // trigger reflow
+            contentDiv.classList.add('fade-in');
+
+            if (topic === 'gravity') {
+                renderGravityContent(contentDiv);
+            } else if (topic === 'chemistry') {
+                renderChemistryContent(contentDiv);
+            } else if (topic === 'geometry') {
+                renderGeometryContent(contentDiv);
+            }
+        }
+
+        // --- Render Functions ---
+
+        // 1. Gravity & Position Content
+        function renderGravityContent(container) {
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-900 mb-4">The Physics of Posture</h3>
+                        <p class="text-slate-600 mb-6">
+                            When you lie on your back, gravity acts as an enemy to your airway. It pulls the heavy tissues of the tongue and soft palate backward. As you drift into deep sleep, throat muscles relax, causing a collapse that generates the snoring sound.
+                        </p>
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-800">Compare Positions:</h4>
+                            <div class="flex gap-2">
+                                <button onclick="updatePositionChart('back')" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 py-2 rounded text-sm font-medium focus:ring-2 focus:ring-blue-500">Back</button>
+                                <button onclick="updatePositionChart('side')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 rounded text-sm font-medium focus:ring-2 focus:ring-blue-500">Side (Recommended)</button>
+                                <button onclick="updatePositionChart('stomach')" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 py-2 rounded text-sm font-medium focus:ring-2 focus:ring-blue-500">Stomach</button>
+                            </div>
+                            <div id="position-desc" class="p-4 bg-blue-50 border border-blue-100 rounded text-sm text-blue-900 mt-4">
+                                <strong>Why Side Sleeping?</strong> Rotating to your side physically prevents the tongue from collapsing backward, mechanically keeping the airway open.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Visualization Choice: Bar chart comparing trade-offs. Goal: Compare. -->
+                        <div class="chart-container">
+                            <canvas id="mechanicsChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-slate-400 mt-2">Trade-off Analysis: Airway vs. Skeletal Health</p>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => updatePositionChart('side'), 100); // Initialize chart after DOM update
+        }
+
+        // 2. Chemistry (Alcohol) Content
+        function renderChemistryContent(container) {
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-blue-900 mb-4">The "Nightcap" Sabotage</h3>
+                        <p class="text-slate-600 mb-4">
+                            Alcohol is a double agent. While it creates drowsiness, it induces a state of <strong>"hypotonia"</strong>—excessive muscle relaxation.
+                        </p>
+                        <p class="text-slate-600 mb-6">
+                            This causes your throat muscles, which are already relaxed during sleep, to go completely slack. This removes your body's natural structural defense against airway obstruction, turning a quiet sleeper into a snorer.
+                        </p>
+                        <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-yellow-800">The Fix: Timing is Everything</h4>
+                            <p class="text-sm text-yellow-700">Aim to stop consuming alcohol at least 2-3 hours before bedtime to allow the relaxing effects to wear off.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Visualization Choice: Line chart showing muscle tone decline. Goal: Change/Trend. -->
+                        <div class="chart-container">
+                            <canvas id="alcoholChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-slate-400 mt-2">Impact of Alcohol Timing on Throat Muscle Tone</p>
+                    </div>
+                </div>
+            `;
+            setTimeout(initAlcoholChart, 100);
+        }
+
+        // 3. Geometry (Elevation) Content
+        function renderGeometryContent(container) {
+            container.innerHTML = `
+                <div class="flex flex-col items-center justify-center text-center">
+                    <h3 class="text-2xl font-bold text-blue-900 mb-4">The 4-Inch Angle</h3>
+                    <p class="text-slate-600 max-w-2xl mb-8">
+                        If you can't sleep on your side, and stomach sleeping hurts your back, the solution is vertical. Raising the head of the bed frame (not just pillows) by just 4 inches creates a "zero gravity" effect.
+                    </p>
+                    
+                    <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-md">
+                            <div class="text-5xl mb-4">🛏️</div>
+                            <h4 class="font-bold text-lg mb-2">Flat Bed</h4>
+                            <p class="text-sm text-slate-500">Gravity pulls tongue directly back over the windpipe. High obstruction risk.</p>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl shadow-md transform scale-105">
+                            <div class="text-5xl mb-4 transform -rotate-6">📐</div>
+                            <h4 class="font-bold text-lg text-blue-900 mb-2">Elevated (4 inches)</h4>
+                            <p class="text-sm text-blue-800">A subtle slope stops the tongue from falling back. Airways remain patent (open) without position change.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-slate-100 rounded text-slate-500 text-sm">
+                        <em>Note: Piling up pillows often just strains the neck. Adjusting the frame or using a wedge is strictly better engineering.</em>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Chart Update Functions ---
+
+        function updatePositionChart(position) {
+            const ctx = document.getElementById('mechanicsChart');
+            if (!ctx) return;
+
+            // Update description text based on selection
+            const descBox = document.getElementById('position-desc');
+            if (position === 'back') {
+                descBox.innerHTML = `<strong>Back Sleeping:</strong> The worst offender. Gravity pulls the tongue back, narrowing the airway.`;
+                descBox.className = "p-4 bg-red-50 border border-red-100 rounded text-sm text-red-900 mt-4";
+            } else if (position === 'side') {
+                descBox.innerHTML = `<strong>Side Sleeping:</strong> The Gold Standard. Mechanically keeps the airway open.`;
+                descBox.className = "p-4 bg-green-50 border border-green-100 rounded text-sm text-green-900 mt-4";
+            } else {
+                descBox.innerHTML = `<strong>Stomach Sleeping:</strong> Stops snoring, but forces neck twisting and flattens the spine. A "fix" that backfires.`;
+                descBox.className = "p-4 bg-yellow-50 border border-yellow-100 rounded text-sm text-yellow-900 mt-4";
+            }
+
+            // Destroy old chart if exists
+            if (mainChartInstance) {
+                mainChartInstance.destroy();
+            }
+
+            // Create new chart
+            mainChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Snore Reduction', 'Spinal Health', 'Neck Comfort'],
+                    datasets: [{
+                        label: position.charAt(0).toUpperCase() + position.slice(1) + ' Sleeping Score (1-10)',
+                        data: appData.positions[position],
+                        backgroundColor: [
+                            position === 'side' ? '#22c55e' : (position === 'stomach' ? '#eab308' : '#ef4444'), // Green, Yellow, Red logic
+                            position === 'side' ? '#22c55e' : (position === 'back' ? '#22c55e' : '#ef4444'),
+                            position === 'side' ? '#22c55e' : (position === 'back' ? '#22c55e' : '#ef4444'),
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, max: 10 }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Performance Metrics: ' + position.toUpperCase() }
+                    }
+                }
+            });
+        }
+
+        function initAlcoholChart() {
+            const ctx = document.getElementById('alcoholChart');
+            if (!ctx) return;
+            if (mainChartInstance) { mainChartInstance.destroy(); }
+
+            mainChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: appData.alcohol.labels,
+                    datasets: [{
+                        label: 'Throat Muscle Tone (%)',
+                        data: appData.alcohol.muscleTone,
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, max: 100, title: { display: true, text: 'Muscle Tone %' } }
+                    },
+                    plugins: {
+                        title: { display: true, text: 'Muscle Relaxation Effect of Alcohol' },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return context.raw < 50 ? `Danger Zone: Obstruction Likely (${context.raw}%)` : `Safe Zone (${context.raw}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
