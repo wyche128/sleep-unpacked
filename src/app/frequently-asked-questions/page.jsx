@@ -30,6 +30,11 @@ const FAQHub = () => {
                     link: '/frequently-asked-questions/how-long-free-trial',
                     isNew: true
                 },
+                {
+                    title: 'What is a Mattress "Break-In Period"?',
+                    link: '/sleep-guides/break-in-period',
+                    isNew: true
+                },
                 { title: 'How to File a Successful Warranty Claim', link: '#' },
                 { title: 'Do "Lifetime" Warranties Actually Last Forever?', link: '#' },
             ]

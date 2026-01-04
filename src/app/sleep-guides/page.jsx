@@ -7,9 +7,29 @@ import { BookOpen, ArrowRight } from 'lucide-react';
 import sleepingNakedHero from '../../assets/sleeping_naked_hero.png';
 import snoringHero from '../../assets/snoring_hero.png';
 import sleepImportanceHero from '../../assets/sleep_importance_hero.png';
+import sleepWithPetsHero from '../../assets/sleep_with_pets_hero.png';
+import snoringFixesHero from '../../assets/snoring_fixes_hero.png';
+import sleepStressHero from '../../assets/sleep_stress_hero.png';
+import stateOfSleepHero from '../../assets/state_of_sleep_hero.png';
+import insomniaHero from '../../assets/insomnia_hero.png';
+import sleepCyclesHero from '../../assets/sleep_cycles_hero.png';
+import chooseMattressHero from '../../assets/choose_mattress_hero.png';
+import mattressFirmnessHero from '../../assets/mattress_firmness_hero.png';
+import bedSizesHero from '../../assets/bed_sizes_hero.png';
+import cleanMattressHero from '../../assets/clean_mattress_hero.png';
+import breakInPeriodHero from '../../assets/break_in_period_hero.png';
 
 const SleepGuides = () => {
     const [guides] = useState([
+        {
+            id: 14,
+            title: "What is a Mattress 'Break-In Period'?",
+            category: "Mattress 101",
+            readTime: "Interactive",
+            excerpt: "Bought a new mattress and hate it? Don't panic. The 'new bed blues' are real, but they are almost always temporary.",
+            link: "/sleep-guides/break-in-period",
+            image: breakInPeriodHero
+        },
         {
             id: 13,
             title: "The Science of Snuggling: Sleep with Pets",
@@ -17,7 +37,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Letting Fido in? It rewires your biochemistry. Simulate the hormone exchange and safety benefits.",
             link: "/sleep-guides/sleep-with-pets",
-            image: "https://images.unsplash.com/photo-1541781777631-fa95371aad95?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: sleepWithPetsHero
         },
         {
             id: 11,
@@ -26,7 +46,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "From tennis balls to Nightcaps: Explore the physics of silence with our interactive dashboard.",
             link: "/sleep-guides/five-surprising-fixes-snoring",
-            image: "https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: snoringFixesHero
         },
         {
             id: 12,
@@ -35,7 +55,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "You can't sleep because you're anxious. See the data behind the cycle and 6 counter-intuitive fixes.",
             link: "/sleep-guides/sleep-stress",
-            image: "https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+            image: sleepStressHero
         },
         {
             id: 9,
@@ -44,7 +64,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "An interactive dashboard exploring 110+ sleep statistics, from the teen sleep crisis to the cost of sleep disorders.",
             link: "/sleep-guides/state-of-sleep",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: stateOfSleepHero
         },
         {
             id: 10,
@@ -53,7 +73,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Can't sleep? Stop trying. Use these paradoxical tools to override your body's fight-or-flight response.",
             link: "/sleep-guides/insomnia-falling-asleep",
-            image: "https://images.unsplash.com/photo-1520206183501-b80df610434f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: insomniaHero
         },
         {
             id: 8,
@@ -62,7 +82,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Sleep isn't a power down. Explore the 5 mind-bending truths about what happens when you close your eyes.",
             link: "/sleep-guides/sleep-cycles-dreaming",
-            image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: sleepCyclesHero
         },
         {
             id: 1,
@@ -98,7 +118,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Stop guessing. Use our biomechanics engine to find the exact firmness and material for your body type.",
             link: "/sleep-guides/how-to-choose-a-mattress",
-            image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: chooseMattressHero
         },
         {
             id: 5,
@@ -107,7 +127,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Mattress firmness isn't just a preference—it's physics. Decode the confusion between 'Plush' and 'Concrete'.",
             link: "/sleep-guides/mattress-firmness-guide",
-            image: "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: mattressFirmnessHero
         },
         {
             id: 6,
@@ -116,7 +136,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "The 'Double Bed' trap, the myth of the California King, and why you might need a room calculator.",
             link: "/sleep-guides/seven-bed-size-secrets",
-            image: "https://images.unsplash.com/photo-1505693416388-b0346efee535?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: bedSizesHero
         },
         {
             id: 7,
@@ -125,7 +145,7 @@ const SleepGuides = () => {
             readTime: "Interactive",
             excerpt: "Your mattress is a biological sponge. Stop using hot water on blood and learn the chemical protocols for every stain.",
             link: "/sleep-guides/how-to-clean-mattress",
-            image: "https://images.unsplash.com/photo-1582735689369-c6e3b2c155d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            image: cleanMattressHero
         }
     ]);
 
