@@ -212,7 +212,7 @@ const SleepGuides = () => {
                     <p className="text-graphite mb-8">
                         Check out our Frequently Asked Questions for deep dives on warranties, materials, and returns.
                     </p>
-                    <Link href="/frequently-asked-questions" className="inline-flex items-center gap-2 bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+                    <Link href="/faqs" className="inline-flex items-center gap-2 bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
                         Visit FAQ Hub <ArrowRight size={18} />
                     </Link>
                 </div>

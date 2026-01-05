@@ -13,7 +13,7 @@ const HowLongSleepTrial = () => {
             {/* Breadcrumb */}
             <div className="bg-alabaster-grey/20 border-b border-alabaster-grey">
                 <div className="max-w-4xl mx-auto px-4 py-4">
-                    <Link href="/frequently-asked-questions" className="inline-flex items-center text-sm font-bold text-golden-bronze hover:text-jet-black transition-colors">
+                    <Link href="/faqs" className="inline-flex items-center text-sm font-bold text-golden-bronze hover:text-jet-black transition-colors">
                         <ArrowLeft size={16} className="mr-2" /> Back to FAQ
                     </Link>
                 </div>

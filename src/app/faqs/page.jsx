@@ -17,17 +17,17 @@ const FAQHub = () => {
             articles: [
                 {
                     title: 'The 1.5-Inch Indentation Threshold',
-                    link: '/frequently-asked-questions/1.5-inch-threshold',
+                    link: '/faqs/one-point-five-inch-threshold',
                     isNew: true
                 },
                 {
                     title: 'How Long Can a Mattress Stay in the Box?',
-                    link: '/frequently-asked-questions/how-long-mattress-in-box',
+                    link: '/faqs/how-long-mattress-in-box',
                     isNew: true
                 },
                 {
                     title: 'How Long Is the Sleep Trial?',
-                    link: '/frequently-asked-questions/how-long-free-trial',
+                    link: '/faqs/how-long-free-trial',
                     isNew: true
                 },
                 {
@@ -47,18 +47,18 @@ const FAQHub = () => {
             articles: [
                 {
                     title: 'How Is Memory Foam Different? (The Science)',
-                    link: '/frequently-asked-questions/memory-foam-different',
+                    link: '/faqs/memory-foam-different',
                     isNew: true
                 },
                 {
                     title: 'Are Memory Foam Mattresses Toxic?',
-                    link: '/frequently-asked-questions/memory-foam-toxic',
+                    link: '/faqs/memory-foam-toxic',
                     isNew: true
                 },
                 { title: 'Memory Foam vs. Latex: Which Lasts Longer?', link: '#' },
                 {
                     title: 'Why Fiberglass is Used in Mattresses',
-                    link: '/frequently-asked-questions/fiberglass-free',
+                    link: '/faqs/fiberglass-free',
                     isNew: true
                 },
                 { title: 'Understanding Coil Gauge and Count', link: '#' },
@@ -72,7 +72,7 @@ const FAQHub = () => {
             articles: [
                 {
                     title: 'Do I Need a Box Spring?',
-                    link: '/frequently-asked-questions/do-i-need-a-box-spring',
+                    link: '/faqs/do-i-need-a-box-spring',
                     isNew: true
                 },
                 { title: 'Firmness Scale Explained (1-10)', link: '#' },
@@ -99,6 +99,11 @@ const FAQHub = () => {
                 {
                     title: 'How Long Will Your Mattress Actually Last?',
                     link: '/sleep-guides/mattress-lifespan-guide',
+                    isNew: true
+                },
+                {
+                    title: 'The Afterlife of a Mattress: Disposal Guide',
+                    link: '/faqs/mattress-disposal-guide',
                     isNew: true
                 },
                 { title: 'Do You Really Need to Rotate Your Mattress?', link: '#' },
