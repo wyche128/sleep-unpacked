@@ -102,6 +102,11 @@ const FAQHub = () => {
                     isNew: true
                 },
                 {
+                    title: 'Why Your New Mattress Feels Like Concrete (Break-In Guide)',
+                    link: '/faqs/how-to-break-in-mattress',
+                    isNew: true
+                },
+                {
                     title: 'The Afterlife of a Mattress: Disposal Guide',
                     link: '/faqs/mattress-disposal-guide',
                     isNew: true
