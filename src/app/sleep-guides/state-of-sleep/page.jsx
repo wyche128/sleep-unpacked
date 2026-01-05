@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, RadialLinearScale, ArcElement, Title, Tooltip, Legend, Filler } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, RadialLinearScale, ArcElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line, Bar, Radar, Doughnut } from 'react-chartjs-2';
+import Link from 'next/link';
 import { Menu, X, Brain, BatteryCharging, Zap } from 'lucide-react';
 
 // Register ChartJS components
@@ -196,7 +198,7 @@ const StateOfSleep = () => {
                         <div className="bg-golden-bronze/10 p-4 rounded-lg border border-golden-bronze/20">
                             <h4 className="text-xs font-bold text-golden-bronze uppercase mb-2">Key Takeaway</h4>
                             <p className="text-xs text-jet-black leading-relaxed">
-                                Prioritizing sleep is not a luxury. It’s a proven strategy for learning and resilience.
+                                Prioritizing sleep is not a luxury. It’s a proven strategy for learning and resilience. (Ensure your <Link href="/top-picks" className="text-golden-bronze hover:underline">mattress supports deep rest</Link>.)
                             </p>
                         </div>
                     </div>
@@ -220,7 +222,7 @@ const StateOfSleep = () => {
                                 {[
                                     { label: 'Insufficient Sleep', value: '33%', sub: '1 in 3 Adults', desc: 'Report frequent sleep deprivation.', color: 'text-red-500' },
                                     { label: 'Sleep Disorders', value: '70M', sub: 'Americans Affected', desc: 'Estimated undiagnosed cases.', color: 'text-golden-bronze' },
-                                    { label: 'Avg. Time to Dream', value: '90m', sub: 'REM Cycle Onset', desc: 'Time after falling asleep.', color: 'text-jet-black' },
+                                    { label: 'Avg. Time to Dream', value: '90m', sub: 'REM Cycle Onset', desc: <span>Time after falling asleep. (See <Link href="/sleep-guides/sleep-cycles-dreaming" className="underline hover:text-jet-black">cycles guide</Link>.)</span>, color: 'text-jet-black' },
                                     { label: 'Nap Sweet Spot', value: '20m', sub: 'Power Nap', desc: 'Avoids sleep inertia.', color: 'text-green-600' }
                                 ].map((kpi, i) => (
                                     <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-alabaster hover:shadow-md transition-shadow">
@@ -317,7 +319,7 @@ const StateOfSleep = () => {
                                 {[
                                     { icon: <Brain size={24} />, title: "Memory Consolidation", text: "During deep sleep, the brain replays the day's events, strengthening neural connections. It's like a crew clearing a path in a forest.", color: "text-golden-bronze", bg: "bg-golden-bronze/10" },
                                     { icon: <BatteryCharging size={24} />, title: "Synaptic Pruning", text: "Sleep allows the glymphatic system to flush out neurotoxins and metabolic waste products. It's literally 'taking out the trash.'", color: "text-blue-600", bg: "bg-blue-50" },
-                                    { icon: <Zap size={24} />, title: "Stress Correlation", text: "High cortisol levels inhibit sleep, creating a feedback loop. 43% of adults report that stress has caused them to lie awake at night.", color: "text-red-600", bg: "bg-red-50" }
+                                    { icon: <Zap size={24} />, title: "Stress Correlation", text: <span>High cortisol levels inhibit sleep, creating a feedback loop. 43% of adults report that stress has caused them to lie awake at night. (See our <Link href="/sleep-guides/sleep-stress" className="text-golden-bronze hover:underline">Stress Guide</Link>.)</span>, color: "text-red-600", bg: "bg-red-50" }
                                 ].map((card, i) => (
                                     <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-alabaster">
                                         <div className={`h-12 w-12 rounded-full ${card.bg} ${card.color} flex items-center justify-center mb-4`}>

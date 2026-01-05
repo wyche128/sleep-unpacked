@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 import { Wind, Mic, Activity, CheckCircle2, AlertTriangle } from 'lucide-react';
 import snoringHero from '../../../assets/snoring_hero.png';
 
@@ -73,7 +74,7 @@ const WhatCausesSnoring = () => {
                         Most snoring boils down to this: <strong>air has trouble moving smoothly through your upper airway</strong>, so soft tissue in your throat (or your nose) vibrates like a loosely tuned guitar string. That vibration is the sound.
                     </p>
                     <p className="mb-6 leading-relaxed">
-                        The good news: a lot of snoring improves with a few targeted changes. The important news: <strong>certain patterns of loud, frequent snoring should push you toward a clinician, not another pillow hack.</strong>
+                        The good news: a lot of snoring improves with a few targeted changes (like these <Link href="/sleep-guides/five-surprising-fixes-snoring" className="text-golden-bronze hover:underline">5 surprising fixes</Link>). The important news: <strong>certain patterns of loud, frequent snoring should push you toward a clinician, not another pillow hack.</strong>
                     </p>
                 </div>
 
@@ -90,7 +91,7 @@ const WhatCausesSnoring = () => {
                             <span className="flex-shrink-0 w-6 h-6 rounded-full bg-golden-bronze text-white flex items-center justify-center font-bold text-sm mt-0.5">1</span>
                             <div>
                                 <strong className="text-jet-black block">Sleep on your side.</strong>
-                                <span className="text-graphite text-sm">Positional snoring is extremely common.</span>
+                                <span className="text-graphite text-sm">Positional snoring is extremely common. (See <Link href="/sleep-guides/healthiest-sleep-position" className="text-golden-bronze hover:underline">healthiest sleep position</Link>.)</span>
                             </div>
                         </li>
                         <li className="flex items-start gap-3">
@@ -333,7 +334,7 @@ const WhatCausesSnoring = () => {
                 <section className="bg-jet-black text-white p-8 md:p-12 rounded-2xl text-center">
                     <h2 className="text-2xl font-bold font-sans !mt-0 !mb-4 text-white">The Bottom Line</h2>
                     <p className="text-alabaster-grey text-lg leading-relaxed max-w-2xl mx-auto !mb-0">
-                        Most snoring is a mechanical problem: airflow plus anatomy plus sleep habits. Start with the easy, high-upside changes (side sleeping and nasal airflow). Be skeptical of “one weird device” solutions. And treat loud, frequent snoring with daytime symptoms as a medical issue, not a lifestyle challenge.
+                        Most snoring is a mechanical problem: airflow plus anatomy plus sleep habits. Start with the easy, high-upside changes (side sleeping and nasal airflow). Be skeptical of “one weird device” solutions. And treat loud, frequent snoring with daytime symptoms as a medical issue, not a lifestyle challenge. (If your mattress forces you onto your back, see our <Link href="/top-picks" className="text-alabaster-grey underline hover:text-white">Top Picks</Link>.)
                     </p>
                 </section>
             </main>

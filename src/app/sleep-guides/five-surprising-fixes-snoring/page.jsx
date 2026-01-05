@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -124,7 +125,7 @@ const SnoringGuide = () => {
                 <div>
                     <h3 className="text-2xl font-bold text-jet-black mb-4">The Physics of Posture</h3>
                     <p className="text-graphite mb-6 leading-relaxed">
-                        When you lie on your back, gravity acts as an enemy to your airway. It pulls the heavy tissues of the tongue and soft palate backward. As you drift into deep sleep, throat muscles relax, causing a collapse that generates the snoring sound.
+                        When you choose your <Link href="/sleep-guides/healthiest-sleep-position" className="text-golden-bronze hover:underline">sleep position</Link>, gravity acts as an enemy to your airway. It pulls the heavy tissues of the tongue and soft palate backward. As you drift into deep sleep, throat muscles relax, causing a collapse that generates the <Link href="/sleep-guides/what-causes-snoring" className="text-golden-bronze hover:underline">snoring sound</Link>.
                     </p>
                     <div className="space-y-4">
                         <h4 className="font-bold text-jet-black">Compare Positions:</h4>
@@ -379,9 +380,12 @@ const SnoringGuide = () => {
                         ))}
                     </div>
                     <div className="mt-16 text-center">
-                        <p className="text-xl font-medium text-jet-black italic">
+                        <p className="text-xl font-medium text-jet-black italic mb-8">
                             "If your sleep environment is currently set up for aesthetics rather than airway alignment, what small change could you make tonight?"
                         </p>
+                        <Link href="/top-picks" className="inline-flex items-center gap-2 text-golden-bronze font-bold hover:underline">
+                            Ready for a better bed? See our Top Picks <ArrowDown className="rotate-270" size={16} />
+                        </Link>
                     </div>
                 </div>
             </section>

@@ -77,6 +77,16 @@ const FAQHub = () => {
                 },
                 { title: 'Firmness Scale Explained (1-10)', link: '#' },
                 { title: 'Best Mattresses for Side Sleepers', link: '#' },
+                {
+                    title: 'What is the Healthiest Sleep Position?',
+                    link: '/sleep-guides/healthiest-sleep-position',
+                    isNew: true
+                },
+                {
+                    title: 'Duvet vs. Comforter: What\'s the Difference?',
+                    link: '/sleep-guides/duvet-vs-comforter',
+                    isNew: true
+                },
                 { title: 'Standard Mattress Sizes Guide', link: '#' },
             ]
         },
@@ -86,6 +96,11 @@ const FAQHub = () => {
             icon: <Sparkles size={32} className="text-golden-bronze" />,
             description: 'How to make your investment last for the full decade.',
             articles: [
+                {
+                    title: 'How Long Will Your Mattress Actually Last?',
+                    link: '/sleep-guides/mattress-lifespan-guide',
+                    isNew: true
+                },
                 { title: 'Do You Really Need to Rotate Your Mattress?', link: '#' },
                 { title: 'How to Clean a Memory Foam Mattress', link: '#' },
                 { title: 'Waterproof Protectors: Are They Worth It?', link: '#' },

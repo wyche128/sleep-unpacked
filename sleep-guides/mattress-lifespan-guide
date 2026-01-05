@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Long Will Your Mattress Last? | Lifespan Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Merriweather', serif;
+        }
+
+        .hero-pattern {
+            background-color: #1e3a8a;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-bed text-blue-900 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl text-blue-900 tracking-tight">SleepGuide</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#lifespan" class="text-slate-600 hover:text-blue-900 transition">Lifespan Data</a>
+                    <a href="#signs" class="text-slate-600 hover:text-blue-900 transition">When to Replace</a>
+                    <a href="#care" class="text-slate-600 hover:text-blue-900 transition">Care Tips</a>
+                    <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition shadow-md">Check
+                        Yours</button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-900">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4">
+            <a href="#lifespan" class="block py-2 text-slate-600">Lifespan Data</a>
+            <a href="#signs" class="block py-2 text-slate-600">When to Replace</a>
+            <a href="#care" class="block py-2 text-slate-600">Care Tips</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-20 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">
+                How Long Will Your<br />Mattress Actually Last?
+            </h1>
+            <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8 font-light fade-in"
+                style="animation-delay: 0.2s;">
+                On average, mattresses should be replaced every <strong
+                    class="text-white font-bold underline decoration-blue-400 underline-offset-4">8-10 years</strong>.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" style="animation-delay: 0.4s;">
+                <a href="#lifespan"
+                    class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition shadow-lg">Compare
+                    Types</a>
+                <a href="#calculator"
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">Check
+                    My Mattress</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics Grid -->
+    <section id="lifespan" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Lifespan by Mattress Type</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Not all mattresses age the same. Materials like memory foam,
+                    latex, and steel coils break down at different rates.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- All-Foam Card -->
+                <div
+                    class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition hover:-translate-y-1 group">
+                    <div
+                        class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition duration-300">
+                        <i class="fa-solid fa-layer-group text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">All-Foam Models</h3>
+                    <div class="text-3xl font-bold text-blue-600 mb-4">8 - 10 Years</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Typically made of memory foam or polyfoam cores. Higher density foams (measured in PCF) tend to
+                        last longer, resisting body impressions and sagging.
+                    </p>
+                </div>
+
+                <!-- Hybrid Card -->
+                <div
+                    class="bg-white rounded-2xl p-8 border-2 border-blue-600 shadow-lg relative transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                        MOST DURABLE CHOICE</div>
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-spring text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Hybrid Models</h3>
+                    <div class="text-3xl font-bold text-blue-600 mb-4">10 - 12 Years</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Combines steel coils with foam layers. The coils provide structural longevity while promoting
+                        airflow, often outlasting pure foam models.
+                    </p>
+                </div>
+
+                <!-- Innerspring/Other Card -->
+                <div
+                    class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition hover:-translate-y-1 group">
+                    <div
+                        class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition duration-300">
+                        <i class="fa-solid fa-leaf text-2xl text-blue-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Latex Models</h3>
+                    <div class="text-3xl font-bold text-blue-600 mb-4">12 - 15 Years</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Natural latex is incredibly resilient. While expensive, organic latex mattresses often outlive
+                        both foam and hybrid counterparts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signs It's Time Section -->
+    <section id="signs" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Signs It's Time to Say Goodbye</h2>
+                    <p class="text-slate-600 mb-8">Even if you haven't hit the 10-year mark, your body might be telling
+                        you it's time for a change. Look for these red flags:</p>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-red-500 text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Visible Sagging</h4>
+                                <p class="text-sm text-slate-600">Deep indentations where you sleep that don't recover.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-red-500 text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Morning Aches</h4>
+                                <p class="text-sm text-slate-600">Waking up with back pain or stiffness that fades
+                                    during the day.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-red-500 text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Noise & Creaking</h4>
+                                <p class="text-sm text-slate-600">Squeaky springs indicate internal mechanical failure.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-1 mr-4">
+                                <i class="fa-solid fa-check text-red-500 text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Worse Allergies</h4>
+                                <p class="text-sm text-slate-600">Accumulation of dust mites over a decade can trigger
+                                    reactions.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <!-- Decorative image placeholder -->
+                    <div class="bg-white p-2 rounded-2xl shadow-xl transform rotate-2">
+                        <div
+                            class="bg-blue-200 rounded-xl h-64 md:h-80 w-full flex items-center justify-center overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1505693416388-b0346ef414b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Comfortable Bedroom"
+                                class="object-cover w-full h-full opacity-90 hover:opacity-100 transition duration-700">
+                            <div
+                                class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm">
+                                <p class="text-xs font-bold text-slate-800">Sleep Quality Matters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="py-20 bg-blue-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Replacement Calculator</h2>
+            <div class="bg-white text-slate-800 rounded-2xl p-8 shadow-2xl max-w-lg mx-auto">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-left text-sm font-semibold text-slate-600 mb-2">What year did you buy
+                            your mattress?</label>
+                        <select id="yearInput"
+                            class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                            <!-- JS will populate years -->
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-left text-sm font-semibold text-slate-600 mb-2">What type is
+                            it?</label>
+                        <select id="typeInput"
+                            class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition">
+                            <option value="foam">All-Foam / Memory Foam</option>
+                            <option value="hybrid">Hybrid (Spring + Foam)</option>
+                            <option value="spring">Traditional Innerspring</option>
+                            <option value="latex">Natural Latex</option>
+                        </select>
+                    </div>
+                    <button onclick="calculateLifespan()"
+                        class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">Check
+                        Status</button>
+
+                    <div id="result" class="hidden mt-6 p-4 rounded-lg bg-slate-50 border border-slate-200">
+                        <p class="font-bold text-lg" id="resultTitle"></p>
+                        <p class="text-sm text-slate-600 mt-2" id="resultDesc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Tips -->
+    <section id="care" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">How to Extend Your Mattress Life</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center p-4">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Rotate Regularly</h4>
+                    <p class="text-sm text-slate-600">Rotate (head to foot) every 3-6 months to prevent permanent body
+                        impressions.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Use a Protector</h4>
+                    <p class="text-sm text-slate-600">A waterproof protector stops sweat, spills, and skin cells from
+                        entering the foam.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-bed-pulse"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Proper Support</h4>
+                    <p class="text-sm text-slate-600">Ensure your bed frame has a center support leg and slats are no
+                        more than 3" apart.</p>
+                </div>
+                <div class="text-center p-4">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">No Jumping</h4>
+                    <p class="text-sm text-slate-600">Jumping damages the internal coil structure and compresses foam
+                        prematurely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">Does a 20-year warranty mean the mattress lasts 20 years?</h3>
+                    <p class="text-slate-600">Not usually. Warranties cover manufacturing defects (like a spring
+                        breaking), not normal wear and tear (like gradual loss of comfort). Expect to replace it around
+                        the 10-year mark regardless of warranty length.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">Why do hybrid mattresses last longer than all-foam?</h3>
+                    <p class="text-slate-600">Hybrids utilize steel coils for their support base. Steel is more durable
+                        than the high-density polyfoam used as the base for all-foam mattresses, allowing hybrids to
+                        maintain structural integrity for 10-12 years.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-lg mb-2">What happens if I keep my mattress too long?</h3>
+                    <p class="text-slate-600">Beyond poor sleep and back pain, old mattresses accumulate allergens. An
+                        average used mattress can house anywhere from 100,000 to 10 million dust mites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-4">
+                <i class="fa-solid fa-bed text-blue-500 text-3xl"></i>
+            </div>
+            <p class="mb-8"> Helping you sleep better, one night at a time.</p>
+            <div class="border-t border-slate-800 pt-8 text-sm">
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> SleepGuide. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Populate Year Select
+        const yearSelect = document.getElementById('yearInput');
+        const currentYear = new Date().getFullYear();
+        for (let i = currentYear; i >= currentYear - 25; i--) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            yearSelect.appendChild(option);
+        }
+
+        // Calculation Logic
+        function calculateLifespan() {
+            const boughtYear = parseInt(document.getElementById('yearInput').value);
+            const type = document.getElementById('typeInput').value;
+            const age = currentYear - boughtYear;
+
+            let maxLifespan = 10; // default for foam
+            let typeName = "Mattress";
+
+            if (type === 'hybrid') { maxLifespan = 12; typeName = "Hybrid Mattress"; }
+            if (type === 'spring') { maxLifespan = 8; typeName = "Innerspring Mattress"; }
+            if (type === 'latex') { maxLifespan = 15; typeName = "Latex Mattress"; }
+
+            const resultDiv = document.getElementById('result');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDesc = document.getElementById('resultDesc');
+
+            resultDiv.classList.remove('hidden');
+            resultDiv.classList.remove('bg-green-100', 'bg-yellow-100', 'bg-red-100', 'text-green-800', 'text-yellow-800', 'text-red-800');
+
+            if (age < (maxLifespan - 3)) {
+                // Good Condition
+                resultDiv.classList.add('bg-green-100', 'text-green-800');
+                resultTitle.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> You're Good to Go!`;
+                resultDesc.innerText = `Your ${typeName} is ${age} years old. It should have plenty of life left. Remember to rotate it regularly!`;
+            } else if (age >= (maxLifespan - 3) && age <= maxLifespan) {
+                // Warning Zone
+                resultDiv.classList.add('bg-yellow-100', 'text-yellow-800');
+                resultTitle.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2"></i> Monitor for Wear`;
+                resultDesc.innerText = `Your ${typeName} is ${age} years old. It is approaching the end of its expected lifespan (${maxLifespan} years). Start looking for signs of sagging.`;
+            } else {
+                // Replace Zone
+                resultDiv.classList.add('bg-red-100', 'text-red-800');
+                resultTitle.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Time to Replace`;
+                resultDesc.innerText = `Your ${typeName} is ${age} years old. This exceeds the typical lifespan of ${maxLifespan} years. You are likely compromising your sleep quality and support.`;
+            }
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

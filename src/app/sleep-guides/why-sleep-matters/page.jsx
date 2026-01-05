@@ -19,6 +19,7 @@ import {
     CheckCircle2
 } from 'lucide-react';
 import sleepImportanceHero from '../../../assets/sleep_importance_hero.png';
+import Link from 'next/link';
 
 const WhySleepMatters = () => {
     const [scrolled, setScrolled] = useState(0);
@@ -105,7 +106,7 @@ const WhySleepMatters = () => {
                                 How Sleep Works
                             </h2>
                             <p className="text-alabaster-grey mb-4">
-                                Sleep happens in repeating cycles that last about <strong>90 minutes</strong>. Each night, you move through two main types of sleep:
+                                Sleep happens in repeating <Link href="/sleep-guides/sleep-cycles-dreaming" className="text-golden-bronze hover:underline">cycles</Link> that last about <strong>90 minutes</strong>. Each night, you move through two main types of sleep:
                             </p>
                             <ul className="space-y-3">
                                 <li className="flex items-start gap-3">
@@ -230,9 +231,9 @@ const WhySleepMatters = () => {
                             Sleep isn’t wasted time—it’s essential maintenance. Getting <strong>7 to 9 hours</strong> of quality sleep is one of the simplest and most powerful ways to support long-term health, energy, and mental clarity.
                         </p>
                         <div className="inline-flex gap-4">
-                            <button className="bg-white text-jet-black px-6 py-3 rounded-full font-bold hover:bg-alabaster-grey transition-colors shadow-lg">
+                            <Link href="/top-picks" className="bg-white text-jet-black px-6 py-3 rounded-full font-bold hover:bg-alabaster-grey transition-colors shadow-lg">
                                 Start Sleeping Better
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </section>

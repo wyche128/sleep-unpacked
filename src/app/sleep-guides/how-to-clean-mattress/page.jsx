@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Doughnut, Bar } from 'react-chartjs-2';
+import Link from 'next/link';
 import {
     Chart as ChartJS,
     ArcElement,
@@ -394,7 +395,7 @@ const HowToCleanMattress = () => {
                         <span className="text-golden-bronze font-bold tracking-wide uppercase text-sm">Routine Maintenance</span>
                         <h2 className="mt-2 text-3xl leading-8 font-extrabold text-jet-black sm:text-4xl">The "Zero-Liquid" Clean</h2>
                         <p className="mt-4 max-w-2xl text-xl text-graphite mx-auto">
-                            Dead skin and dust mites are the primary pollutants. Here is how to clean without risking mold growth.
+                            Dead skin and dust mites are the primary pollutants. Here is how to clean without risking mold growth (which shortens <Link href="/sleep-guides/mattress-lifespan-guide" className="text-golden-bronze hover:underline">lifespan</Link>).
                         </p>
                     </div>
 
@@ -440,6 +441,14 @@ const HowToCleanMattress = () => {
                                 <div className="bg-zinc-800 rounded-xl p-6 border border-zinc-700">
                                     <p className="text-white italic text-lg mb-3">"A waterproof mattress protector... is an extra layer of protection to allow for easier cleanup after accidents."</p>
                                     <p className="text-golden-bronze font-bold text-sm uppercase tracking-wider">- NapLab Expert Guide</p>
+                                </div>
+                                <div className="mt-6">
+                                    <p className="text-zinc-400 text-sm">
+                                        Is it too late to save it?
+                                        <Link href="/top-picks" className="ml-2 text-white font-bold hover:text-golden-bronze underline">
+                                            Find your replacement here.
+                                        </Link>
+                                    </p>
                                 </div>
                             </div>
                             <div className="bg-zinc-900 p-12 lg:p-16 flex flex-col items-center justify-center border-l border-zinc-800">

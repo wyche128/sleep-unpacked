@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 import {
     Brain,
     HeartPulse,
@@ -210,7 +211,7 @@ const SleepWithPets = () => {
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16 text-center">
                 <p className="text-xl text-graphite leading-relaxed mb-10">
                     You know the look. The wet nose nudge. The pleading eyes. For years, experts said "keep them out."
-                    But new data suggests letting Fido under the covers isn't just an indulgence—it's a biological interaction
+                    But <Link href="/sleep-guides/why-sleep-matters" className="text-golden-bronze hover:underline">new data suggests</Link> letting Fido under the covers isn't just an indulgence—it's a biological interaction
                     that changes your hormones, heart rate, and sense of security.
                 </p>
                 <div className="flex justify-center gap-8 md:gap-16 text-jet-black">
@@ -408,7 +409,7 @@ const SleepWithPets = () => {
                                     <p className="mb-8 text-graphite leading-relaxed">
                                         Despite the benefits, pets are <strong>polyphasic sleepers</strong> (they wake up a
                                         lot). If you are a light sleeper, the "micro-awakenings" might leave you groggy. Use
-                                        this calculator to weigh the trade-off.
+                                        this calculator to weigh the trade-off. (Worried about the mess? Check our guide on <Link href="/sleep-guides/how-to-clean-mattress" className="text-golden-bronze hover:underline">how to clean a mattress</Link>.)
                                     </p>
 
                                     <form className="space-y-8">
@@ -536,6 +537,11 @@ const SleepWithPets = () => {
                             "We often worry about whether our pets are disrupting our sleep, but have you considered that you
                             are likely the anchor that allows them to sleep soundly, too?"
                         </p>
+                    </div>
+                    <div className="mt-8">
+                        <Link href="/top-picks" className="text-golden-bronze font-bold hover:underline">
+                            Need a bed that isolates motion? See our Top Picks
+                        </Link>
                     </div>
                     <p className="mt-12 text-sm text-gray-500">
                         Source: NapLab Research & Analysis | Visualization by Pet Sleep Lab

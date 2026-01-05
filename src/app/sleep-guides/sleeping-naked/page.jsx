@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Header from '../../../components/Header';
 import { Clock, Calendar, Share2, MessageCircle, ThumbsUp, User } from 'lucide-react';
 import sleepingNakedHero from '../../../assets/sleeping_naked_hero.png';
+import Link from 'next/link';
 
 const SleepingNakedPost = () => {
     const [readingProgress, setReadingProgress] = useState(0);
@@ -74,7 +75,7 @@ const SleepingNakedPost = () => {
                         Regulates Body Temperature
                     </h2>
                     <p>
-                        Your body temperature naturally drops as you fall asleep. Wearing thick pajamas can disrupt this process, causing you to wake up sweating. Sleeping naked helps your body find its optimal thermal regulation zone faster, leading to deeper, more restorative sleep.
+                        Your body temperature naturally drops as you fall asleep. Wearing thick pajamas can disrupt this process, causing you to wake up sweating. Sleeping naked helps your body find its optimal thermal regulation zone faster, leading to <Link href="/sleep-guides/sleep-cycles-dreaming" className="text-golden-bronze hover:underline">deeper, more restorative sleep</Link>.
                     </p>
 
                     <h2 className="text-2xl font-bold text-jet-black mt-12 mb-6 flex items-center gap-3">
@@ -115,9 +116,9 @@ const SleepingNakedPost = () => {
                         <p className="text-graphite mb-6">
                             Upgrade your sheets first. Natural materials like cotton or linen feel best against bare skin.
                         </p>
-                        <button className="bg-jet-black text-white px-8 py-3 rounded-full font-bold hover:bg-jet-black-800 transition shadow-lg">
-                            Shop Cooling Sheets
-                        </button>
+                        <Link href="/top-picks/best-cooling" className="bg-jet-black text-white px-8 py-3 rounded-full font-bold hover:bg-jet-black-800 transition shadow-lg inline-block">
+                            Shop Cooling Mattresses
+                        </Link>
                     </div>
                 </article>
             </main>

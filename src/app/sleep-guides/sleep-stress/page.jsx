@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Zap, Moon, Activity, BookOpen, Anchor, Heart } from 'lucide-react';
@@ -140,6 +141,11 @@ const SleepStressGuide = () => {
                         <a href="#stats" className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white transition-all duration-200 bg-golden-bronze rounded-full hover:bg-white hover:text-jet-black hover:shadow-lg">
                             Break the Cycle
                         </a>
+                        <div className="mt-6 text-sm">
+                            <Link href="/top-picks" className="text-gray-400 hover:text-white hover:underline transition-colors">
+                                Or upgrade your sleep system
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -219,7 +225,7 @@ const SleepStressGuide = () => {
                         <div className="md:w-1/3">
                             <div className="flex items-center gap-3 mb-4">
                                 <span className="bg-blue-100 text-blue-600 p-2 rounded-lg"><Moon size={20} /></span>
-                                <h3 className="text-xl font-bold text-jet-black">Sleeping Naked</h3>
+                                <h3 className="text-xl font-bold text-jet-black"><Link href="/sleep-guides/sleeping-naked" className="hover:underline hover:text-golden-bronze">Sleeping Naked</Link></h3>
                             </div>
                             <p className="text-graphite text-sm leading-relaxed mb-4">
                                 It's not just a lifestyle choice; it's an endocrine hack. By ditching pajamas, you signal your
@@ -254,7 +260,7 @@ const SleepStressGuide = () => {
                                 <h3 className="text-xl font-bold">The Living Anti-Depressant</h3>
                             </div>
                             <p className="text-gray-300 text-sm mb-6">
-                                Co-sleeping with a pet increases <strong>Oxytocin</strong> (the love chemical) and promotes
+                                <Link href="/sleep-guides/sleep-with-pets" className="text-white hover:underline hover:text-golden-bronze font-bold">Co-sleeping with a pet</Link> increases <strong>Oxytocin</strong> (the love chemical) and promotes
                                 Theta brainwaves (associated with REM sleep).
                             </p>
                         </div>

@@ -1,0 +1,367 @@
+import React, { useState, useEffect } from 'react';
+import {
+Menu, X, CheckCircle, XCircle, ArrowRight,
+ChevronRight, Star, Moon, Award, Info,
+user, Calendar, ShieldCheck
+} from 'lucide-react';
+
+// --- Components ---
+
+const Header = () => {
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+return (
+<header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center gap-2">
+                <div className="bg-orange-500 text-white p-1.5 rounded-lg">
+                    <Moon size={24} fill="currentColor" />
+                </div>
+                <span className="font-bold text-xl tracking-tight text-gray-900">NapLab</span>
+            </div>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex space-x-8">
+                <a href="#" className="text-gray-600 hover:text-orange-500 font-medium">Mattress Reviews</a>
+                <a href="#" className="text-gray-600 hover:text-orange-500 font-medium">Best Mattresses</a>
+                <a href="#" className="text-gray-600 hover:text-orange-500 font-medium">Comparisons</a>
+                <a href="#" className="text-orange-600 font-bold">Sleep Guides</a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+                <button onClick={()=> setIsMenuOpen(!isMenuOpen)}
+                    className="text-gray-500 hover:text-gray-900 focus:outline-none"
+                    >
+                    {isMenuOpen ?
+                    <X size={24} /> :
+                    <Menu size={24} />}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {/* Mobile Nav */}
+    {isMenuOpen && (
+    <div className="md:hidden bg-white border-t border-gray-100">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Reviews</a>
+            <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Best Lists</a>
+            <a href="#" className="block px-3 py-2 text-base font-medium text-orange-600 bg-orange-50">Guides</a>
+        </div>
+    </div>
+    )}
+</header>
+);
+};
+
+const ComparisonTable = () => (
+<div className="overflow-x-auto my-8">
+    <table className="min-w-full text-sm text-left text-gray-500 border border-gray-200">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th className="px-6 py-3 border-b">Position</th>
+                <th className="px-6 py-3 border-b">Prevalence</th>
+                <th className="px-6 py-3 border-b">Pros</th>
+                <th className="px-6 py-3 border-b">Cons</th>
+                <th className="px-6 py-3 border-b">Ideal Firmness</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr className="bg-white border-b">
+                <td className="px-6 py-4 font-bold text-gray-900">Back</td>
+                <td className="px-6 py-4">~10-15%</td>
+                <td className="px-6 py-4 text-green-600">Spinal alignment, reduced wrinkles, less acid reflux (if
+                    elevated)</td>
+                <td className="px-6 py-4 text-red-600">Snoring, Sleep Apnea risk</td>
+                <td className="px-6 py-4">Medium-Firm (6-7)</td>
+            </tr>
+            <tr className="bg-white border-b">
+                <td className="px-6 py-4 font-bold text-gray-900">Side</td>
+                <td className="px-6 py-4">~86% (Most Popular)</td>
+                <td className="px-6 py-4 text-green-600">Reduces snoring, good for pregnancy, digestion</td>
+                <td className="px-6 py-4 text-red-600">Shoulder/Hip pressure, facial wrinkles</td>
+                <td className="px-6 py-4">Soft to Medium (4-6)</td>
+            </tr>
+            <tr className="bg-white">
+                <td className="px-6 py-4 font-bold text-gray-900">Stomach</td>
+                <td className="px-6 py-4">~10%</td>
+                <td className="px-6 py-4 text-green-600">Reduces snoring</td>
+                <td className="px-6 py-4 text-red-600">Neck strain, lower back hyperextension, generally not recommended
+                </td>
+                <td className="px-6 py-4">Firm (7-8)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+);
+
+const ProductCard = ({ title, badge, rating, price, description, linkText, imageColor }) => (
+<div
+    className="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-white mb-6">
+    <div className={`h-40 ${imageColor} flex items-center justify-center text-white font-bold text-2xl relative`}>
+        {title} Image
+        {badge && (
+        <div className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded">
+            {badge}
+        </div>
+        )}
+    </div>
+    <div className="p-5">
+        <div className="flex justify-between items-start mb-2">
+            <h3 className="font-bold text-lg text-gray-900">{title}</h3>
+            <div className="flex items-center bg-green-100 px-2 py-0.5 rounded">
+                <Star size={14} className="text-green-700 fill-current" />
+                <span className="ml-1 text-sm font-bold text-green-800">{rating}</span>
+            </div>
+        </div>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{description}</p>
+        <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+            <span className="font-semibold text-gray-900">{price}</span>
+            <button
+                className="text-white bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                Check Price
+            </button>
+        </div>
+    </div>
+</div>
+);
+
+const SectionHeading = ({ children }) => (
+<h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-12 mb-6 flex items-center gap-3">
+    <div className="h-8 w-1 bg-orange-500 rounded-full"></div>
+    {children}
+</h2>
+);
+
+const TableOfContents = () => (
+<div className="bg-gray-50 p-6 rounded-xl mb-8 sticky top-24">
+    <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <Info size={16} />
+        In This Guide
+    </h4>
+    <ul className="space-y-2 text-sm text-gray-600">
+        <li><a href="#healthiest" className="hover:text-orange-600 hover:underline">The Verdict: The Healthiest
+                Position</a></li>
+        <li><a href="#back-sleeping" className="hover:text-orange-600 hover:underline">Deep Dive: Back Sleeping</a></li>
+        <li><a href="#side-sleeping" className="hover:text-orange-600 hover:underline">Deep Dive: Side Sleeping</a></li>
+        <li><a href="#stomach-sleeping" className="hover:text-orange-600 hover:underline">Why to Avoid Stomach
+                Sleeping</a></li>
+        <li><a href="#mattress-pairing" className="hover:text-orange-600 hover:underline">Pairing Your Mattress</a></li>
+    </ul>
+</div>
+);
+
+const App = () => {
+return (
+<div className="bg-white min-h-screen font-sans text-gray-800">
+    <Header />
+
+    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        {/* Hero Section */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+            <div
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wide mb-4">
+                <Award size={14} />
+                Sleep Wellness Guide
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-6">
+                What is the Healthiest Sleep Position?
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed">
+                While 86% of people favor their side, science and our testing data suggest that
+                <strong> back sleeping</strong> is generally the healthiest option for spinal alignment and skin health.
+            </p>
+            <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-500">
+                <span className="flex items-center gap-1">
+                    <Calendar size={14} /> Updated December 8, 2025
+                </span>
+                <span className="flex items-center gap-1">
+                    <ShieldCheck size={14} /> Fact Checked
+                </span>
+            </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+            {/* Main Content */}
+            <div className="lg:col-span-8">
+
+                {/* The Direct Answer */}
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl mb-10">
+                    <h3 className="text-xl font-bold text-blue-900 mb-2">The Short Answer</h3>
+                    <p className="text-blue-800">
+                        <strong>Back sleeping</strong> is widely considered the healthiest position. It allows your
+                        head, neck, and spine to rest in a neutral position, reducing pressure points and preventing
+                        aches. However, if you suffer from sleep apnea or severe snoring, back sleeping may worsen these
+                        conditions, in which case side sleeping is preferred.
+                    </p>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                    How you sleep determines how you feel the next day. While comfort is subjective, the mechanics of
+                    spinal alignment are not. Based on our tests of over 360 mattresses and deep dives into sleep
+                    physiology, here is the breakdown of why back sleeping takes the gold medal, and how other positions
+                    compare.
+                </p>
+
+                <ComparisonTable />
+
+                <SectionHeading id="back-sleeping">1. Back Sleeping: The Gold Standard</SectionHeading>
+                <p className="mb-4 text-gray-700">
+                    Though only about 10-15% of the population sleeps primarily on their back, it offers the most
+                    benefits for the average sleeper without respiratory issues.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-green-50 p-5 rounded-xl">
+                        <h4 className="font-bold text-green-800 mb-3 flex items-center gap-2">
+                            <CheckCircle size={18} /> The Pros
+                        </h4>
+                        <ul className="space-y-2 text-sm text-green-900">
+                            <li>• <strong>Neutral Spine:</strong> Keeps head, neck, and spine aligned.</li>
+                            <li>• <strong>Skin Health:</strong> Face isn't pressed against a pillow, reducing wrinkles
+                                and acne.</li>
+                            <li>• <strong>Reduced Pain:</strong> Minimizes pressure points on hips and shoulders.</li>
+                        </ul>
+                    </div>
+                    <div className="bg-red-50 p-5 rounded-xl">
+                        <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2">
+                            <XCircle size={18} /> The Cons
+                        </h4>
+                        <ul className="space-y-2 text-sm text-red-900">
+                            <li>• <strong>Snoring:</strong> Gravity pulls the tongue back, worsening snoring.</li>
+                            <li>• <strong>Sleep Apnea:</strong> Not recommended for obstructive sleep apnea.</li>
+                            <li>• <strong>Lower Back:</strong> Some may need a small pillow under knees to flatten the
+                                lumbar curve.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p className="text-gray-700 mb-6 italic">
+                    <strong>NapLab Tip:</strong> If you sleep on your back, you generally need a "Medium-Firm" to
+                    "Slightly Firm" mattress (6-7 out of 10) to prevent your hips from sinking too deep.
+                </p>
+
+                <SectionHeading id="side-sleeping">2. Side Sleeping: The Crowd Favorite</SectionHeading>
+                <p className="mb-4 text-gray-700">
+                    According to our 2025 survey of 70,000 sleepers, <strong>86% of us are side sleepers</strong> at
+                    least part of the time. While back sleeping is technically "healthiest" for the spine, side sleeping
+                    is the best alternative and is actually medically necessary for some.
+                </p>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-6">
+                    <li><strong>Best for Snoring:</strong> Keeps airways open.</li>
+                    <li><strong>Pregnancy:</strong> Sleeping on the left side improves circulation to the heart and
+                        placenta.</li>
+                    <li><strong>Gut Health:</strong> Can aid digestion and reduce heartburn.</li>
+                </ul>
+                <p className="text-gray-700 mb-6">
+                    The downside? The "fetal position" can restrict deep breathing if you curl up too tightly, and
+                    pressing your face into a pillow nightly contributes to sleep wrinkles. Side sleepers also require a
+                    softer mattress (4-6 out of 10) to cushion the shoulders and hips.
+                </p>
+
+                <SectionHeading id="stomach-sleeping">3. Stomach Sleeping: Proceed with Caution</SectionHeading>
+                <p className="mb-4 text-gray-700">
+                    Generally, stomach sleeping is considered the "worst" position. It forces your neck to turn at a
+                    90-degree angle, placing significant strain on the cervical spine. It also often causes the lower
+                    back to hyperextend (swayback), leading to morning aches.
+                </p>
+                <p className="text-gray-700 mb-6">
+                    If you must sleep on your stomach, you need a <strong>Firm mattress (7-8/10)</strong> to keep your
+                    hips elevated and aligned with your shoulders.
+                </p>
+
+                <div className="mt-12 p-8 bg-gray-900 rounded-2xl text-white">
+                    <h3 className="text-2xl font-bold mb-4">Is Your Mattress Causing You Pain?</h3>
+                    <p className="text-gray-300 mb-6">
+                        Often, we sleep in unhealthy positions because our mattress is too old or the wrong firmness. If
+                        your mattress is sagging, you might be twisting your body to find support.
+                    </p>
+                    <button
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors inline-flex items-center gap-2">
+                        Take the Mattress Finder Quiz
+                        <ChevronRight size={18} />
+                    </button>
+                </div>
+
+            </div>
+
+            {/* Right Sidebar */}
+            <div className="lg:col-span-4">
+                <TableOfContents />
+
+                <div className="sticky top-80">
+                    <h3 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
+                        <Award className="text-orange-500" />
+                        Top Recommendations
+                    </h3>
+
+                    {/* Leesa Sapira - Back Sleeper Pick */}
+                    <ProductCard title="Leesa Sapira Hybrid" badge="Best for Back Sleepers" rating="9.6"
+                        price="$1,599 (Queen)"
+                        description="Our top pick for back sleepers. Its medium-firm feel and minimal sinkage create perfect spinal alignment while the high-performance cooling cover keeps you comfortable."
+                        linkText="Read Review" imageColor="bg-slate-700" />
+
+                    {/* WinkBed - Side Sleeper Pick */}
+                    <ProductCard title="The WinkBed" badge="Best for Side Sleepers" rating="9.8" price="$1,499 (Queen)"
+                        description="The #1 rated mattress for side sleepers. The pillow-top comfort layer provides ample pressure relief for hips and shoulders without sacrificing coil support."
+                        linkText="Read Review" imageColor="bg-blue-600" />
+
+                    {/* Helix - Stomach Pick */}
+                    <ProductCard title="Helix Dawn" badge="Best for Stomach Sleepers" rating="9.4"
+                        price="$1,099 (Queen)"
+                        description="A firm hybrid designed specifically to prevent hip sinkage. Perfect for stomach sleepers who need a flat, supportive surface to avoid back pain."
+                        linkText="Read Review" imageColor="bg-indigo-900" />
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    {/* Footer */}
+    <footer className="bg-gray-50 border-t border-gray-200 mt-12 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="col-span-1 md:col-span-2">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="bg-orange-500 text-white p-1 rounded">
+                            <Moon size={18} fill="currentColor" />
+                        </div>
+                        <span className="font-bold text-lg text-gray-900">NapLab</span>
+                    </div>
+                    <p className="text-sm text-gray-600 max-w-xs">
+                        We’ve tested over 380 mattresses using data-driven analysis to help you find the best sleep of
+                        your life.
+                    </p>
+                </div>
+                <div>
+                    <h5 className="font-bold text-gray-900 mb-3">Sleep Guides</h5>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" className="hover:text-orange-600">How to Choose a Mattress</a></li>
+                        <li><a href="#" className="hover:text-orange-600">Sleep & Spinal Health</a></li>
+                        <li><a href="#" className="hover:text-orange-600">Mattress Firmness Guide</a></li>
+                        <li><a href="#" className="hover:text-orange-600">Best Mattresses for Sex</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 className="font-bold text-gray-900 mb-3">About</h5>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" className="hover:text-orange-600">Our Testing Process</a></li>
+                        <li><a href="#" className="hover:text-orange-600">About Derek Hales</a></li>
+                        <li><a href="#" className="hover:text-orange-600">Contact Us</a></li>
+                        <li><a href="#" className="hover:text-orange-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+                &copy; 2025 NapLab. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+);
+};
+
+export default App;

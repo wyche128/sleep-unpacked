@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 import { Brain, Moon, Zap, Shield, Eye, Activity } from 'lucide-react';
 
 ChartJS.register(
@@ -188,6 +189,11 @@ const SleepCyclesDreaming = () => {
                     <a href="#cycles" className="inline-block bg-golden-bronze hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
                         Start Exploring
                     </a>
+                    <div className="mt-4">
+                        <Link href="/top-picks" className="text-zinc-400 hover:text-white text-sm font-semibold hover:underline">
+                            Or explore our Top Picks for better sleep
+                        </Link>
+                    </div>
                 </div>
             </header>
 
@@ -197,7 +203,7 @@ const SleepCyclesDreaming = () => {
                     <div className="text-center mb-10">
                         <h2 className="text-3xl font-bold text-jet-black mb-4">The 90-Minute Architecture</h2>
                         <p className="text-graphite max-w-2xl mx-auto">
-                            Sleep isn't a flat line. It's a wave. Understanding where you are in the cycle is the key to energy. Explore the napping zones below.
+                            Sleep isn't a flat line. It's a wave. (See the <Link href="/sleep-guides/state-of-sleep" className="text-golden-bronze hover:underline">State of Sleep report</Link>.) Understanding where you are in the cycle is the key to energy. Explore the napping zones below.
                         </p>
                     </div>
 
@@ -243,7 +249,7 @@ const SleepCyclesDreaming = () => {
                         <div className="md:w-1/2">
                             <h2 className="text-3xl font-bold text-jet-black mb-4">The Nightly Brain Wash</h2>
                             <p className="text-graphite mb-6 leading-relaxed">
-                                While you are awake, your brain cells are packed tightly together. But during sleep, the glymphatic system kicks in. The space between cells expands by up to 60%, allowing cerebrospinal fluid to rush through and flush out toxins like beta-amyloid.
+                                While you are awake, your brain cells are packed tightly together. But during sleep, the glymphatic system kicks in. The space between cells expands by up to 60%, allowing cerebrospinal fluid to rush through and flush out toxins like beta-amyloid. (Learn more about <Link href="/sleep-guides/why-sleep-matters" className="text-golden-bronze hover:underline">why sleep matters</Link>.)
                             </p>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-alabaster-grey">
                                 <h4 className="font-bold text-jet-black mb-2 flex items-center gap-2"><Brain className="w-5 h-5 text-indigo-500" /> Why it matters:</h4>

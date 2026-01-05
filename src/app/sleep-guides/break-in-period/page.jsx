@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import { Clock, Moon, ShieldCheck, Thermometer, Footprints, Info, ChevronDown, ChevronUp, CheckCircle } from 'lucide-react';
 import { Line } from 'react-chartjs-2';
+import Link from 'next/link';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -131,7 +132,7 @@ const BreakInPeriodGuide = () => {
                         <FeatureCard icon={ShieldCheck} title="Material Softening"
                             description="High-density foams and fresh coils are stiff straight from the factory. Regular use opens up the foam cells, allowing them to contour properly." />
                         <FeatureCard icon={Clock} title="The New Shoe Effect"
-                            description="Just like stiff shoes cause blisters before they become comfortable, a new mattress can cause temporary aches before providing long-term relief." />
+                            description={<span>Just like stiff shoes cause blisters before they become comfortable, a new mattress can cause temporary aches before providing long-term relief. (See our <Link href="/sleep-guides/mattress-firmness-guide" className="text-golden-bronze hover:underline">firmness guide</Link>.)</span>} />
                     </div>
                 </div>
             </section>
@@ -210,7 +211,7 @@ const BreakInPeriodGuide = () => {
                             <div className="space-y-4">
                                 <div className="p-4 bg-white rounded-lg border border-alabaster-grey">
                                     <p className="text-sm text-graphite italic">"Brands like Casper, Purple, and Nectar all
-                                        have mandatory waiting periods before you can return."</p>
+                                        have mandatory waiting periods before you can return. (See our <Link href='/top-picks' className='text-golden-bronze hover:underline'>Top Picks</Link> for return-friendly brands)."</p>
                                 </div>
                                 <div className="p-4 bg-white rounded-lg border border-alabaster-grey">
                                     <p className="text-sm text-graphite italic">"Latex mattresses usually break in faster (2-14

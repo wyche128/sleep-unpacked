@@ -146,6 +146,15 @@ const SleepGuides = () => {
             excerpt: "Your mattress is a biological sponge. Stop using hot water on blood and learn the chemical protocols for every stain.",
             link: "/sleep-guides/how-to-clean-mattress",
             image: cleanMattressHero
+        },
+        {
+            id: 15,
+            title: "Why Your Bedroom Color Matters",
+            category: "Sleep Science",
+            readTime: "5 min read",
+            excerpt: "Blue is best, but red light therapy wins at night. See how your wall color is rewriting your biology.",
+            link: "/sleep-guides/colors-that-help-sleep",
+            image: sleepCyclesHero // Placeholder reusing an existing image until a specific one is generated
         }
     ]);
 

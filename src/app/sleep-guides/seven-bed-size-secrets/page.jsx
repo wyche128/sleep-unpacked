@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
+import Link from 'next/link';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -107,12 +108,17 @@ const SevenBedSizeSecrets = () => {
                     </h1>
                     <p className="text-lg md:text-xl text-zinc-300 leading-relaxed mb-8 max-w-2xl mx-auto font-light">
                         We spend a third of our lives in bed, yet most of us choose our mattress based on vague memories.
-                        Picking the wrong size is a recipe for restless nights.
+                        Picking the wrong size is a recipe for restless nights. (Unsure where to start? Check our <Link href="/sleep-guides/how-to-choose-a-mattress" className="text-golden-bronze hover:underline">Master Selection Guide</Link>.)
                     </p>
                     <div className="inline-block bg-golden-bronze/10 rounded-full px-6 py-2 border border-golden-bronze/30">
                         <p className="text-sm text-golden-bronze font-medium flex items-center gap-2">
                             <Info size={16} /> Interactive Research Report
                         </p>
+                    </div>
+                    <div className="mt-4">
+                        <Link href="/top-picks" className="text-zinc-400 hover:text-white text-sm font-semibold hover:underline">
+                            Looking to buy? See our Top Picks
+                        </Link>
                     </div>
                 </div>
             </header>
@@ -186,7 +192,7 @@ const SevenBedSizeSecrets = () => {
                         <span className="text-xs font-bold tracking-wider text-golden-bronze uppercase mb-2 block">Secret #3</span>
                         <h2 className="text-2xl font-bold text-jet-black mb-4 font-serif">The "Split King" Hack</h2>
                         <p className="text-graphite mb-8">
-                            Fighting over covers? A Split King isn't a custom size; it's simply <strong>two Twin XL mattresses</strong> side-by-side.
+                            Fighting over covers? (Or overheating? Consider <Link href="/sleep-guides/sleeping-naked" className="text-golden-bronze hover:underline">sleeping naked</Link>.) A Split King isn't a custom size; it's simply <strong>two Twin XL mattresses</strong> side-by-side.
                         </p>
 
                         <div className="flex justify-center items-center gap-2 mb-8">

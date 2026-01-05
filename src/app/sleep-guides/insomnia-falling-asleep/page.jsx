@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import Header from '../../../components/Header';
+import Link from 'next/link';
 
 
 ChartJS.register(
@@ -321,7 +322,7 @@ const InsomniaGuide = () => {
                     <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">The Sleep Switch: 6 Tools To Help You Sleep</h1>
                     <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
                         Sleep isn't a task you can force. It's a biological process.
-                        Based on research regarding <strong className="text-indigo-400">Paradoxical Intention</strong> and physiological regulation,
+                        Based on research regarding <strong className="text-indigo-400">Paradoxical Intention</strong> and physiological regulation (see our <Link href="/sleep-guides/sleep-stress" className="text-indigo-400 hover:underline">stress guide</Link>),
                         these 6 tools are designed to override your body's stress response.
                     </p>
                 </section>
@@ -429,7 +430,7 @@ const InsomniaGuide = () => {
                         </div>
                         <div className="bg-blue-900/20 p-4 rounded-lg border border-blue-900/50">
                             <p className="text-sm text-blue-200">
-                                <strong>Tip:</strong> Sleep naked to help thermoregulation if you can't lower the AC.
+                                <strong>Tip:</strong> <Link href="/sleep-guides/sleeping-naked" className="text-blue-300 hover:underline">Sleep naked</Link> to help thermoregulation if you can't lower the AC.
                             </p>
                         </div>
                     </div>
@@ -497,6 +498,9 @@ const InsomniaGuide = () => {
                         <div className="md:w-2/3 h-64">
                             <Bar data={latencyChartData} options={latencyChartOptions} />
                         </div>
+                    </div>
+                    <div className="mt-8 text-center">
+                        <p className="text-slate-400">Still struggling? Your mattress might be the problem. Check our <Link href="/top-picks" className="text-indigo-400 hover:underline font-bold">Top Picks for Insomnia</Link>.</p>
                     </div>
                 </section>
 

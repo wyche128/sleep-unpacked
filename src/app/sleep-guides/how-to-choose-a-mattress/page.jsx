@@ -195,10 +195,13 @@ const HowToChooseMattress = () => {
                         You spend 1/3 of your life in bed. Most people buy mattresses based on marketing terms like "soft" or "plush."
                         Use this data-driven dashboard to find the sleep system that matches your specific biology.
                     </p>
-                    <div className="flex justify-center gap-4">
+                    <div className="flex flex-col items-center gap-4">
                         <a href="#biomechanics"
                             className="bg-jet-black text-white px-8 py-3 rounded-full font-bold hover:bg-jet-black/80 transition shadow-lg">Start
                             Analysis</a>
+                        <Link href="/top-picks" className="text-sm font-bold text-golden-bronze hover:underline">
+                            Or skip straight to our Top Picks
+                        </Link>
                     </div>
                 </section>
 
@@ -329,7 +332,7 @@ const HowToChooseMattress = () => {
                         <h2 className="text-3xl font-bold text-jet-black">3. The Relativity of Firmness</h2>
                         <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
                             <p className="font-bold text-amber-900">Counter-Intuitive Insight</p>
-                            <p className="text-amber-800 text-sm">A "Universal Medium" (6/10) mattress does not feel the same to everyone. Firmness is subjective to your body mass.</p>
+                            <p className="text-amber-800 text-sm">A "Universal Medium" (6/10) mattress does not feel the same to everyone. <Link href="/sleep-guides/mattress-firmness-guide" className="text-amber-900 underline font-bold">Firmness</Link> is subjective to your body mass.</p>
                         </div>
                         <p className="text-graphite leading-relaxed">
                             As shown in the chart, a standard "Medium" mattress feels significantly firmer to a lighter person (who floats on top) and softer to a heavier person (who sinks through the comfort layers).
@@ -387,7 +390,7 @@ const HowToChooseMattress = () => {
                             <div className="p-8 space-y-4">
                                 <h3 className="font-bold text-xl text-jet-black">The 30-Day Break-In Rule</h3>
                                 <p className="text-graphite text-sm leading-relaxed">
-                                    Your body has adapted to your old, bad mattress. It takes roughly 30 days for your muscles to realign and for the new materials to soften. Don't return it in week 1.
+                                    Your body has adapted to your old, bad mattress. It takes roughly 30 days for your muscles to realign and for the new materials to soften (see our <Link href="/sleep-guides/mattress-lifespan-guide" className="text-golden-bronze hover:underline">lifespan guide</Link>). Don't return it in week 1.
                                 </p>
                                 <div className="h-2 bg-gray-100 rounded-full mt-4 overflow-hidden">
                                     <div className="h-full bg-golden-bronze w-1/3"></div>

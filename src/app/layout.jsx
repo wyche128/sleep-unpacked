@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={`${inter.variable} ${merriweather.variable} font-sans text-graphite bg-white min-h-screen`}>
                 <ScrollToTop />
                 {children}

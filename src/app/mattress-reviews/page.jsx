@@ -12,6 +12,52 @@ const MattressReviewsHub = () => {
                 <p className="text-xl text-alabaster-grey">Deep dive reviews into the top brands.</p>
             </div>
 
+            {/* Top Picks CTA */}
+            <div className="max-w-7xl mx-auto px-4 pt-12">
+                <div className="bg-alabaster-grey/20 border border-alabaster-grey rounded-2xl p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                    <div>
+                        <div className="text-xs font-bold uppercase tracking-wider text-golden-bronze mb-2">Start Here</div>
+                        <h2 className="text-2xl font-bold text-jet-black mb-2">Want the shortlist?</h2>
+                        <p className="text-graphite max-w-2xl">
+                            Jump to our category winners, then drill into the Living Review data for the model you’re considering.
+                        </p>
+                        <div className="mt-5 flex flex-wrap gap-3">
+                            <Link href="/top-picks/best-overall-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Best Overall
+                            </Link>
+                            <Link href="/top-picks/best-mattress-for-back-pain" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Back Pain
+                            </Link>
+                            <Link href="/top-picks/best-value-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Best Value
+                            </Link>
+                            <Link href="/top-picks/best-cooling-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Best Cooling
+                            </Link>
+                            <Link href="/top-picks/best-organic-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Organic
+                            </Link>
+                            <Link href="/top-picks/best-latex-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Latex
+                            </Link>
+                            <Link href="/top-picks/best-mattress-for-side-sleepers" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Side Sleepers
+                            </Link>
+                            <Link href="/top-picks/best-mattress-for-heavy-sleepers" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Heavy Sleepers
+                            </Link>
+                            <Link href="/top-picks/best-luxury-mattress" className="inline-flex items-center bg-white hover:bg-alabaster-grey/30 text-jet-black font-semibold px-4 py-2 rounded-full border border-alabaster-grey transition-colors">
+                                Luxury
+                            </Link>
+                        </div>
+                    </div>
+
+                    <Link href="/top-picks" className="inline-flex items-center justify-center gap-2 bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-6 rounded-xl transition-colors shrink-0">
+                        View Top Picks <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 py-16">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

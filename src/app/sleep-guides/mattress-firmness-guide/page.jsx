@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
+import Link from 'next/link';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -209,6 +210,11 @@ const MattressFirmnessGuide = () => {
                         className="inline-block bg-golden-bronze text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-yellow-600 transition-transform transform hover:-translate-y-1">
                         Find Your Perfect Firmness
                     </a>
+                    <div className="mt-4">
+                        <Link href="/top-picks" className="text-zinc-400 hover:text-white text-sm font-semibold hover:underline transition-colors">
+                            Or browse our Top Rated Mattresses of 2025
+                        </Link>
+                    </div>
                 </div>
             </header>
 
@@ -227,7 +233,7 @@ const MattressFirmnessGuide = () => {
                             <p className="text-graphite">
                                 A <strong>1/10</strong> is essentially a bean bag, and a <strong>10/10</strong> is a concrete
                                 floor. Neither offers a good night's sleep. The functional world exists almost entirely between
-                                <strong>3.5 (Soft)</strong> and <strong>9 (Firm)</strong>.
+                                <strong>3.5 (Soft)</strong> and <strong>9 (Firm)</strong>. (See our <Link href="/sleep-guides/how-to-choose-a-mattress" className="text-golden-bronze hover:underline">How to Choose a Mattress</Link> guide for more nuance.)
                             </p>
                             <div className="bg-zinc-100 border-l-4 border-jet-black p-4 rounded-r-lg">
                                 <p className="text-jet-black font-medium italic">"The sweet spot for human spinal alignment is
@@ -330,8 +336,7 @@ const MattressFirmnessGuide = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-zinc-300 mb-3">Primary Sleeping
-                                            Position</label>
+                                        <label className="block text-sm font-medium text-zinc-300 mb-3">Primary <Link href="/sleep-guides/healthiest-sleep-position" className="text-golden-bronze hover:underline">Sleeping Position</Link></label>
                                         <div className="grid grid-cols-3 gap-3">
                                             {['side', 'back', 'stomach'].map((p) => (
                                                 <button
