@@ -2,10 +2,29 @@
 
 import React from 'react';
 import Header from '../../../components/Header';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 import { RotateCw, CheckCircle, AlertTriangle, XCircle, Info, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 const CanIFlipMyMattress = () => {
+    const relatedFaqs = [
+        {
+            title: 'Do You Really Need to Rotate Your Mattress?',
+            link: '/faqs/do-you-need-to-rotate-mattress',
+            category: 'Maintenance'
+        },
+        {
+            title: 'What is a Mattress "Break-In Period"?',
+            link: '/faqs/how-to-break-in-mattress',
+            category: 'Care'
+        },
+        {
+            title: 'How to Clean a Memory Foam Mattress',
+            link: '/sleep-guides/how-to-clean-mattress',
+            category: 'Sleep Guide'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -108,8 +127,16 @@ const CanIFlipMyMattress = () => {
                                 <span className="font-bold text-jet-black">Rotate every 6 months</span>
                             </li>
                         </ul>
+                        <div className="mt-6 pt-4 border-t border-golden-bronze/20 text-center">
+                            <Link href="/faqs/do-you-need-to-rotate-mattress" className="text-sm font-bold text-golden-bronze hover:underline">
+                                Read our full guide on proper mattress rotation &rarr;
+                            </Link>
+                        </div>
                     </div>
                 </article>
+
+                {/* Related FAQs */}
+                <RelatedFAQ faqs={relatedFaqs} />
 
             </main>
 

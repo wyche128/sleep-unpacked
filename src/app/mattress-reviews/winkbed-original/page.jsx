@@ -13,7 +13,9 @@ import {
     Tooltip,
     Legend,
     Filler,
-    ArcElement
+    ArcElement,
+    LineController,
+    DoughnutController
 } from 'chart.js';
 
 ChartJS.register(
@@ -25,7 +27,9 @@ ChartJS.register(
     Tooltip,
     Legend,
     Filler,
-    ArcElement
+    ArcElement,
+    LineController,
+    DoughnutController
 );
 
 const WinkBedMattressReview = () => {
@@ -502,18 +506,6 @@ const WinkBedMattressReview = () => {
 
             </main>
 
-            {/* Footer */}
-            <footer className="border-t border-white/5 mt-12 py-12 bg-graphite">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-golden-bronze mx-auto mb-6 border border-white/10">
-                        <Microscope size={24} />
-                    </div>
-                    <p className="text-alabaster-grey/60 text-sm max-w-2xl mx-auto leading-relaxed">
-                        This Living Review is an independent analysis. Data is synthesized from aggregated public owner reports, third-party lab testing results, and technical material specifications.
-                    </p>
-                    <p className="mt-6 text-xs text-alabaster-grey/30">Last Database Update: October 2025</p>
-                </div>
-            </footer>
         </div>
     );
 };

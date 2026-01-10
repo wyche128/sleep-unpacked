@@ -282,7 +282,7 @@ const PurpleMattressReview = () => {
                 <section className="bg-graphite rounded-xl p-8 border-l-4 border-golden-bronze shadow-lg">
                     <h2 className="text-2xl font-bold text-white mb-4 font-serif">Executive Summary: 5-Year Projection</h2>
                     <p className="text-alabaster-grey mb-8">
-                        Based on verified owner data, longitudinal lab re-tests, and material fatigue analysis, here are the headline longevity findings for the Purple Original Mattress.
+                        Based on verified owner data, 3rd party lab results, and material fatigue analysis, here are the headline longevity findings for the Purple Original Mattress.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -366,9 +366,9 @@ const PurpleMattressReview = () => {
                     <div className="p-8 border-b border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div>
                             <h2 className="text-2xl font-bold text-golden-bronze flex items-center gap-3 font-serif">
-                                <FlaskConical /> Longevity Lab
+                                <FlaskConical /> Longevity Simulator
                             </h2>
-                            <p className="text-alabaster-grey/60 text-sm mt-1">Simulate wear time based on your sleeper profile.</p>
+                            <p className="text-alabaster-grey/60 text-sm mt-1">Model wear time based on your sleeper profile.</p>
                         </div>
 
                         <div className="flex flex-wrap gap-4">

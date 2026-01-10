@@ -469,11 +469,6 @@ const NectarPremiereLongevityReview = () => {
                     </div>
                 </section>
 
-                {/* Footer Disclaimer */}
-                <footer className="mt-12 border-t border-alabaster-grey pt-8 text-center">
-                    <p className="text-sm text-graphite">&copy; 2024 Living Review Analysis. Generated based on independent specs and owner reports.</p>
-                </footer>
-
             </div>
         </div>
     );

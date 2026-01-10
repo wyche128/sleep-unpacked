@@ -523,31 +523,6 @@ const SleepWithPets = () => {
                 </div>
             </main>
 
-            {/* Footer / Conclusion */}
-            <footer className="bg-jet-black text-white py-16 border-t border-gray-800">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h3 className="text-3xl font-bold mb-6 font-serif text-golden-bronze">The Final Verdict</h3>
-                    <p className="text-xl mb-12 font-light leading-relaxed text-alabaster-grey opacity-90">
-                        Sharing your bed is a personal choice, but the science is clear: for most people, the benefits of
-                        lowered stress, increased security, and hormonal regulation outweigh the occasional paw to the face.
-                    </p>
-                    <div className="bg-gray-900/50 p-8 rounded-2xl inline-block max-w-2xl mx-auto border border-gray-800 backdrop-blur-sm">
-                        <p className="font-semibold italic text-white flex gap-3 text-lg">
-                            <Moon className="text-golden-bronze shrink-0 mt-1" size={24} />
-                            "We often worry about whether our pets are disrupting our sleep, but have you considered that you
-                            are likely the anchor that allows them to sleep soundly, too?"
-                        </p>
-                    </div>
-                    <div className="mt-8">
-                        <Link href="/top-picks" className="text-golden-bronze font-bold hover:underline">
-                            Need a bed that isolates motion? See our Top Picks
-                        </Link>
-                    </div>
-                    <p className="mt-12 text-sm text-gray-500">
-                        Source: NapLab Research & Analysis | Visualization by Pet Sleep Lab
-                    </p>
-                </div>
-            </footer>
         </div>
     );
 };

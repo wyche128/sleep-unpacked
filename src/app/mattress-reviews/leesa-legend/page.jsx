@@ -516,20 +516,6 @@ const LeesaLegendMattressReview = () => {
                     </div>
                 </section>
 
-                {/* SECTION 5: CONCLUSION */}
-                <footer className="bg-jet-black text-white py-12 border-t border-golden-bronze">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                        <h2 className="text-2xl font-bold mb-4">Summary Verdict</h2>
-                        <p className="max-w-3xl mx-auto text-gray-300 mb-8">
-                            The Leesa Legend is a sophisticated hybrid that solves the hot-sleeping issues of all-foam beds. The inclusion of micro-coils adds durability to the comfort layer, likely extending useful life by 1-2 years over the Original. Keep an eye on the cover fabric quality.
-                        </p>
-                        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                            <p>&copy; 2024 LivingReview Analysis. Generated based on provided source report.</p>
-                            <p className="mt-2 md:mt-0">Source Material: Independent Labs, Owner Reports, Spec Sheets</p>
-                        </div>
-                    </div>
-                </footer>
-
             </main>
         </div>
     );

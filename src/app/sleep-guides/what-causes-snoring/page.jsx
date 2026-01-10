@@ -339,12 +339,6 @@ const WhatCausesSnoring = () => {
                 </section>
             </main>
 
-            {/* Footer */}
-            <footer className="bg-alabaster-grey/30 py-12 text-center border-t border-alabaster-grey font-sans">
-                <p className="text-graphite text-sm">
-                    Always consult a medical professional for serious sleep concerns.
-                </p>
-            </footer>
         </div>
     );
 };

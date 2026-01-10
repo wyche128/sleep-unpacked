@@ -243,10 +243,6 @@ const CasperVsPurple = () => {
                 </section>
             </main>
 
-            <footer className="bg-slate-50 text-center py-8 text-slate-400 text-sm border-t border-slate-200">
-                <p>&copy; Data-Driven Mattress Comparison. All rights reserved.</p>
-            </footer>
-
         </div>
     );
 };

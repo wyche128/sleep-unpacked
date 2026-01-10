@@ -226,22 +226,6 @@ const FiveTruthsWinkBedEcoCloud = () => {
                 </article>
             </main>
 
-            {/* Footer */}
-            <footer className="bg-white border-t border-alabaster-grey py-12 mt-12">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <p className="text-graphite/60 mb-4">
-                        Analysis based on engineering reports and user durability data.
-                    </p>
-                    <div className="flex justify-center space-x-6 text-graphite/40 mb-8">
-                        <a href="#" className="hover:text-golden-bronze transition-colors"><Twitter size={20} /></a>
-                        <a href="#" className="hover:text-golden-bronze transition-colors"><Facebook size={20} /></a>
-                        <a href="#" className="hover:text-golden-bronze transition-colors"><Linkedin size={20} /></a>
-                    </div>
-                    <p className="text-graphite/40 text-sm">
-                        &copy; 2024 Mattress Engineering Analysis. All rights reserved.
-                    </p>
-                </div>
-            </footer>
         </div>
     );
 };

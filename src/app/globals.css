@@ -18,3 +18,21 @@
   --color-golden-bronze-100: #fdf6e0;
   /* Light bg */
 }
+
+/* Memory Foam vs Latex Custom Animations */
+.foam-block {
+  transition: transform 0.1s;
+  cursor: pointer;
+}
+
+.memory-recover {
+  transition: transform 2s ease-out !important; /* Slow recovery */
+}
+
+.latex-recover {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; /* Bouncy recovery */
+}
+
+.pressed {
+  transform: scale(0.85);
+}

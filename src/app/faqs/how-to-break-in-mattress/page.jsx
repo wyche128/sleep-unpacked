@@ -338,20 +338,6 @@ const BreakInGuide = () => {
                 </div>
             </div>
 
-            {/* Footer / Conclusion */}
-            <footer className="max-w-4xl mx-auto px-4 pb-12">
-                <div className="bg-jet-black rounded-3xl p-10 text-white text-center shadow-xl">
-                    <h3 className="text-2xl font-bold mb-6 text-golden-bronze">The Forward Look</h3>
-                    <p className="text-alabaster-grey text-lg mb-8 leading-relaxed">
-                        The relationship between you and your mattress is a marathon, not a sprint. If you are currently in the "regret phase," remember:
-                        <br /><span className="text-white font-semibold">Is this discomfort actual pain, or is it the feeling of your posture finally being corrected?</span>
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 font-mono">
-                        <span className="flex items-center gap-2"><div className="bg-gray-800 p-1 rounded"><RotateCw size={14} /></div> Rotate every 2 weeks initially</span>
-                        <span className="flex items-center gap-2"><div className="bg-gray-800 p-1 rounded"><Clock size={14} /></div> Give it at least 30 days</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 };

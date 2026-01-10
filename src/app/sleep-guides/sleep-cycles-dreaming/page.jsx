@@ -479,10 +479,6 @@ const SleepCyclesDreaming = () => {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-jet-black text-slate-400 py-8 text-center text-sm">
-                <p>Created based on research from NapLab.</p>
-            </footer>
         </div>
     );
 };

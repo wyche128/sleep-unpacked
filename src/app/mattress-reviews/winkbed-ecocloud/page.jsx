@@ -459,16 +459,6 @@ const WinkBedEcoCloudLongevityReview = () => {
                 </section>
             </main>
 
-            <footer className="bg-jet-black text-white py-10 mt-12 border-t border-golden-bronze">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                    <p className="text-gray-400 text-sm">
-                        Research based on NapLab independent testing data (2025) and material science projections.
-                    </p>
-                    <p className="text-gray-500 text-xs mt-2">
-                        Longevity forecasts are estimates based on material density and simulated wear patterns. Actual results vary by usage.
-                    </p>
-                </div>
-            </footer>
         </div>
     );
 };

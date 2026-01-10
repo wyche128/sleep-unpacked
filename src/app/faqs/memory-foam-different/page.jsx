@@ -2,10 +2,29 @@
 
 import React from 'react';
 import Header from '../../../components/Header';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 import { Layers, Thermometer, Mic, Wind, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 const MemoryFoamDifferent = () => {
+    const relatedFaqs = [
+        {
+            title: 'Memory Foam vs. Latex: Which Lasts Longer?',
+            link: '/faqs/memory-foam-vs-latex',
+            category: 'Materials'
+        },
+        {
+            title: 'Are Memory Foam Mattresses Toxic?',
+            link: '/faqs/memory-foam-toxic',
+            category: 'Science'
+        },
+        {
+            title: 'Why Fiberglass is Used in Mattresses',
+            link: '/faqs/fiberglass-free',
+            category: 'Materials'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -35,7 +54,7 @@ const MemoryFoamDifferent = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     {/* Memory Foam Card */}
                     <div className="bg-jet-black text-white p-8 rounded-2xl shadow-xl">
-                        <h2 className="text-2xl font-bold mb-4 font-serif">Viscoelastic (Memory) Foam</h2>
+                        <h2 className="text-2xl font-bold mb-4 font-serif text-white">Viscoelastic (Memory) Foam</h2>
                         <ul className="space-y-4">
                             <li className="flex items-start">
                                 <Thermometer className="text-golden-bronze mr-3 mt-1 flex-shrink-0" />
@@ -98,7 +117,20 @@ const MemoryFoamDifferent = () => {
                     <p>
                         <strong>Choose Poly Foam if:</strong> You rotate positions frequently and hate feeling stuck. It provides a more traditional, floating feel without the quicksand effect. Brands: Casper (The "AirScape" foam is poly foam), Tuft & Needle.
                     </p>
+
+                    <div className="mt-12 p-6 bg-alabaster-grey/30 rounded-2xl border border-alabaster-grey">
+                        <h4 className="text-xl font-bold text-jet-black mb-2 tracking-tight">Wait, what about Latex?</h4>
+                        <p className="text-sm text-graphite mb-4">
+                            Latex is the "other" foam that many people confuse with memory foam. However, it is fundamentally different in both feel and lifespan.
+                        </p>
+                        <Link href="/faqs/memory-foam-vs-latex" className="text-sm font-bold text-golden-bronze hover:underline flex items-center">
+                            See the Memory Foam vs. Latex comparison guide &rarr;
+                        </Link>
+                    </div>
                 </article>
+
+                {/* Related FAQs */}
+                <RelatedFAQ faqs={relatedFaqs} />
 
             </main>
         </div>

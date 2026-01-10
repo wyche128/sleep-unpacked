@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, RadialLinearScale, ArcElement, Title, Tooltip, Legend, Filler } from 'chart.js';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, RadialLinearScale, ArcElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Line, Bar, Radar, Doughnut } from 'react-chartjs-2';
 import Link from 'next/link';
 import { Menu, X, Brain, BatteryCharging, Zap } from 'lucide-react';

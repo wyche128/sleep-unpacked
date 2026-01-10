@@ -268,8 +268,8 @@ const Home = () => {
                     <div className="grid md:grid-cols-3 gap-12">
                         {[
                             {
-                                title: "Simulated Decade Testing",
-                                desc: "We mechanically simulate 10 years of use to predict sagging and foam softening before it happens in your home.",
+                                title: "3rd Party Spec Analysis",
+                                desc: "We analyze engineering reports and 3rd party lab data to predict sagging and foam softening over time.",
                                 icon: "🎯"
                             },
                             {
@@ -279,7 +279,7 @@ const Home = () => {
                             },
                             {
                                 title: "Verified Owner Data",
-                                desc: "We aggregate real user experiences over 1, 3, and 5 years to validate our lab findings with real-world durability.",
+                                desc: "We aggregate real user experiences over 1, 3, and 5 years to cross-reference technical specs with real-world durability outcomes.",
                                 icon: "🌡️"
                             }
                         ].map((feature, i) => (

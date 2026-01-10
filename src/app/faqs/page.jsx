@@ -55,7 +55,11 @@ const FAQHub = () => {
                     link: '/faqs/memory-foam-toxic',
                     isNew: true
                 },
-                { title: 'Memory Foam vs. Latex: Which Lasts Longer?', link: '#' },
+                {
+                    title: 'Memory Foam vs. Latex: Which Lasts Longer?',
+                    link: '/faqs/memory-foam-vs-latex',
+                    isNew: true
+                },
                 {
                     title: 'Why Fiberglass is Used in Mattresses',
                     link: '/faqs/fiberglass-free',
@@ -75,8 +79,16 @@ const FAQHub = () => {
                     link: '/faqs/do-i-need-a-box-spring',
                     isNew: true
                 },
-                { title: 'Firmness Scale Explained (1-10)', link: '#' },
-                { title: 'Best Mattresses for Side Sleepers', link: '#' },
+                {
+                    title: 'Firmness Scale Explained (1-10)',
+                    link: '/sleep-guides/mattress-firmness-guide',
+                    isNew: true
+                },
+                {
+                    title: 'Best Mattresses for Side Sleepers',
+                    link: '/top-picks/best-mattress-for-side-sleepers',
+                    isNew: true
+                },
                 {
                     title: 'What is the Healthiest Sleep Position?',
                     link: '/sleep-guides/healthiest-sleep-position',
@@ -87,7 +99,11 @@ const FAQHub = () => {
                     link: '/sleep-guides/duvet-vs-comforter',
                     isNew: true
                 },
-                { title: 'Standard Mattress Sizes Guide', link: '#' },
+                {
+                    title: 'Standard Mattress Sizes Guide',
+                    link: '/sleep-guides/seven-bed-size-secrets',
+                    isNew: true
+                },
             ]
         },
         {
@@ -111,8 +127,21 @@ const FAQHub = () => {
                     link: '/faqs/mattress-disposal-guide',
                     isNew: true
                 },
-                { title: 'Do You Really Need to Rotate Your Mattress?', link: '#' },
-                { title: 'How to Clean a Memory Foam Mattress', link: '#' },
+                {
+                    title: 'Can I Flip My Mattress?',
+                    link: '/faqs/can-i-flip-my-mattress',
+                    isNew: true
+                },
+                {
+                    title: 'Do You Really Need to Rotate Your Mattress?',
+                    link: '/faqs/do-you-need-to-rotate-mattress',
+                    isNew: true
+                },
+                {
+                    title: 'How to Clean a Memory Foam Mattress',
+                    link: '/sleep-guides/how-to-clean-mattress',
+                    isNew: true
+                },
                 { title: 'Waterproof Protectors: Are They Worth It?', link: '#' },
             ]
         }
@@ -222,12 +251,6 @@ const FAQHub = () => {
                 </button>
             </div>
 
-            {/* Footer (Simplified) */}
-            <footer className="bg-jet-black text-alabaster-grey py-12 border-t border-jet-black-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} SleepUnpacked Inc. All rights reserved.</p>
-                </div>
-            </footer>
         </div>
     );
 };

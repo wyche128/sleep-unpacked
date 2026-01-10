@@ -535,17 +535,6 @@ const WinkBedGravityLuxLongevityReview = () => {
 
             </main>
 
-            <footer className="bg-jet-black text-alabaster-grey py-8 mt-auto border-t border-jet-black">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-                    <div className="mb-4 md:mb-0">
-                        <span className="text-white font-bold text-lg">GravityLux<span className="font-light text-golden-bronze">Research</span></span>
-                        <p className="text-xs mt-1 text-alabaster-grey/60">Independent analysis. Not affiliated with WinkBeds.</p>
-                    </div>
-                    <div className="text-xs text-alabaster-grey/60">
-                        &copy; 2026 Research Initiative. All rights reserved.
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 };

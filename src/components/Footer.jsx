@@ -1,5 +1,6 @@
 import React from 'react';
 import { Moon } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -42,10 +43,10 @@ const Footer = () => {
                 <div>
                     <h4 className="text-white font-semibold mb-6">Company</h4>
                     <ul className="space-y-3 text-sm text-alabaster-grey">
-                        <li><a href="#" className="hover:text-white transition">About Us</a></li>
+                        <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
                         <li><a href="#" className="hover:text-white transition">Our Testing Process</a></li>
                         <li><a href="#" className="hover:text-white transition">Careers</a></li>
-                        <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                        <li><Link href="/about#contact" className="hover:text-white transition">Contact</Link></li>
                     </ul>
                 </div>
 
