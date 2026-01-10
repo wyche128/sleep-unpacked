@@ -49,7 +49,7 @@ const Home = () => {
         {
             id: 2,
             name: "WinkBed Hybrid",
-            image: "https://images.unsplash.com/photo-1505693416388-b034631ac0f3?auto=format&fit=crop&q=80&w=800",
+            image: "/winkbed-hybrid.png",
             rating: 9.8,
             tags: ["Back Pain", "Luxury Hotel"],
             price: "$1,499",
