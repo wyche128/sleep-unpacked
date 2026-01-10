@@ -60,7 +60,7 @@ const Home = () => {
         {
             id: 3,
             name: "Nectar Classic",
-            image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800",
+            image: "/nectar-classic.png",
             rating: 8.9,
             tags: ["Best Value", "Memory Foam"],
             price: "$699",
