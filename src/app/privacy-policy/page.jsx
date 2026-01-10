@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'Privacy Policy | Sleep Unpacked',
@@ -89,7 +90,7 @@ export default function PrivacyPolicyPage() {
 
                         <h2 className="text-2xl font-semibold text-jet-black mt-8 mb-4">Contacting Us</h2>
                         <p>
-                            If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at <a href="mailto:hello@sleepunpacked.com" className="text-indigo-600 hover:underline">hello@sleepunpacked.com</a> or on our contact form.
+                            If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at <a href="mailto:hello@sleepunpacked.com" className="text-indigo-600 hover:underline">hello@sleepunpacked.com</a> or on our <Link href="/about#contact" className="text-indigo-600 hover:underline">contact form</Link>.
                         </p>
                     </div>
                 </div>

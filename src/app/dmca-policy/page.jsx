@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'DMCA Policy | Sleep Unpacked',
@@ -32,7 +33,7 @@ export default function DmcaPolicyPage() {
                             Title 17 USC §512(f) provides civil damage penalties, including costs and attorney fees, against any person who knowingly and materially misrepresents certain information in a notification of infringement under 17 USC §512(c)(3).
                         </p>
                         <p>
-                            Send all takedown notices through our Contact page. Please send by email for prompt attention.
+                            Send all takedown notices through our <Link href="/about#contact" className="text-indigo-600 hover:underline">Contact page</Link>. Please send by email for prompt attention.
                         </p>
                         <p>
                             Please note that we may share the identity and information in any copyright infringement claim we receive with the alleged infringer. In submitting a claim, you understand accept and agree that your identity and claim may be communicated to the alleged infringer.
@@ -47,7 +48,7 @@ export default function DmcaPolicyPage() {
                             <li>A description of the material that has been taken down and the original location of the material before it was taken down.</li>
                             <li>A statement under penalty of perjury that you have a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled.</li>
                             <li>Your name, address, and telephone number, and a statement that you consent to the jurisdiction of the federal district court for the judicial district in which the address is located (or if you are outside of the United States, that you consent to jurisdiction of any judicial district in which the service provider may be found), and that the you will accept service of process from the person or company who provided the original infringement notification.</li>
-                            <li>Send your counter notice through our Contact page. Email is highly recommended.</li>
+                            <li>Send your counter notice through our <Link href="/about#contact" className="text-indigo-600 hover:underline">Contact page</Link>. Email is highly recommended.</li>
                         </ol>
 
                         <h2 className="text-2xl font-semibold text-jet-black mt-8 mb-4">Repeat Infringer Policy</h2>

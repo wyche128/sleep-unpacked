@@ -33,10 +33,10 @@ const Footer = () => {
                 <div>
                     <h4 className="text-white font-semibold mb-6">Mattresses</h4>
                     <ul className="space-y-3 text-sm text-alabaster-grey">
-                        <li><a href="#" className="hover:text-white transition">Best Overall</a></li>
-                        <li><a href="#" className="hover:text-white transition">Best for Back Pain</a></li>
-                        <li><a href="#" className="hover:text-white transition">Best Cooling</a></li>
-                        <li><a href="#" className="hover:text-white transition">Best Organic</a></li>
+                        <li><Link href="/top-picks/best-overall-mattress" className="hover:text-white transition">Best Overall</Link></li>
+                        <li><Link href="/top-picks/best-mattress-for-back-pain" className="hover:text-white transition">Best for Back Pain</Link></li>
+                        <li><Link href="/top-picks/best-cooling-mattress" className="hover:text-white transition">Best Cooling</Link></li>
+                        <li><Link href="/top-picks/best-organic-mattress" className="hover:text-white transition">Best Organic</Link></li>
                     </ul>
                 </div>
 
@@ -44,8 +44,7 @@ const Footer = () => {
                     <h4 className="text-white font-semibold mb-6">Company</h4>
                     <ul className="space-y-3 text-sm text-alabaster-grey">
                         <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
-                        <li><a href="#" className="hover:text-white transition">Our Testing Process</a></li>
-                        <li><a href="#" className="hover:text-white transition">Careers</a></li>
+                        <li><Link href="/mattress-reviews" className="hover:text-white transition">Mattress Reviews</Link></li>
                         <li><Link href="/about#contact" className="hover:text-white transition">Contact</Link></li>
                     </ul>
                 </div>
@@ -53,10 +52,9 @@ const Footer = () => {
                 <div>
                     <h4 className="text-white font-semibold mb-6">Resources</h4>
                     <ul className="space-y-3 text-sm text-alabaster-grey">
-                        <li><a href="#" className="hover:text-white transition">Sleep Blog</a></li>
-                        <li><a href="#" className="hover:text-white transition">Coupons</a></li>
-                        <li><a href="#" className="hover:text-white transition">Glossary</a></li>
-                        <li><a href="#" className="hover:text-white transition">FAQ</a></li>
+                        <li><Link href="/sleep-guides" className="hover:text-white transition">Sleep Guides</Link></li>
+                        <li><Link href="/comparisons" className="hover:text-white transition">Mattress Comparisons</Link></li>
+                        <li><Link href="/faqs" className="hover:text-white transition">FAQ</Link></li>
                     </ul>
                 </div>
             </div>
@@ -64,10 +62,10 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-jet-black-800 flex flex-col md:flex-row justify-between items-center text-sm text-alabaster-grey">
                 <p>&copy; 2024 SleepUnpacked Inc. All rights reserved.</p>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                    <a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a>
-                    <a href="/terms-of-service" className="hover:text-white transition">Terms of Service</a>
-                    <a href="/earnings" className="hover:text-white transition">Affiliate Disclosure</a>
-                    <a href="/dmca-policy" className="hover:text-white transition">DMCA Policy</a>
+                    <Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+                    <Link href="/terms-of-service" className="hover:text-white transition">Terms of Service</Link>
+                    <Link href="/earnings" className="hover:text-white transition">Affiliate Disclosure</Link>
+                    <Link href="/dmca-policy" className="hover:text-white transition">DMCA Policy</Link>
                 </div>
             </div>
         </footer>

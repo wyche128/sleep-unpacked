@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'Terms of Service | Sleep Unpacked',
@@ -59,7 +60,7 @@ export default function TermsOfServicePage() {
 
                         <h2 className="text-2xl font-semibold text-jet-black mt-8 mb-4">Contact Us</h2>
                         <p>
-                            If you have any questions about this Agreement, please contact us.
+                            If you have any questions about this Agreement, please <Link href="/about#contact" className="text-indigo-600 hover:underline">contact us</Link>.
                         </p>
                     </div>
                 </div>
