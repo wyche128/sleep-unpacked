@@ -4,8 +4,27 @@ import React from 'react';
 import Header from '../../../components/Header';
 import { Package, Clock, AlertTriangle, CheckCircle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 
 const HowLongMattressInBox = () => {
+    const relatedFaqs = [
+        {
+            title: 'Why Your New Mattress Feels Like Concrete',
+            link: '/faqs/how-to-break-in-mattress',
+            category: 'Setup'
+        },
+        {
+            title: 'Is Memory Foam Toxic?',
+            link: '/faqs/memory-foam-toxic',
+            category: 'Science'
+        },
+        {
+            title: 'The 1.5-Inch Indentation Threshold',
+            link: '/faqs/one-point-five-inch-threshold',
+            category: 'Warranties'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -72,13 +91,13 @@ const HowLongMattressInBox = () => {
                         <li className="flex items-start">
                             <AlertTriangle className="text-golden-bronze mr-3 mt-1 flex-shrink-0" />
                             <div>
-                                <strong className="text-jet-black">Voided Warranty:</strong> Almost every manufacturer has a clause stating claims are invalid if the box wasn't opened within a set window (usually 2-4 weeks).
+                                <strong className="text-jet-black">Voided Warranty:</strong> Almost every manufacturer has a clause stating claims are invalid if the box wasn't opened within a set window (usually 2-4 weeks). (Learn about <Link href="/faqs/one-point-five-inch-threshold" className="text-golden-bronze hover:underline font-bold">Warranty Indentations</Link>).
                             </div>
                         </li>
                         <li className="flex items-start">
                             <AlertTriangle className="text-golden-bronze mr-3 mt-1 flex-shrink-0" />
                             <div>
-                                <strong className="text-jet-black">Off-Gassing Buildup:</strong> Chemical odors (VOCs) build up in the plastic. Opening it later releases a much stronger, more concentrated chemical smell that takes longer to dissipate.
+                                <strong className="text-jet-black">Off-Gassing Buildup:</strong> Chemical odors (VOCs) build up in the plastic. Opening it later releases a much stronger, more concentrated chemical smell that takes longer to dissipate. (See <Link href="/faqs/memory-foam-toxic" className="text-golden-bronze hover:underline font-bold">is memory foam toxic?</Link>).
                             </div>
                         </li>
                     </ul>
@@ -89,6 +108,7 @@ const HowLongMattressInBox = () => {
                     </p>
                 </article>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

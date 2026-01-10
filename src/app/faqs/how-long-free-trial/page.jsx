@@ -4,8 +4,27 @@ import React from 'react';
 import Header from '../../../components/Header';
 import { Calendar, Truck, RefreshCcw, AlertCircle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 
 const HowLongSleepTrial = () => {
+    const relatedFaqs = [
+        {
+            title: 'The 1.5-Inch Indentation Threshold',
+            link: '/faqs/one-point-five-inch-threshold',
+            category: 'Warranties'
+        },
+        {
+            title: 'Why Your New Mattress Feels Like Concrete',
+            link: '/faqs/how-to-break-in-mattress',
+            category: 'Setup'
+        },
+        {
+            title: 'How Long Can a Mattress Stay in the Box?',
+            link: '/faqs/how-long-mattress-in-box',
+            category: 'Setup'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -74,7 +93,7 @@ const HowLongSleepTrial = () => {
                             <AlertCircle className="text-golden-bronze mr-2" /> The 30-Day "Break-In" Rule
                         </h3>
                         <p className="text-graphite mb-4">
-                            Most brands <strong>will not let you return the bed</strong> until you have owned it for at least 30 days.
+                            Most brands <strong>will not let you return the bed</strong> until you have owned it for at least 30 days. (See the <Link href="/faqs/how-to-break-in-mattress" className="text-golden-bronze hover:underline font-bold">Break-In Science</Link>).
                         </p>
                         <p className="text-graphite text-sm bg-alabaster-grey/20 p-4 rounded-lg border-l-4 border-jet-black">
                             <strong>Why?</strong> Your body needs to adjust to a new posture, and the foam needs to fully expand. The first week is usually the most uncomfortable.
@@ -100,6 +119,7 @@ const HowLongSleepTrial = () => {
                     </div>
                 </div>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

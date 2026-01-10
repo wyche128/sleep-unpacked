@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 import {
     Truck,
     Recycle,
@@ -39,6 +40,24 @@ ChartJS.register(
 );
 
 const MattressDisposalGuide = () => {
+    const relatedFaqs = [
+        {
+            title: 'Which Mattresses Are Fiberglass Free?',
+            link: '/faqs/fiberglass-free',
+            category: 'Science'
+        },
+        {
+            title: 'Can I Flip My Mattress?',
+            link: '/faqs/can-i-flip-my-mattress',
+            category: 'Maintenance'
+        },
+        {
+            title: 'The 1.5-Inch Indentation Threshold',
+            link: '/faqs/one-point-five-inch-threshold',
+            category: 'Warranties'
+        }
+    ];
+
     const [quizState, setQuizState] = useState({
         step: 1,
         condition: null,
@@ -348,6 +367,7 @@ const MattressDisposalGuide = () => {
                 </div>
             </section>
 
+            <RelatedFAQ faqs={relatedFaqs} />
         </div>
     );
 };

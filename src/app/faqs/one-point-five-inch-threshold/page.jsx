@@ -4,6 +4,7 @@ import React from 'react';
 import Header from '../../../components/Header';
 import { Ruler, AlertTriangle, FileText, CheckCircle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -25,6 +26,24 @@ ChartJS.register(
 );
 
 const OnePointFiveInchThreshold = () => {
+    const relatedFaqs = [
+        {
+            title: 'Do You Really Need to Rotate Your Mattress?',
+            link: '/faqs/do-you-need-to-rotate-mattress',
+            category: 'Care'
+        },
+        {
+            title: 'How Do Sleep Trials Actually Work?',
+            link: '/faqs/how-long-free-trial',
+            category: 'Warranties'
+        },
+        {
+            title: 'Why Your New Mattress Feels Like Concrete',
+            link: '/faqs/how-to-break-in-mattress',
+            category: 'Setup'
+        }
+    ];
+
     // Data visualization for sag depth
     const data = {
         labels: ['Minimal (0.5")', 'Noticeable (1.0")', 'Painful (1.25")', 'Warranty Limit (1.5")'],
@@ -128,10 +147,11 @@ const OnePointFiveInchThreshold = () => {
                         <li><strong>Use a straight edge.</strong> A broomstick or level across the dip.</li>
                         <li><strong>Use a rigid ruler.</strong> Measure the deepest point from the bottom of the straight edge to the mattress surface.</li>
                         <li><strong>Do not press down.</strong> The ruler must rest gently on the fabric.</li>
-                        <li><strong>Check your foundation.</strong> If your slats are too wide (&gt;3 inches) or your frame is broken, they will deny the claim immediately, blaming your frame for the sag.</li>
+                        <li><strong>Check your foundation.</strong> If your slats are too wide (&gt;3 inches) or your frame is broken, they will deny the claim immediately, blaming your frame for the sag. (See our <Link href="/faqs/do-i-need-a-box-spring" className="text-golden-bronze hover:underline font-bold">Foundation Guide</Link>).</li>
                     </ol>
                 </article>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

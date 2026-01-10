@@ -4,8 +4,27 @@ import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import { Shield, ShieldAlert, Check, X, Search, AlertTriangle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 
 const FiberglassFree = () => {
+    const relatedFaqs = [
+        {
+            title: 'Is Memory Foam Toxic?',
+            link: '/faqs/memory-foam-toxic',
+            category: 'Science'
+        },
+        {
+            title: 'Memory Foam vs. Natural Latex',
+            link: '/faqs/memory-foam-vs-latex',
+            category: 'Materials'
+        },
+        {
+            title: 'The Afterlife of a Mattress',
+            link: '/faqs/mattress-disposal-guide',
+            category: 'Maintenance'
+        }
+    ];
+
     const [searchTerm, setSearchTerm] = useState('');
 
     const brands = [
@@ -126,6 +145,7 @@ const FiberglassFree = () => {
                     </p>
                 </article>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

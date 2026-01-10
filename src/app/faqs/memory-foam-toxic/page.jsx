@@ -4,8 +4,27 @@ import React from 'react';
 import Header from '../../../components/Header';
 import { Skull, Leaf, CheckCircle, AlertTriangle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 
 const MemoryFoamToxic = () => {
+    const relatedFaqs = [
+        {
+            title: 'Which Mattresses Are Fiberglass Free?',
+            link: '/faqs/fiberglass-free',
+            category: 'Science'
+        },
+        {
+            title: 'Memory Foam vs. Natural Latex',
+            link: '/faqs/memory-foam-vs-latex',
+            category: 'Materials'
+        },
+        {
+            title: 'How Long Can a Mattress Stay in the Box?',
+            link: '/faqs/how-long-mattress-in-box',
+            category: 'Setup'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -48,7 +67,7 @@ const MemoryFoamToxic = () => {
                                 </li>
                                 <li className="bg-red-50 p-3 rounded-lg border border-red-100">
                                     <strong className="text-red-900 block">Flame Retardants</strong>
-                                    Older foams used harsh chemicals. Modern ones use fiberglass or silica socks (safer unless opened).
+                                    Older foams used harsh chemicals. Modern ones use fiberglass or silica socks (safer unless opened). (Check the <Link href="/faqs/fiberglass-free" className="text-red-950 hover:underline font-bold">Fiberglass Free List</Link>).
                                 </li>
                             </ul>
                         </div>
@@ -95,6 +114,7 @@ const MemoryFoamToxic = () => {
                     </div>
                 </div>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

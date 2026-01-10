@@ -4,8 +4,27 @@ import React from 'react';
 import Header from '../../../components/Header';
 import { Box, CheckCircle, XCircle, HelpCircle, ArrowLeft, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 
 const DoINeedABoxSpring = () => {
+    const relatedFaqs = [
+        {
+            title: 'Why Your New Mattress Feels Like Concrete',
+            link: '/faqs/how-to-break-in-mattress',
+            category: 'Setup'
+        },
+        {
+            title: 'Can I Flip My Mattress?',
+            link: '/faqs/can-i-flip-my-mattress',
+            category: 'Maintenance'
+        },
+        {
+            title: 'The 1.5-Inch Indentation Threshold',
+            link: '/faqs/one-point-five-inch-threshold',
+            category: 'Warranties'
+        }
+    ];
+
     return (
         <div className="font-sans text-jet-black bg-white min-h-screen">
             <Header />
@@ -87,6 +106,7 @@ const DoINeedABoxSpring = () => {
                     </div>
                 </article>
 
+                <RelatedFAQ faqs={relatedFaqs} />
             </main>
         </div>
     );

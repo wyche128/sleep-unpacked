@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '../../../components/Header';
 import Link from 'next/link';
+import RelatedFAQ from '../../../components/RelatedFAQ';
 import {
     Bed,
     TrendingUp,
@@ -43,6 +44,24 @@ ChartJS.register(
 );
 
 const BreakInGuide = () => {
+    const relatedFaqs = [
+        {
+            title: 'How Do Sleep Trials Actually Work?',
+            link: '/faqs/how-long-free-trial',
+            category: 'Warranties'
+        },
+        {
+            title: 'Do I Need a Box Spring?',
+            link: '/faqs/do-i-need-a-box-spring',
+            category: 'Maintenance'
+        },
+        {
+            title: 'The 1.5-Inch Indentation Threshold',
+            link: '/faqs/one-point-five-inch-threshold',
+            category: 'Warranties'
+        }
+    ];
+
     // --- State for "The Crawl" ---
     const [crawlProgress, setCrawlProgress] = useState(0);
     const [isCrawling, setIsCrawling] = useState(false);
@@ -320,7 +339,7 @@ const BreakInGuide = () => {
                                 )}
                                 {foundationType === 'slats' && (
                                     <div className="p-4 rounded-lg bg-amber-100 border border-amber-200 text-sm text-amber-800 text-center w-full animate-fade-in">
-                                        <strong>Check the Gap!</strong> If slats are &gt; 3-4 inches apart, foam pushes through. You need a bunkie board.
+                                        <strong>Check the Gap!</strong> If slats are &gt; 3-4 inches apart, foam pushes through. You need a bunkie board (See our <Link href="/faqs/do-i-need-a-box-spring" className="text-amber-900 hover:underline font-bold">Foundation Guide</Link>).
                                     </div>
                                 )}
                                 {foundationType === 'rigid' && (
@@ -338,6 +357,7 @@ const BreakInGuide = () => {
                 </div>
             </div>
 
+            <RelatedFAQ faqs={relatedFaqs} />
         </div>
     );
 };
