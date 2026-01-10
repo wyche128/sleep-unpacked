@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import {
     Star,
     Check,
@@ -15,6 +18,22 @@ import Header from '../components/Header';
 import Link from 'next/link';
 
 const Home = () => {
+    const router = useRouter();
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (e) => {
+        if (e) e.preventDefault();
+        if (searchQuery.trim()) {
+            router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     const reviews = [
         {
             id: 1,
@@ -111,12 +130,18 @@ const Home = () => {
                             </div>
                             <input
                                 type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={handleKeyDown}
                                 className="block w-full pl-10 pr-3 py-4 border-none rounded-lg leading-5 bg-white placeholder-graphite focus:outline-none focus:ring-2 focus:ring-golden-bronze shadow-xl"
                                 placeholder="Search for a mattress (e.g. 'Helix Midnight')"
                             />
                         </div>
-                        <button className="bg-golden-bronze hover:bg-golden-bronze-400 text-white font-bold py-4 px-8 rounded-lg transition shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
-                            Start Quiz <ArrowRight size={18} />
+                        <button
+                            onClick={() => handleSearch()}
+                            className="bg-golden-bronze hover:bg-golden-bronze-400 text-white font-bold py-4 px-8 rounded-lg transition shadow-xl hover:shadow-2xl flex items-center justify-center gap-2"
+                        >
+                            Search <Search size={18} />
                         </button>
                     </div>
 
