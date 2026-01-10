@@ -1,17 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X, Search } from 'lucide-react';
 import logo from '../assets/sleepunpacked_logo.png';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSearchQuery(params.get('q') || '');
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
