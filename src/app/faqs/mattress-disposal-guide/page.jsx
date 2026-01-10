@@ -367,7 +367,9 @@ const MattressDisposalGuide = () => {
                 </div>
             </section>
 
-            <RelatedFAQ faqs={relatedFaqs} />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+                <RelatedFAQ faqs={relatedFaqs} />
+            </div>
         </div>
     );
 };

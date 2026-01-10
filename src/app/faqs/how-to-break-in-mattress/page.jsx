@@ -355,9 +355,9 @@ const BreakInGuide = () => {
                     </section>
 
                 </div>
-            </div>
 
-            <RelatedFAQ faqs={relatedFaqs} />
+                <RelatedFAQ faqs={relatedFaqs} />
+            </div>
         </div>
     );
 };
