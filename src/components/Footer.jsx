@@ -1,6 +1,7 @@
 import React from 'react';
 import { Moon } from 'lucide-react';
 import Link from 'next/link';
+import logo from '../assets/sleep_logo.svg';
 
 const Footer = () => {
     return (
@@ -8,10 +9,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                 <div className="col-span-2 md:col-span-1">
                     <div className="flex items-center gap-2 mb-6">
-                        <div className="bg-jet-black-800 p-1.5 rounded">
-                            <Moon className="text-white" size={16} />
-                        </div>
-                        <span className="text-xl font-bold text-white">SleepUnpacked</span>
+                        <img src={logo.src} alt="SleepUnpacked Logo" className="h-8 w-auto brightness-0 invert" />
                     </div>
                     <p className="text-alabaster-grey text-sm mb-6">
                         Helping the world sleep better, one review at a time. Our team of experts provides unbiased, data-driven mattress reviews.
