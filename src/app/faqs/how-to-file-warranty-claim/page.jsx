@@ -22,7 +22,7 @@ const FoundationChecker = () => {
     const isSafe = gap <= 4;
 
     return (
-        <div className="bg-white p-8 rounded-3xl shadow-xl border border-alabaster-grey my-12">
+        <div className="bg-white p-10 md:p-12 rounded-3xl shadow-xl border border-alabaster-grey my-12">
             <h3 className="text-xl font-bold text-jet-black mb-6 flex items-center gap-2">
                 <Grid3X3 className="text-golden-bronze" /> Foundation Gap Checker
             </h3>
@@ -69,7 +69,7 @@ const FoundationChecker = () => {
 
 const SagGauge = () => {
     return (
-        <div className="bg-jet-black text-white p-8 rounded-3xl shadow-2xl my-12 overflow-hidden relative">
+        <div className="bg-jet-black text-white p-10 md:p-12 rounded-3xl shadow-2xl my-12 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-golden-bronze/10 rounded-full -mr-16 -mt-16 blur-3xl"></div>
             <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                 <Ruler className="text-golden-bronze" /> The "Indentation" Threshold
@@ -120,7 +120,7 @@ const WarrantyGuide = () => {
             </div>
 
             {/* Main Content */}
-            <main className="max-w-4xl mx-auto px-4 -mt-16 relative z-20">
+            <main className="max-w-4xl mx-auto px-6 md:px-8 -mt-16 relative z-20">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-16 border border-alabaster-grey">
 
                     <div className="prose prose-lg max-w-none prose-headings:text-jet-black prose-p:text-graphite">
@@ -158,7 +158,7 @@ const WarrantyGuide = () => {
                                 <span className="w-12 h-12 bg-jet-black text-golden-bronze rounded-2xl flex items-center justify-center font-black text-xl shadow-lg group-hover:scale-110 transition-transform">02</span>
                                 <h2 className="text-3xl font-extrabold m-0">The Coffee Stain Rule</h2>
                             </div>
-                            <div className="flex flex-col md:flex-row gap-8 items-center bg-red-50/50 p-8 rounded-3xl border border-red-100 mb-8">
+                            <div className="flex flex-col md:flex-row gap-8 items-center bg-red-50/50 p-10 md:p-12 rounded-3xl border border-red-100 mb-8">
                                 <div className="text-red-500 bg-white p-4 rounded-full shadow-sm">
                                     <Droplets size={48} />
                                 </div>
@@ -185,7 +185,7 @@ const WarrantyGuide = () => {
 
                             <SagGauge />
 
-                            <p className="text-sm bg-alabaster-grey p-4 rounded-xl flex items-start gap-3">
+                            <p className="text-sm bg-alabaster-grey p-6 rounded-xl flex items-start gap-3">
                                 <Info className="text-golden-bronze shrink-0" size={20} />
                                 <span><strong>The Catch:</strong> This indentation must be visible <em>without</em> weight. If the bed only sags when you lay on it, it's considered "normal wear and tear."</span>
                             </p>
@@ -221,7 +221,7 @@ const WarrantyGuide = () => {
                             <p>
                                 Modern "bed-in-a-box" mattresses often come with a zipper. <strong>Do not unzip it.</strong>
                             </p>
-                            <div className="bg-jet-black p-8 rounded-3xl text-white flex items-center gap-6">
+                            <div className="bg-jet-black p-10 md:p-12 rounded-3xl text-white flex items-center gap-6">
                                 <Archive className="text-golden-bronze shrink-0" size={40} />
                                 <p className="m-0 text-sm leading-relaxed">
                                     Nectar and other brands warn that removing the cover exposes the <strong>fire-retardant sock</strong> (often containing silica or fiberglass). Unzipping can create a health hazard and immediately voids the contract.
@@ -243,7 +243,7 @@ const WarrantyGuide = () => {
                     </div>
 
                     {/* Final Checklist */}
-                    <div className="mt-24 p-12 bg-alabaster-grey rounded-3xl relative overflow-hidden">
+                    <div className="mt-24 p-12 md:p-16 bg-alabaster-grey rounded-3xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-8 opacity-10">
                             <CheckCircle2 size={120} className="text-jet-black" />
                         </div>
