@@ -98,10 +98,10 @@ const Home = () => {
     ];
 
     const categories = [
-        { title: "Side Sleepers", icon: <Moon size={24} className="text-golden-bronze" /> },
-        { title: "Back Pain", icon: <ShieldCheck size={24} className="text-golden-bronze" /> },
-        { title: "Hot Sleepers", icon: <Filter size={24} className="text-golden-bronze" /> },
-        { title: "Couples", icon: <Award size={24} className="text-golden-bronze" /> },
+        { title: "Side Sleepers", icon: <Moon size={24} className="text-golden-bronze" />, link: "/top-picks/best-mattress-for-side-sleepers" },
+        { title: "Back Pain", icon: <ShieldCheck size={24} className="text-golden-bronze" />, link: "/top-picks/best-mattress-for-back-pain" },
+        { title: "Hot Sleepers", icon: <Filter size={24} className="text-golden-bronze" />, link: "/top-picks/best-cooling-mattress" },
+        { title: "Couples", icon: <Award size={24} className="text-golden-bronze" />, link: "/top-picks/best-overall-mattress" },
     ];
 
     return (
@@ -157,12 +157,12 @@ const Home = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-10">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {categories.map((cat, idx) => (
-                        <a key={idx} href="#" className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col items-center justify-center text-center group border border-alabaster-grey">
+                        <Link key={idx} href={cat.link} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex flex-col items-center justify-center text-center group border border-alabaster-grey">
                             <div className="bg-golden-bronze-100 p-3 rounded-full mb-3 group-hover:bg-golden-bronze-100 transition">
                                 {cat.icon}
                             </div>
                             <span className="font-semibold text-graphite group-hover:text-jet-black">{cat.title}</span>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>
