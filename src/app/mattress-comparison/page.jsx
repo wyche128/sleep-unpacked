@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const MattressComparison = () => {
+const MattressComparisonContent = () => {
     const searchParams = useSearchParams();
     // Start with empty selection or predefined ones if needed
     const [selectedIds, setSelectedIds] = useState([]);
@@ -360,6 +360,21 @@ const MattressComparison = () => {
             )}
 
         </div>
+    );
+};
+
+const MattressComparison = () => {
+    return (
+        <React.Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-alabaster-grey/10">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-golden-bronze border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-jet-black font-bold">Loading Comparison Tool...</p>
+                </div>
+            </div>
+        }>
+            <MattressComparisonContent />
+        </React.Suspense>
     );
 };
 
