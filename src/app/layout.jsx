@@ -1,5 +1,6 @@
 import React from 'react';
 import { Inter, Merriweather } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import ScrollToTop from '../components/ScrollToTop';
 import Footer from '../components/Footer';
@@ -19,9 +20,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <head>
-                {/* Google Tag Manager - using dangerouslySetInnerHTML for reliable head injection */}
-                <script
+            <head />
+            <body className={`${inter.variable} ${merriweather.variable} font-sans text-graphite bg-white min-h-screen`}>
+                {/* Google Tag Manager - Script with beforeInteractive loads before page hydration */}
+                <Script
+                    id="google-tag-manager"
+                    strategy="beforeInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -31,8 +35,7 @@ export default function RootLayout({ children }) {
                     }}
                 />
                 {/* End Google Tag Manager */}
-            </head>
-            <body className={`${inter.variable} ${merriweather.variable} font-sans text-graphite bg-white min-h-screen`}>
+
                 {/* Google Tag Manager (noscript) */}
                 <noscript>
                     <iframe
@@ -43,6 +46,7 @@ export default function RootLayout({ children }) {
                     />
                 </noscript>
                 {/* End Google Tag Manager (noscript) */}
+
                 <ScrollToTop />
                 {children}
                 <Footer />
@@ -50,3 +54,4 @@ export default function RootLayout({ children }) {
         </html>
     );
 }
+
