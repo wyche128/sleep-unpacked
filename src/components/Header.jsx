@@ -65,9 +65,7 @@ const Header = () => {
 
           {/* Mobile Search Icon & Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <button className="text-graphite hover:text-jet-black p-2">
-              <Search size={22} />
-            </button>
+
             <button onClick={toggleMenu} className="text-graphite hover:text-jet-black p-2">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
