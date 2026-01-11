@@ -246,9 +246,9 @@ const FAQHub = () => {
                 <p className="text-graphite mb-8">
                     Our team of sleep experts is here to help. Send us your specific questions about mattress durability or warranties.
                 </p>
-                <button className="bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+                <Link href="/about#contact" className="inline-block bg-jet-black hover:bg-jet-black-800 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
                     Contact Support
-                </button>
+                </Link>
             </div>
 
         </div>
