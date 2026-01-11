@@ -15,6 +15,11 @@ const merriweather = Merriweather({
 export const metadata = {
     title: 'SleepUnpacked | The Mattress Durability Authority',
     description: 'We track how products actually hold up after 1, 3, and 5 years. Avoid the lemons. Buy once for the decade.',
+    verification: {
+        other: {
+            'impact-site-verification': 'e6b2e0e9-6e35-4ed7-81d8-d42760801d26',
+        },
+    },
 };
 
 export default function RootLayout({ children }) {
