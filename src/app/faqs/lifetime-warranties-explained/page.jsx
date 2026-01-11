@@ -14,7 +14,8 @@ import {
     TrendingDown,
     UserCheck,
     ScrollText,
-    ChevronDown
+    ChevronDown,
+    Droplets
 } from 'lucide-react';
 import Link from 'next/link';
 import {
