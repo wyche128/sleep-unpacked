@@ -333,9 +333,9 @@ const Home = () => {
                             <p className="text-alabaster-grey text-lg mb-8 max-w-2xl mx-auto">
                                 Compare up to 3 mattresses side-by-side. See how they stack up on firmness, warranty, trial period, and price.
                             </p>
-                            <button className="bg-white text-jet-black font-bold py-3 px-8 rounded-full hover:bg-alabaster-grey transition transform hover:scale-105 shadow-lg">
+                            <Link href="/mattress-comparison" className="inline-block bg-white text-jet-black font-bold py-3 px-8 rounded-full hover:bg-alabaster-grey transition transform hover:scale-105 shadow-lg">
                                 Compare Mattresses
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
