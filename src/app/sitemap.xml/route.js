@@ -9,12 +9,9 @@ async function getPageRoutes(dir, baseUrl = '') {
         const fullPath = path.join(dir, entry.name);
 
         if (entry.isDirectory()) {
-            // Recursively scan subdirectories
             const subRoutes = await getPageRoutes(fullPath, `${baseUrl}/${entry.name}`);
             routes = routes.concat(subRoutes);
         } else if (entry.name === 'page.jsx' || entry.name === 'page.js') {
-            // Found a page
-            // Handle the root page specially
             const routeUrl = baseUrl === '' ? '/' : baseUrl;
             routes.push(routeUrl);
         }
@@ -23,19 +20,38 @@ async function getPageRoutes(dir, baseUrl = '') {
     return routes;
 }
 
-export default async function sitemap() {
+function buildSitemapXml(urls) {
+    return [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        ...urls,
+        '</urlset>',
+    ].join('\n');
+}
+
+export async function GET() {
     const baseUrl = 'https://sleepunpacked.com';
     const appDir = path.join(process.cwd(), 'src', 'app');
-
     const routes = await getPageRoutes(appDir);
-
-    // Get current date for lastModified
     const date = new Date().toISOString();
 
-    return routes.map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: date,
-        changeFrequency: 'weekly',
-        priority: route === '/' ? 1.0 : 0.8,
-    }));
+    const urls = routes.map((route) => {
+        const priority = route === '/' ? '1.0' : '0.8';
+        return [
+            '  <url>',
+            `    <loc>${baseUrl}${route}</loc>`,
+            `    <lastmod>${date}</lastmod>`,
+            '    <changefreq>weekly</changefreq>',
+            `    <priority>${priority}</priority>`,
+            '  </url>',
+        ].join('\n');
+    });
+
+    const xml = buildSitemapXml(urls);
+
+    return new Response(xml, {
+        headers: {
+            'Content-Type': 'application/xml',
+        },
+    });
 }
