@@ -40,7 +40,11 @@ const FAQHub = () => {
                     link: '/faqs/how-to-file-warranty-claim',
                     isNew: true
                 },
-                { title: 'Do "Lifetime" Warranties Actually Last Forever?', link: '#' },
+                {
+                    title: 'Do "Lifetime" Warranties Actually Last Forever?',
+                    link: '/faqs/lifetime-warranties-explained',
+                    isNew: true
+                },
             ]
         },
         {
