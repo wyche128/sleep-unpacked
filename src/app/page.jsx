@@ -333,9 +333,20 @@ const Home = () => {
                             <p className="text-alabaster-grey text-lg mb-8 max-w-2xl mx-auto">
                                 Compare up to 3 mattresses side-by-side. See how they stack up on firmness, warranty, trial period, and price.
                             </p>
-                            <Link href="/mattress-comparison" className="inline-block bg-white text-jet-black font-bold py-3 px-8 rounded-full hover:bg-alabaster-grey transition transform hover:scale-105 shadow-lg">
-                                Compare Mattresses
-                            </Link>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                <Link
+                                    href="/mattress-comparison"
+                                    className="inline-flex items-center gap-2 bg-white text-jet-black font-bold py-3 px-8 rounded-full hover:bg-alabaster-grey transition transform hover:scale-105 shadow-lg"
+                                >
+                                    Compare Mattresses <ArrowRight size={20} />
+                                </Link>
+                                <Link
+                                    href="/mattress-quiz"
+                                    className="inline-flex items-center gap-2 bg-golden-bronze/20 backdrop-blur-sm border-2 border-golden-bronze text-white font-bold py-3 px-8 rounded-full hover:bg-golden-bronze hover:text-white transition transform hover:scale-105 shadow-lg"
+                                >
+                                    Take Sleep Quiz
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

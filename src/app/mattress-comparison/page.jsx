@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Header from '../../components/Header';
 import { mattresses } from '../../data/mattresses';
 import {
@@ -18,9 +19,18 @@ import {
 import Link from 'next/link';
 
 const MattressComparison = () => {
+    const searchParams = useSearchParams();
     // Start with empty selection or predefined ones if needed
     const [selectedIds, setSelectedIds] = useState([]);
     const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+
+    useEffect(() => {
+        const idsParam = searchParams.get('ids');
+        if (idsParam) {
+            const ids = idsParam.split(',').filter(id => mattresses.find(m => m.id === id));
+            setSelectedIds(ids.slice(0, 3));
+        }
+    }, [searchParams]);
 
     const selectedMattresses = selectedIds.map(id => mattresses.find(m => m.id === id)).filter(Boolean);
 
@@ -88,8 +98,8 @@ const MattressComparison = () => {
                             onClick={() => setIsSelectorOpen(true)}
                             disabled={selectedIds.length >= 3}
                             className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition shadow-sm ${selectedIds.length >= 3
-                                    ? 'bg-alabaster-grey text-graphite cursor-not-allowed'
-                                    : 'bg-golden-bronze text-white hover:bg-golden-bronze-400 hover:shadow-md'
+                                ? 'bg-alabaster-grey text-graphite cursor-not-allowed'
+                                : 'bg-golden-bronze text-white hover:bg-golden-bronze-400 hover:shadow-md'
                                 }`}
                         >
                             <Plus size={18} /> Add Mattress
