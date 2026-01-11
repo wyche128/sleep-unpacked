@@ -35,7 +35,11 @@ const FAQHub = () => {
                     link: '/sleep-guides/break-in-period',
                     isNew: true
                 },
-                { title: 'How to File a Successful Warranty Claim', link: '#' },
+                {
+                    title: 'How to File a Successful Warranty Claim',
+                    link: '/faqs/how-to-file-warranty-claim',
+                    isNew: true
+                },
                 { title: 'Do "Lifetime" Warranties Actually Last Forever?', link: '#' },
             ]
         },
