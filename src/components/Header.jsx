@@ -58,9 +58,9 @@ const Header = () => {
             <Link href="/top-picks" className="text-graphite hover:text-jet-black font-medium transition text-sm">Top Picks</Link>
             <Link href="/mattress-reviews" className="text-graphite hover:text-jet-black font-medium transition text-sm">Reviews</Link>
             <Link href="/sleep-guides" className="text-graphite hover:text-jet-black font-medium transition text-sm">Guides</Link>
-            <button className="bg-jet-black text-white px-5 py-2 rounded-full font-medium hover:bg-jet-black-800 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm whitespace-nowrap">
+            <Link href="/mattress-quiz" className="bg-jet-black text-white px-5 py-2 rounded-full font-medium hover:bg-jet-black-800 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm whitespace-nowrap">
               Take the Quiz
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Search Icon & Menu Button */}
@@ -96,9 +96,9 @@ const Header = () => {
             <Link href="/mattress-reviews" className="block px-3 py-3 text-base font-medium text-graphite hover:text-jet-black hover:bg-alabaster-grey rounded-md">Reviews</Link>
             <Link href="/comparisons" className="block px-3 py-3 text-base font-medium text-graphite hover:text-jet-black hover:bg-alabaster-grey rounded-md">Comparisons</Link>
             <Link href="/sleep-guides" className="block px-3 py-3 text-base font-medium text-graphite hover:text-jet-black hover:bg-alabaster-grey rounded-md">Sleep Guides</Link>
-            <button className="w-full text-left mt-4 bg-golden-bronze-100 text-jet-black px-4 py-3 rounded-lg font-medium">
+            <Link href="/mattress-quiz" onClick={() => setIsMenuOpen(false)} className="block w-full text-center mt-4 bg-golden-bronze text-white px-4 py-3 rounded-lg font-bold shadow-lg hover:bg-golden-bronze-400 transition">
               Find My Mattress
-            </button>
+            </Link>
           </div>
         </div>
       )}
