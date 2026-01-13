@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helix Midnight: Deep Longevity Research Protocol</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chosen Palette: Warm Neutrality (Stone/Slate) 
+         Backgrounds: bg-stone-50, bg-white
+         Text: text-slate-800, text-slate-500
+         Accents: bg-indigo-900 (Midnight reference), bg-amber-500 (Subtle highlight)
+    -->
+
+    <!-- Application Structure Plan:
+         1. Header/Hero: Establishes the Objective and Product Scope immediately.
+         2. Protocol Navigator (Main Nav): Allows jumping between analysis vectors.
+         3. Dynamic Metrics Lab: The centerpiece. Uses Chart.js to visualize the *criteria* (e.g., displaying the 0.5" threshold line). This transforms abstract numbers into visual goals.
+         4. Cohort Analysis Grid: Interactive cards for Weight/Position variables, explaining *why* they are segmented.
+         5. Evidence Hierarchy: A visual stack explaining the data sources (Primary vs Secondary).
+         Rationale: This structure moves from the "What" (Product) to the "How" (Metrics) and "Who" (Cohorts), mimicking the logical flow of a research proposal.
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Metric Thresholds -> Goal: Visualize Failure Definitions -> Viz: Line/Bar Combo Chart (Chart.js) -> Interaction: Tabs to switch between Sagging/Firmness/etc. -> Justification: Shows the specific checkpoints (1,3,5 years) and pass/fail lines clearly.
+         2. Weight Bands -> Goal: Show segmentation -> Viz: CSS Grid of Interactive Cards -> Interaction: Click to reveal hypothesis/risk per group. -> Justification: Text-heavy details need structured containers.
+         3. Evidence Hierarchy -> Goal: Rank data sources -> Viz: CSS Stacked Pyramid (Flexbox) -> Interaction: Hover effects. -> Justification: No SVG allowed, CSS shapes work best for hierarchy.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9;
+            /* stone-50 */
+            color: #1e293b;
+            /* slate-800 */
+        }
+
+        /* Chart Container Strict Styling */
+        .chart-container-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .active-tab {
+            border-bottom: 3px solid #312e81;
+            /* indigo-900 */
+            color: #312e81;
+            font-weight: 600;
+        }
+
+        .inactive-tab {
+            border-bottom: 3px solid transparent;
+            color: #64748b;
+        }
+
+        .inactive-tab:hover {
+            color: #312e81;
+            background-color: #f1f5f9;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation / Header -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 bg-indigo-900 rounded flex items-center justify-center text-white font-bold text-lg">
+                        H</div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight text-slate-900">Helix Midnight</h1>
+                        <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Deep Longevity Research
+                            Protocol</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('overview')"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-900">Overview</button>
+                    <button onclick="scrollToSection('metrics')"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-900">Metrics & Thresholds</button>
+                    <button onclick="scrollToSection('variables')"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-900">Variables</button>
+                    <button onclick="scrollToSection('methodology')"
+                        class="text-sm font-medium text-slate-600 hover:text-indigo-900">Methodology</button>
+                </nav>
+                <div class="md:hidden">
+                    <!-- Mobile menu placeholder -->
+                    <button id="mobile-menu-btn" class="text-slate-500 hover:text-indigo-900">☰</button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Nav Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-stone-200 p-4 space-y-2">
+            <button onclick="scrollToSection('overview')"
+                class="block w-full text-left py-2 px-3 text-sm text-slate-600 hover:bg-stone-200 rounded">Overview</button>
+            <button onclick="scrollToSection('metrics')"
+                class="block w-full text-left py-2 px-3 text-sm text-slate-600 hover:bg-stone-200 rounded">Metrics &
+                Thresholds</button>
+            <button onclick="scrollToSection('variables')"
+                class="block w-full text-left py-2 px-3 text-sm text-slate-600 hover:bg-stone-200 rounded">Variables</button>
+            <button onclick="scrollToSection('methodology')"
+                class="block w-full text-left py-2 px-3 text-sm text-slate-600 hover:bg-stone-200 rounded">Methodology</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- SECTION 1: OVERVIEW & PRODUCT DEFINITION -->
+        <section id="overview" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Objective Card -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white rounded-xl p-8 border border-stone-200 shadow-sm">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4">Research Objective</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                            To perform deep, evidence-based research on the long-term durability and performance of the
+                            <span class="font-semibold text-indigo-900">Helix Midnight Mattress</span> under nightly
+                            use.
+                            The goal is to produce a "Living Review" baseline that evolves with verified owner data.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-stone-100 pt-6">
+                            <div class="p-3 bg-stone-50 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-indigo-900 mb-1">3</div>
+                                <div class="text-xs text-slate-500 uppercase font-semibold">Checkpoints</div>
+                                <div class="text-xs text-slate-400">1, 3, & 5 Years</div>
+                            </div>
+                            <div class="p-3 bg-stone-50 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-indigo-900 mb-1">4</div>
+                                <div class="text-xs text-slate-500 uppercase font-semibold">Key Areas</div>
+                                <div class="text-xs text-slate-400">Sag, Firmness, Edge, Cool</div>
+                            </div>
+                            <div class="p-3 bg-stone-50 rounded-lg text-center">
+                                <div class="text-2xl font-bold text-indigo-900 mb-1">Live</div>
+                                <div class="text-xs text-slate-500 uppercase font-semibold">Status</div>
+                                <div class="text-xs text-slate-400">Annual Updates</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Scope Card -->
+                <div class="bg-indigo-900 rounded-xl p-8 text-white shadow-lg flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Target Subject</h3>
+                        <p class="text-indigo-200 text-sm mb-6">Helix Midnight (Standard & Luxe variants included if
+                            noted). Focus on identifying generation shifts.</p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-6 text-center text-amber-400 font-bold">●</div>
+                                <div class="ml-3 text-sm">
+                                    <span class="block font-semibold">Scope</span>
+                                    <span class="text-indigo-200">All sizes, with specific call-outs for size-based
+                                        differences.</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-6 text-center text-amber-400 font-bold">●</div>
+                                <div class="ml-3 text-sm">
+                                    <span class="block font-semibold">Generations</span>
+                                    <span class="text-indigo-200">Mapping model years to track cover changes, grid
+                                        formulation, and foam density updates.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-indigo-800 text-xs text-center text-indigo-300">
+                        AKA: "Midnight Standard", "Midnight Luxe"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: METRICS & THRESHOLDS (Interactive Chart) -->
+        <section id="metrics" class="bg-white py-12 border-y border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8 max-w-3xl">
+                    <h2 class="text-2xl font-bold text-slate-800">Protocol Thresholds & Metrics</h2>
+                    <p class="text-slate-500 mt-2">
+                        Explore the specific failure criteria defined for the longevity study. Click the tabs below to
+                        visualize the testing parameters for each performance category.
+                    </p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Controls -->
+                    <div class="lg:w-1/4 flex flex-col space-y-1">
+                        <button onclick="updateMetric('sagging')" id="btn-sagging"
+                            class="active-tab text-left px-4 py-4 text-sm font-medium bg-stone-50 rounded-t-lg lg:rounded-lg lg:mb-2 transition-all">
+                            Sagging & Impressions
+                        </button>
+                        <button onclick="updateMetric('firmness')" id="btn-firmness"
+                            class="inactive-tab text-left px-4 py-4 text-sm font-medium rounded-lg lg:mb-2 transition-all">
+                            Firmness Retention
+                        </button>
+                        <button onclick="updateMetric('edge')" id="btn-edge"
+                            class="inactive-tab text-left px-4 py-4 text-sm font-medium rounded-lg lg:mb-2 transition-all">
+                            Edge Support
+                        </button>
+                        <button onclick="updateMetric('cooling')" id="btn-cooling"
+                            class="inactive-tab text-left px-4 py-4 text-sm font-medium rounded-lg lg:mb-2 transition-all">
+                            Cooling Efficiency
+                        </button>
+                    </div>
+
+                    <!-- Visualization Panel -->
+                    <div class="lg:w-3/4">
+                        <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 shadow-sm">
+                            <div class="flex justify-between items-end mb-6">
+                                <div>
+                                    <h3 id="metric-title" class="text-xl font-bold text-indigo-900">Sagging Analysis
+                                    </h3>
+                                    <p id="metric-desc" class="text-sm text-slate-500 mt-1">Measuring permanent body
+                                        impressions over time.</p>
+                                </div>
+                                <div class="text-right hidden sm:block">
+                                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Test
+                                        Duration</span>
+                                    <div class="text-lg font-bold text-slate-700">5 Years</div>
+                                </div>
+                            </div>
+
+                            <!-- Chart Container -->
+                            <div class="chart-container-wrapper bg-white rounded-lg p-4 border border-stone-100">
+                                <canvas id="metricsChart"></canvas>
+                            </div>
+
+                            <!-- Dynamic Text Insights -->
+                            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg border border-stone-100">
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">Failure Thresholds</h4>
+                                    <p id="metric-thresholds" class="text-sm text-slate-700">
+                                        Primary: > 1.0 inch depth.<br>
+                                        Secondary: > 0.5 inch depth (Early warning).
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-stone-100">
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">Measurement Method</h4>
+                                    <p id="metric-method" class="text-sm text-slate-700">
+                                        Photo-verified depth measurement; verified owner reports.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: VARIABLES (COHORTS) -->
+        <section id="variables" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-10">
+                <h2 class="text-2xl font-bold text-slate-800">Controlled Variables & Cohorts</h2>
+                <p class="text-slate-500 mt-2">
+                    Research outcomes are segmented by these key user demographics and usage conditions to isolate
+                    specific failure modes.
+                </p>
+            </div>
+
+            <!-- Sleeper Weight Bands -->
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-indigo-900 mb-4 flex items-center">
+                    <span class="w-2 h-2 bg-indigo-500 rounded-full mr-2"></span>Sleeper Weight Bands
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Band 1 -->
+                    <div class="bg-white p-5 rounded-lg border border-stone-200 card-hover">
+                        <div class="text-2xl font-bold text-slate-800 mb-1">≤ 150 lbs</div>
+                        <div class="text-xs text-slate-400 uppercase font-medium">Lightweight</div>
+                        <p class="mt-3 text-sm text-slate-600">Focus on comfort layer engagement and initial firmness
+                            perception.</p>
+                    </div>
+                    <!-- Band 2 -->
+                    <div class="bg-white p-5 rounded-lg border border-stone-200 card-hover">
+                        <div class="text-2xl font-bold text-slate-800 mb-1">151–200 lbs</div>
+                        <div class="text-xs text-slate-400 uppercase font-medium">Average</div>
+                        <p class="mt-3 text-sm text-slate-600">Baseline for standard wear and tear comparisons.</p>
+                    </div>
+                    <!-- Band 3 -->
+                    <div class="bg-white p-5 rounded-lg border border-stone-200 card-hover">
+                        <div class="text-2xl font-bold text-slate-800 mb-1">201–250 lbs</div>
+                        <div class="text-xs text-slate-400 uppercase font-medium">Heavy</div>
+                        <p class="mt-3 text-sm text-slate-600">Critical zone for foam base softening and support loss
+                            analysis.</p>
+                    </div>
+                    <!-- Band 4 -->
+                    <div
+                        class="bg-white p-5 rounded-lg border border-stone-200 card-hover border-l-4 border-l-amber-400">
+                        <div class="text-2xl font-bold text-slate-800 mb-1">> 250 lbs</div>
+                        <div class="text-xs text-slate-400 uppercase font-medium">Max Load</div>
+                        <p class="mt-3 text-sm text-slate-600">Highest risk for deep impressions and grid fatigue.
+                            Priority analysis group.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Variables Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Sleep Position -->
+                <div class="bg-stone-100 p-6 rounded-lg">
+                    <h4 class="font-bold text-slate-800 mb-3">Sleep Position</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-white rounded-full text-xs font-medium text-slate-600 shadow-sm">Back</span>
+                        <span
+                            class="px-3 py-1 bg-white rounded-full text-xs font-medium text-slate-600 shadow-sm">Side</span>
+                        <span
+                            class="px-3 py-1 bg-white rounded-full text-xs font-medium text-slate-600 shadow-sm">Stomach</span>
+                        <span
+                            class="px-3 py-1 bg-white rounded-full text-xs font-medium text-slate-600 shadow-sm">Combo</span>
+                    </div>
+                    <p class="mt-3 text-sm text-slate-500">Correlation between position and specific pressure point
+                        failures (e.g., hip dip for side sleepers).</p>
+                </div>
+                <!-- Foundation -->
+                <div class="bg-stone-100 p-6 rounded-lg">
+                    <h4 class="font-bold text-slate-800 mb-3">Foundation Type</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><span class="mr-2 text-indigo-500">▸</span> Slats (Spacing check)
+                        </li>
+                        <li class="flex items-center"><span class="mr-2 text-indigo-500">▸</span> Box Spring</li>
+                        <li class="flex items-center"><span class="mr-2 text-indigo-500">▸</span> Adjustable Platform
+                        </li>
+                    </ul>
+                </div>
+                <!-- Climate -->
+                <div class="bg-stone-100 p-6 rounded-lg">
+                    <h4 class="font-bold text-slate-800 mb-3">Environment</h4>
+                    <div class="flex items-center justify-between bg-white p-3 rounded mb-2">
+                        <span class="text-sm font-medium">Temperate</span>
+                        <span class="text-xs text-green-600">Control</span>
+                    </div>
+                    <div class="flex items-center justify-between bg-white p-3 rounded">
+                        <span class="text-sm font-medium">Hot/Humid</span>
+                        <span class="text-xs text-amber-600">Foam risk</span>
+                    </div>
+                    <p class="mt-2 text-xs text-slate-400 italic">Impact on cooling gel degradation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: METHODOLOGY & EVIDENCE HIERARCHY -->
+        <section id="methodology" class="bg-white py-12 border-t border-stone-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-bold text-slate-800">Evidence Hierarchy</h2>
+                    <p class="text-slate-500 mt-2">Data sources are weighted by reliability. Verified longitudinal data
+                        takes precedence over cross-sectional anecdotes.</p>
+                </div>
+
+                <div class="flex flex-col items-center space-y-2">
+                    <!-- Level 1 -->
+                    <div
+                        class="w-full max-w-lg bg-indigo-900 text-white p-5 rounded-t-xl text-center shadow-lg transform hover:scale-105 transition-transform z-30 relative">
+                        <div class="absolute -left-12 top-1/2 -translate-y-1/2 hidden md:block">
+                            <span
+                                class="text-indigo-900 font-bold text-sm bg-indigo-100 px-2 py-1 rounded">Primary</span>
+                        </div>
+                        <h3 class="font-bold text-lg">Verified Owner Data</h3>
+                        <p class="text-indigo-200 text-xs mt-1">Proof of purchase + Duration. Retailer badges, verified
+                            updates.</p>
+                    </div>
+
+                    <!-- Level 2 -->
+                    <div
+                        class="w-full max-w-xl bg-indigo-700 text-white p-5 rounded-sm text-center shadow-md transform hover:scale-105 transition-transform z-20">
+                        <h3 class="font-semibold">Longitudinal Lab Tests</h3>
+                        <p class="text-indigo-200 text-xs mt-1">Independent teardowns, standardized deflection tests.
+                        </p>
+                    </div>
+
+                    <!-- Level 3 -->
+                    <div
+                        class="w-full max-w-2xl bg-indigo-500 text-white p-5 rounded-b-xl text-center shadow-sm transform hover:scale-105 transition-transform z-10 relative">
+                        <div class="absolute -left-12 top-1/2 -translate-y-1/2 hidden md:block">
+                            <span
+                                class="text-indigo-500 font-bold text-sm bg-indigo-50 px-2 py-1 rounded">Context</span>
+                        </div>
+                        <h3 class="font-medium text-sm">Manufacturer Specs & Anecdotes</h3>
+                        <p class="text-indigo-100 text-xs mt-1">Warranty terms, unverified forum posts, known revision
+                            notes.</p>
+                    </div>
+                </div>
+
+                <!-- Warranty Note -->
+                <div
+                    class="mt-12 bg-amber-50 border border-amber-100 p-6 rounded-lg text-amber-900 text-sm flex items-start">
+                    <div class="text-2xl mr-4">⚠️</div>
+                    <div>
+                        <strong class="block mb-1">Warranty Analysis Goal</strong>
+                        Investigate the gap between the stated warranty coverage (Indentation Thresholds & Exclusions)
+                        and actual owner claim experiences (Denials vs Approvals) over the 5-year period.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-100 border-t border-stone-200 py-8 text-center text-slate-400 text-xs">
+        <p>Research Protocol Prototype generated for Helix Midnight Analysis.</p>
+        <p class="mt-2">Not an official Helix Sleep document.</p>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        // --- Navigation Logic ---
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const headerOffset = 80;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // --- Data & Visualizations ---
+
+        // Data Definitions matching the Research Plan
+        const researchData = {
+            sagging: {
+                title: "Sagging & Body Impressions",
+                desc: "Probability of permanent indentation depth over time.",
+                method: "Photo-verified measurement using straight-edge tool.",
+                thresholds: "Failure: > 1.0 inch. Warning: > 0.5 inch.",
+                // Mock data representing the FAILURE CRITERIA CURVE we are testing for
+                labels: ['Baseline', 'Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Projected Normal Wear (Inches)',
+                        data: [0, 0.2, 0.4, 0.6],
+                        borderColor: '#94a3b8', // slate-400
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Warning Threshold (0.5")',
+                        data: [0.5, 0.5, 0.5, 0.5],
+                        borderColor: '#f59e0b', // amber-500
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: false
+                    },
+                    {
+                        label: 'Failure Threshold (1.0")',
+                        data: [1.0, 1.0, 1.0, 1.0],
+                        borderColor: '#ef4444', // red-500
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: 'origin', // Fill area below failure line to show "safe zone" implicitly
+                        backgroundColor: 'rgba(239, 68, 68, 0.05)'
+                    }
+                ],
+                yAxisLabel: 'Indentation Depth (Inches)'
+            },
+            firmness: {
+                title: "Firmness Retention",
+                desc: "Drift in perceived firmness level on 1-10 scale.",
+                method: "Owner reported subjectivity + ILD deflection if available.",
+                thresholds: "Significant Change: ≥ 1 full step softening (e.g., 6/10 → 5/10).",
+                labels: ['Baseline', 'Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Target Firmness (Medium - 6.0)',
+                        data: [6, 6, 6, 6],
+                        borderColor: '#312e81', // indigo-900
+                        borderWidth: 2,
+                        fill: false
+                    },
+                    {
+                        label: 'Softening Tolerance Limit (-1 Step)',
+                        data: [5, 5, 5, 5],
+                        borderColor: '#f59e0b', // amber-500
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    }
+                ],
+                yAxisLabel: 'Firmness Scale (1-10)'
+            },
+            edge: {
+                title: "Edge Support Stability",
+                desc: "Loss of structural integrity at perimeter.",
+                method: "Roll-off distance measurement or compression at 200lb load.",
+                thresholds: "Failure: ≥ 15% loss in support/compression resistance.",
+                labels: ['Baseline', 'Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Edge Stability (%)',
+                        data: [100, 95, 90, 85], // Hypothetical decay
+                        borderColor: '#3b82f6', // blue-500
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Failure Limit (85%)',
+                        data: [85, 85, 85, 85],
+                        borderColor: '#ef4444',
+                        borderWidth: 1,
+                        pointRadius: 0,
+                        borderDash: [2, 2]
+                    }
+                ],
+                yAxisLabel: 'Stability Retention (%)'
+            },
+            cooling: {
+                title: "Cooling Efficiency",
+                desc: "Ability of cover/grid to dissipate heat over time.",
+                method: "Surface temperature decay time (T-return to baseline).",
+                thresholds: "Notable decline in heat dissipation rate.",
+                labels: ['Baseline', 'Year 1', 'Year 3', 'Year 5'],
+                datasets: [
+                    {
+                        label: 'Surface Temp Decay Rate',
+                        data: [100, 98, 92, 88], // Hypothetical efficiency
+                        borderColor: '#06b6d4', // cyan-500
+                        tension: 0.4,
+                        fill: false
+                    }
+                ],
+                yAxisLabel: 'Efficiency Index (Base=100)'
+            }
+        };
+
+        // --- Chart Initialization ---
+        let mainChart = null;
+
+        function initChart() {
+            const ctx = document.getElementById('metricsChart').getContext('2d');
+
+            // Default to Sagging
+            const initialData = researchData.sagging;
+
+            mainChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: initialData.labels,
+                    datasets: initialData.datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 8
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function (context) {
+                                    return context.dataset.label + ': ' + context.parsed.y;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: initialData.yAxisLabel,
+                                color: '#64748b'
+                            },
+                            beginAtZero: true
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
+        }
+
+        // --- Interaction Logic ---
+        function updateMetric(metricKey) {
+            // Update UI State
+            document.querySelectorAll('button[id^="btn-"]').forEach(btn => {
+                btn.classList.remove('active-tab', 'bg-stone-50');
+                btn.classList.add('inactive-tab');
+            });
+            const activeBtn = document.getElementById(`btn-${metricKey}`);
+            activeBtn.classList.remove('inactive-tab');
+            activeBtn.classList.add('active-tab', 'bg-stone-50');
+
+            // Update Text Content
+            const data = researchData[metricKey];
+            document.getElementById('metric-title').textContent = data.title;
+            document.getElementById('metric-desc').textContent = data.desc;
+            document.getElementById('metric-thresholds').innerHTML = data.thresholds;
+            document.getElementById('metric-method').textContent = data.method;
+
+            // Update Chart Data
+            mainChart.data.datasets = data.datasets;
+            mainChart.options.scales.y.title.text = data.yAxisLabel;
+
+            // Adjust scale bounds for specific charts to make them look better
+            if (metricKey === 'sagging') {
+                mainChart.options.scales.y.suggestedMax = 1.5;
+                mainChart.options.scales.y.min = 0;
+            } else if (metricKey === 'firmness') {
+                mainChart.options.scales.y.suggestedMax = 10;
+                mainChart.options.scales.y.min = 1;
+            } else {
+                mainChart.options.scales.y.suggestedMax = 105;
+                mainChart.options.scales.y.min = 70;
+            }
+
+            mainChart.update();
+        }
+
+        // --- Init on Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+        });
+
+    </script>
+</body>
+
+</html>

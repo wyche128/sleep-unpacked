@@ -400,6 +400,33 @@ const MattressReviewsHub = () => {
                         </div>
                     </Link>
 
+                    {/* Helix Midnight Card */}
+                    <Link href="/mattress-reviews/helix-midnight" className="group block bg-jet-black rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300 border border-white/10 flex flex-col">
+                        <div className="relative h-48 bg-gradient-to-tr from-[#1e1b4b] to-[#312e81] flex items-center justify-center p-6 shrink-0">
+                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                            <h2 className="text-3xl font-black text-white z-10 font-serif text-center leading-tight">Helix Midnight</h2>
+                            <div className="absolute top-4 right-4 bg-white/10 backdrop-blur px-2 py-1 rounded-full text-[10px] font-bold text-white border border-white/20 uppercase tracking-wide">
+                                Living Review
+                            </div>
+                        </div>
+
+                        <div className="p-6 flex flex-col flex-grow">
+                            <div className="flex items-center gap-2 text-golden-bronze font-bold text-[10px] uppercase tracking-wider mb-2">
+                                <Microscope size={12} /> Longevity Protocol
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-golden-bronze transition-colors flex-grow">
+                                Helix Midnight: 5-Year Wear & Tear Forecast
+                            </h3>
+                            <p className="text-alabaster-grey text-sm mb-4 line-clamp-3">
+                                Deep analysis of memory foam fatigue and coil resilience. We forecast the sagging risk and cooling efficiency over 5 years.
+                            </p>
+                            <div className="flex items-center text-white font-semibold text-xs group-hover:translate-x-2 transition-transform mt-auto">
+                                View Research <ArrowRight size={14} className="ml-1" />
+                            </div>
+                        </div>
+                    </Link>
+
+
                 </div>
 
             </div>
