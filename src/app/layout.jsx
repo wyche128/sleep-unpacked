@@ -4,6 +4,8 @@ import Script from 'next/script';
 import './globals.css';
 import ScrollToTop from '../components/ScrollToTop';
 import Footer from '../components/Footer';
+import JsonLd from '../components/JsonLd';
+import { generateOrganizationSchema, generateWebsiteSchema } from '../utils/schema';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const merriweather = Merriweather({
@@ -51,6 +53,9 @@ export default function RootLayout({ children }) {
                     />
                 </noscript>
                 {/* End Google Tag Manager (noscript) */}
+
+                <JsonLd data={generateOrganizationSchema()} />
+                <JsonLd data={generateWebsiteSchema()} />
 
                 <ScrollToTop />
                 {children}

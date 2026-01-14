@@ -38,8 +38,12 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
+    Tooltip,
+    Legend,
     Filler
 );
+import JsonLd from '../../../components/JsonLd';
+import { generateArticleSchema, generateFAQPageSchema } from '../../../utils/schema';
 
 const RotateMattressGuide = () => {
     const relatedFaqs = [
@@ -151,8 +155,34 @@ const RotateMattressGuide = () => {
         }
     };
 
+    const articleSchema = generateArticleSchema({
+        title: 'Do You Really Need to Rotate Your Mattress?',
+        description: 'Stop wrestling your bed for no reason. We analyzed the data to separate the maintenance myths from the mandatory moves.',
+        url: 'https://sleepunpacked.com/faqs/do-you-need-to-rotate-mattress',
+        publishedAt: '2023-10-01', // Update with actual date if available
+        modifiedAt: '2024-01-15',   // Update with actual date if available
+        image: 'https://sleepunpacked.com/images/rotate-mattress-guide.jpg' // Update with actual image URL
+    });
+
+    const faqSchema = generateFAQPageSchema([
+        {
+            question: 'Can I flip my mattress?',
+            answer: 'It depends on the mattress type. Most modern mattresses are one-sided (not flippable). Check your manufacturer instructions. If it is two-sided, flipping is recommended.'
+        },
+        {
+            question: 'What is the 1.5-inch indentation threshold?',
+            answer: 'This is a common warranty term. If your mattress has a visible indentation greater than 1.5 inches when no weight is applied, it may be considered defective and eligible for replacement under warranty.'
+        },
+        {
+            question: 'How often should I rotate my mattress?',
+            answer: 'For most mattresses, rotating 180 degrees every 3-6 months is recommended to ensure even wear and prevent sagging.'
+        }
+    ]);
+
     return (
         <div className="font-sans text-slate-800 bg-slate-50 min-h-screen">
+            <JsonLd data={articleSchema} />
+            <JsonLd data={faqSchema} />
             <Header />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

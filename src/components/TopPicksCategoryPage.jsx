@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import Header from './Header';
 import { TOP_PICKS_BY_SLUG, TOP_PICKS_CATEGORIES } from '../app/top-picks/topPicksData';
+import JsonLd from './JsonLd';
+import { generateArticleSchema, SITE_URL } from '../utils/schema';
 
 export default function TopPicksCategoryPage({ slug }) {
     const category = TOP_PICKS_BY_SLUG[slug];
@@ -25,8 +27,19 @@ export default function TopPicksCategoryPage({ slug }) {
 
     const siblingCategories = TOP_PICKS_CATEGORIES.filter((item) => item.slug !== slug).slice(0, 6);
 
+    const schemaData = generateArticleSchema({
+        title: category.title,
+        description: `Our top pick for ${category.category}. ${category.highlight}`,
+        url: `${SITE_URL}/top-picks/${slug}`,
+        publishedAt: `${currentYear}-01-01`, // Approximated
+        modifiedAt: new Date().toISOString().split('T')[0],
+        image: category.imageParams.includes('url') ? category.imageParams // Need to parse if it's not a direct URL, assuming generated or placeholder for now.
+            : `${SITE_URL}/images/top-picks/${slug}.jpg` // Fallback/Placeholder
+    });
+
     return (
         <div className="font-sans text-graphite bg-white min-h-screen">
+            <JsonLd data={schemaData} />
             <Header />
 
             {/* Hero */}
