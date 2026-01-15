@@ -1,0 +1,20 @@
+- [x] Preview Project
+  - [x] Start development server <!-- id: 0 -->
+  - [x] Open localhost:3000 in browser <!-- id: 1 -->
+  - [x] Verify homepage loads <!-- id: 2 -->
+- [x] Convert Colors Guide to Next.js
+  - [x] Analyze existing layout and branding <!-- id: 0 -->
+  - [x] Create `src/app/sleep-guides/colors-that-help-sleep/page.jsx` <!-- id: 1 -->
+  - [x] Adapt HTML content to React/Next.js <!-- id: 2 -->
+  - [x] Remove hardcoded header/footer and usage of global layout <!-- id: 3 -->
+  - [x] Delete original raw file <!-- id: 4 -->
+  - [x] Verify page in browser <!-- id: 5 -->
+- [x] Fix Paragraph Spacing
+  - [x] Check `tailwind.config.js` and `package.json` for typography plugin <!-- id: 0 -->
+  - [x] Add explicit spacing classes to `page.jsx` <!-- id: 1 -->
+  - [x] Verify fix in browser <!-- id: 2 -->
+- [x] Setup Tailwind Typography
+  - [x] Install `@tailwindcss/typography` <!-- id: 0 -->
+  - [x] Configure `tailwind.config.js` <!-- id: 1 -->
+  - [x] Refactor `colors-that-help-sleep` to use `prose` classes <!-- id: 2 -->
+  - [x] Verify typography styles in browser <!-- id: 3 -->

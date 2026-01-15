@@ -1,0 +1,20 @@
+- [x] Apply "Jet Black & Bronze" Color Scheme <!-- id: 31 -->
+    - [x] Update `index.css` with new variables <!-- id: 32 -->
+    - [x] Refactor `Header.jsx` <!-- id: 33 -->
+    - [x] Refactor `Home.jsx` <!-- id: 34 -->
+    - [x] Refactor `SleepGuides/Hub` <!-- id: 35 -->
+    - [x] Refactor specific guide pages <!-- id: 36 -->
+    - [x] Verify consistency <!-- id: 37 -->
+- [x] Implement Purple Mattress Longevity Review <!-- id: 38 -->
+    - [x] Create `PurpleMattressReview.jsx` <!-- id: 39 -->
+    - [x] Update `App.jsx` with new route <!-- id: 40 -->
+    - [x] Add card to `MattressReviewsHub` <!-- id: 41 -->
+    - [x] Verify in browser <!-- id: 42 -->
+- [x] Implement WinkBed Mattress Longevity Review <!-- id: 46 -->
+    - [x] Create `WinkBedMattressReview.jsx` <!-- id: 47 -->
+    - [x] Update `App.jsx` with new route <!-- id: 48 -->
+    - [x] Add card to `MattressReviewsHub` <!-- id: 49 -->
+    - [x] Verify in browser <!-- id: 50 -->
+- [x] Update Brand Guidelines <!-- id: 43 -->
+    - [x] Document "Jet Black & Bronze" palette <!-- id: 44 -->
+    - [x] Update usage examples <!-- id: 45 -->

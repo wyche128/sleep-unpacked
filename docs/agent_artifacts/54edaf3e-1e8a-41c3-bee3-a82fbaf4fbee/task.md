@@ -1,0 +1,21 @@
+- [x] Phase 1: Dependencies & Configuration <!-- id: 4 -->
+    - [x] Install Next.js, React, React DOM <!-- id: 5 -->
+    - [x] Uninstall Vite, plugins, and React Router <!-- id: 6 -->
+    - [x] Remove `vite.config.js` and `index.html` <!-- id: 7 -->
+    - [x] Create `next.config.mjs` <!-- id: 8 -->
+    - [x] Update `tailwind.config.js` <!-- id: 9 -->
+- [x] Phase 2: Core Structure (App Router) <!-- id: 10 -->
+    - [x] Create `src/app/layout.jsx` <!-- id: 11 -->
+    - [x] Create `src/app/globals.css` <!-- id: 12 -->
+    - [x] Migrate `Home.jsx` to `src/app/page.jsx` <!-- id: 13 -->
+- [/] Phase 3: Route Migration <!-- id: 14 -->
+    - [x] Migrate Top Picks Hub (Wait, I skipped this one? No, I did Home, MattressReviews, SleepGuides, FAQ) <!-- id: 15 -->
+    - [x] Migrate Mattress Reviews Hub <!-- id: 16 -->
+    - [x] Migrate existing review pages (batch 1: Sleep Guides)
+    - [x] Migrate existing review pages (batch 2: Mattress Reviews)
+    - [x] Batch 2: WinkBed EcoCloud, Helix Plus, Nectar Classic, etc.
+    - [x] Batch 3: FAQ Pages (Completed)
+   - [x] Batch 3b: Comparison & Top Picks Pages
+- [x] Phase 4: Validating & Polish <!-- id: 18 -->
+    - [x] Verify build <!-- id: 19 -->
+    - [x] Check console for errors <!-- id: 20 -->

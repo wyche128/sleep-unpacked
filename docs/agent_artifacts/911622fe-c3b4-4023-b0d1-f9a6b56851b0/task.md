@@ -1,0 +1,22 @@
+# Task List: Convert Snoring Guide to React
+
+- [x] Planning
+    - [x] Create implementation plan <!-- id: 0 -->
+    - [x] Verify dependencies (chart.js) <!-- id: 1 -->
+- [x] Implementation
+    - [x] Create directory `src/app/sleep-guides/five-surprising-fixes-snoring` <!-- id: 2 -->
+    - [x] Create `page.jsx` with converted code <!-- id: 3 -->
+        - [x] Port Hero Section <!-- id: 3a -->
+        - [x] Port Prevalence Stats Section (Chart.js) <!-- id: 3b -->
+        - [x] Port Mechanics Dashboard (Tabs + Chart.js) <!-- id: 3c -->
+        - [x] Port Tennis Ball Hack Section <!-- id: 3d -->
+        - [x] Port Summary Checklist <!-- id: 3e -->
+    - [x] Styles and Branding <!-- id: 4 -->
+        - [x] Apply Jet Black, Golden Bronze, Graphite, Alabaster Grey <!-- id: 4a -->
+        - [x] Ensure responsive design <!-- id: 4b -->
+    - [x] Update Hub Page <!-- id: 5 -->
+        - [x] Add card to `src/app/sleep-guides/page.jsx` <!-- id: 5a -->
+- [x] Verification
+    - [x] Verify build <!-- id: 6 -->
+    - [x] Verify functionality (charts, tabs, responsive) <!-- id: 7 -->
+    - [x] Create walkthrough <!-- id: 8 -->

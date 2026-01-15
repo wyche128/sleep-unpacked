@@ -1,0 +1,37 @@
+- [x] Correct methodology on About page
+    - [x] Remove "lab simulations" references
+    - [x] Emphasize 3rd party testing and owner reports
+- [x] Audit and fix other pages with similar references
+    - [x] Homepage
+    - [x] Mattress review pages
+    - [x] FAQ/Sleep guide pages
+- [x] Verify methodology changes with the user
+- [x] Add search bar to header (UI)
+- [x] Make search functional
+    - [x] Create `src/app/search/page.jsx`
+    - [x] Add navigation logic to `Header.jsx`
+    - [x] Implement search results filtering
+- [x] Verify search functionality in browser
+- [x] Upgrade "Break-In Period" Guide
+    - [x] Port interactive "Concrete" content to React
+    - [x] Update `break-in-period/page.jsx`
+    - [x] Verify interactivity (Chart, Crawl, Slider)
+- [x] Convert "Mattress Rotation" Guide
+    - [x] Port HTML content to `src/app/faqs/do-you-need-to-rotate-mattress/page.jsx`
+    - [x] Implement "Decision Tool" (React State)
+    - [x] Fix interactive buttons
+        - [x] **Verified Fix (User Provided CSS):**
+        - [x] Add custom classes to `globals.css`
+        - [x] Update component to use new classes
+        - [x] Verify distinct animation speeds (2s vs 0.2s)
+    - [x] Implement "Layer Cake" Flip Animation
+    - [x] Implement "Canoe Effect" Chart
+    - [x] Add to FAQ Hub
+    - [x] Verify & Cleanup
+- [x] Convert "Memory Foam vs Latex" Guide
+    - [x] Port HTML to `src/app/faqs/memory-foam-vs-latex/page.jsx`
+    - [x] Implement "Lifespan" Chart (Chart.js)
+    - [x] Implement "Sag Factor" Interactive Demo
+    - [x] Implement "Density Detective" Slider
+    - [x] Add to FAQ Hub
+    - [x] Verify & Cleanup

@@ -1,0 +1,34 @@
+
+- [x] Create `src/data/mattresses.js` with structured mattress data <!-- id: 0 -->
+- [x] Create `src/app/mattress-comparison/page.jsx` base structure <!-- id: 1 -->
+- [x] Implement Mattress Selection UI <!-- id: 2 -->
+    - [x] Create a selector component (modal or dropdown) <!-- id: 3 -->
+    - [x] Implement state management for selected mattresses <!-- id: 4 -->
+- [x] Implement Comparison Table UI <!-- id: 5 -->
+    - [x] Design responsive comparison grid <!-- id: 6 -->
+    - [x] Populate with data from `src/data/mattresses.js` <!-- id: 7 -->
+- [x] Integrate Comparison Tool with Homepage <!-- id: 8 -->
+    - [x] Connect homepage "Compare Mattresses" button to new page <!-- id: 9 -->
+- [x] Verify functionality <!-- id: 10 -->
+    - [x] Test selecting/deselecting mattresses <!-- id: 11 -->
+    - [x] Test persistent state (optional, via URL) <!-- id: 12 -->
+    - [x] Verify mobile responsiveness <!-- id: 13 -->
+- [x] Implement Mattress Quiz <!-- id: 14 -->
+    - [x] Update Comparison Page to read URL params <!-- id: 15 -->
+    - [x] Link Homepage Category Cards
+    - [x] Side Sleepers -> /top-picks/best-mattress-for-side-sleepers
+    - [x] Back Pain -> /top-picks/best-mattress-for-back-pain
+    - [x] Hot Sleepers -> /top-picks/best-cooling-mattress
+    - [x] Couples -> /top-picks/best-overall-mattress
+    - [x] Fix Mattress Comparison Mobile Layout
+    - [x] Force side-by-side grid (no wrapping)
+    - [x] Implement sticky row labels for horizontal scroll
+    - [x] Verify on mobile viewport 
+    - [x] Create `src/app/mattress-quiz/page.jsx` <!-- id: 16 -->
+    - [x] Implement Quiz Logic & Scoring <!-- id: 17 -->
+    - [x] Design Result Animation & Redirection <!-- id: 18 -->
+- [x] Ensure Build Stability (Suspense wrap)
+- [x] Update documentation (walkthrough.md)
+- [x] Update Header Links <!-- id: 19 -->
+    - [x] Link "Take the Quiz" (Desktop) to /mattress-quiz <!-- id: 20 -->
+    - [x] Link "Find My Mattress" (Mobile) to /mattress-quiz <!-- id: 21 -->

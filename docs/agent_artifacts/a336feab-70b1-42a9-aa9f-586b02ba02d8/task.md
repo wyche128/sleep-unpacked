@@ -1,0 +1,10 @@
+- [x] Initialize research report artifact <!-- id: 0 -->
+- [x] Research Nectar Premiere product generations and construction history <!-- id: 1 -->
+- [x] Research longevity data: Sagging and Body Impressions <!-- id: 2 -->
+- [x] Research longevity data: Firmness and Softening <!-- id: 3 -->
+- [x] Research longevity data: Edge Support and Cooling <!-- id: 4 -->
+- [x] Research Warranty terms vs Reality <!-- id: 5 -->
+- [x] Synthesize all data into `nectar_premiere_longevity_research.md` <!-- id: 6 -->
+- [x] Create `NectarPremiereLongevityReview.jsx` component <!-- id: 7 -->
+- [x] Update `App.jsx` with new route <!-- id: 8 -->
+- [x] Verify page loads correctly <!-- id: 9 -->

@@ -1,0 +1,47 @@
+# Branding Overhaul
+
+- [ ] Plan and Direction Selection <!-- id: 0 -->
+    - [x] Analyze current branding and codebase <!-- id: 1 -->
+    - [x] Present implementation plan with options (Direction A vs B) <!-- id: 2 -->
+    - [x] Wait for user selection and answers to clarifying questions <!-- id: 3 -->
+- [x] Implementation (Direction B: Performance/Editorial) <!-- id: 4 -->
+    - [x] Update `src/index.css` with new color palette (HSL values) <!-- id: 5 -->
+    - [x] Update `tailwind.config.ts` if necessary <!-- id: 6 -->
+    - [x] Audit and update key components to use semantic tokens <!-- id: 7 -->
+    - [x] Implement "quick fixes" (animations, accessible text colors) <!-- id: 8 -->
+    - [x] Implement `logo-mv` in Header <!-- id: 12 -->
+    - [x] Update Header to dark theme for logo visibility <!-- id: 14 -->
+- [x] Verification <!-- id: 9 -->
+    - [x] Verify accessibility (contrast ratios) <!-- id: 10 -->
+    - [x] Visual check of key pages (`/`, `/mans-manifesto`, etc.) <!-- id: 11 -->
+    - [x] Verify logo implementation <!-- id: 13 -->
+- [x] Convert Modern Man's Paradox to Next.js <!-- id: 15 -->
+    - [x] Create `src/app/modern-mans-paradox/page.tsx` <!-- id: 16 -->
+    - [x] Implement interactive components (Charts, Sliders, Checklist) <!-- id: 17 -->
+    - [x] Integrate with site-wide Header/Footer and Branding <!-- id: 18 -->
+    - [x] Add Logo to Footer <!-- id: 24 -->
+    - [x] Verify functionality and responsiveness <!-- id: 19 -->
+    - [x] Refine UI (Contrast & Layout) <!-- id: 20 -->
+- [x] Documentation <!-- id: 21 -->
+    - [x] Create BRANDING.md with new guidelines <!-- id: 22 -->
+    - [x] Update spec.md to reference new branding <!-- id: 23 -->
+- [ ] Site Architecture Restructuring <!-- id: 25 -->
+    - [x] Create 'The Lifestyle Protocol' Hub <!-- id: 26 -->
+    - [x] Create 'Understanding Hormonal Health' Hub <!-- id: 27 -->
+    - [x] Create 'Mental Vitality & Manhood' Hub <!-- id: 28 -->
+    - [x] Map and Link existing pages to Hubs <!-- id: 29 -->
+    - [x] Apply Header & Branding Globally <!-- id: 30 -->
+    - [x] Update RootLayout with Header/Footer <!-- id: 31 -->
+    - [x] Refactor Homepage and Hubs (Remove local Header/Footer) <!-- id: 32 -->
+    - [x] Refactor Article Pages (Remove local Header/Footer) <!-- id: 33 -->
+    - [x] Refactor Legacy Pages (T-101, Paradox, 5 Truths) <!-- id: 34 -->
+    - [x] Refactor Modern Man's Paradox <!-- id: 35 -->
+    - [x] Refactor 5 Truths of Men's Health <!-- id: 36 -->
+    - [x] Refactor Testosterone Paradox <!-- id: 37 -->
+    - [x] Refactor Cortisol-Testosterone Connection <!-- id: 38 -->
+    - [x] Refactor Testosterone 101 Sections (Intro, Stress, Diet, etc.) <!-- id: 39 -->
+    - [x] Refactor Foundation Protocol Page <!-- id: 43 -->
+    - [x] Refactor Toxic Home Swaps Page
+- [ ] Final Site-Wide Review <!-- id: 40 -->
+    - [ ] Comprehensive Contrast Audit <!-- id: 41 -->
+    - [ ] Link Integrity Verification <!-- id: 42 -->

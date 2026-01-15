@@ -1,0 +1,4 @@
+- [x] Check configuration for Base URL or Ask User <!-- id: 0 -->
+- [x] Create `src/app/sitemap.js` <!-- id: 1 -->
+- [x] Add all static routes to `src/app/sitemap.js` <!-- id: 2 -->
+- [/] Verify sitemap generation <!-- id: 3 -->
