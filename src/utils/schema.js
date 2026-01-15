@@ -38,7 +38,7 @@ export function generateWebsiteSchema() {
     };
 }
 
-export function generateArticleSchema({ title, description, url, image, publishedAt, modifiedAt, authorName = 'SleepUnpacked Team' }) {
+export function generateArticleSchema({ title, description, url, image, publishedAt, modifiedAt, authorName = 'SleepUnpacked Team', ...rest }) {
     return {
         '@context': 'https://schema.org',
         '@type': 'Article',
@@ -63,6 +63,7 @@ export function generateArticleSchema({ title, description, url, image, publishe
             '@type': 'WebPage',
             '@id': url,
         },
+        ...rest
     };
 }
 
