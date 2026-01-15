@@ -7,7 +7,10 @@ export default function Head() {
         '@context': 'https://schema.org',
         '@type': 'Article',
         '@id': `${canonicalUrl}#article`,
-        mainEntityOfPage: { '@id': canonicalUrl },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': canonicalUrl,
+        },
         headline: 'Mattress Break-In Period: Why Your New Bed Feels Like Concrete (and How to Fix It)',
         alternativeHeadline: 'Why Your New Mattress Feels Like Concrete',
         name: 'mattress break-in period',
@@ -53,10 +56,14 @@ export default function Head() {
         mentions: [
             {
                 '@type': 'Thing',
+                name: 'Mattress firmness',
+                sameAs: ['https://en.wikipedia.org/wiki/Mattress#Mattress_firmness'],
+            },
+            {
+                '@type': 'Thing',
                 name: 'Polyurethane foam',
                 sameAs: ['https://en.wikipedia.org/wiki/Polyurethane'],
             },
-            { '@type': 'Thing', name: 'Mattress firmness' },
             { '@type': 'Thing', name: 'Temperature' },
             { '@type': 'Thing', name: 'Mattress foundation' },
             { '@type': 'Thing', name: 'Box spring' },
@@ -79,7 +86,7 @@ export default function Head() {
             },
         },
         articleBody:
-            "This guide explains why a brand-new mattress can feel unusually firm at first and how the feel typically changes as materials flex and your body adapts. It frames the break-in period as a predictable regret phase, then provides practical, low-risk ways to speed comfort: increasing surface flex through controlled movement, rotating the mattress early, and using room temperature to influence foam feel. It also highlights the foundation's role-old box springs, wide slat gaps, or overly flexible support can distort performance-and offers simple checks to confirm your base is appropriate. The goal is to help readers distinguish normal adaptation from true fit problems so they make better decisions within the sleep-trial window.",
+            "This guide explains why a brand-new mattress can feel unusually firm at first and how the feel typically changes as materials flex and your body adapts. It frames the break-in period as a predictable 'regret phase,' then provides practical, low-risk ways to speed comfort: increasing surface flex through controlled movement, rotating the mattress early, and using room temperature to influence foam feel. It also highlights the foundation's role-old box springs, wide slat gaps, or overly flexible support can distort performance-and offers simple checks to confirm your base is appropriate. The goal is to help readers distinguish normal adaptation from true fit problems so they make better decisions within the sleep-trial window.",
     };
 
     return (
